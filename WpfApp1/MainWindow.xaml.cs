@@ -27,5 +27,12 @@ namespace WpfApp1
             goodsMain.Show();
             this.Close();
         }
+
+        private void MoveToRegister(object sender, RoutedEventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+            this.Close();
+        }
     }
 }

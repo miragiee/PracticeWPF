@@ -8,6 +8,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("main.xaml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-black.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-blackitalic.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-bold.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-bolditalic.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-extrabold.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-extrabolditalic.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-extralight.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-extralightitalic.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-italic.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-light.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-lightitalic.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-medium.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-mediumitalic.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-regular.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-semibold.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-semibolditalic.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-thin.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/static/sofiasanscondensed-thinitalic.ttf")]
 
 

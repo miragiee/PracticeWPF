@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfApp1.EULA"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="EULA" Height="1024" Width="1440">
+    <Grid>
+        <Border BorderBrush="Black" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="1440" CornerRadius="0">
+            <TextBlock Margin=" 0,19,0,16" Style="{StaticResource Header1}"><Run Language="ru-ru" Text="П  о  л  ь  з  о  в  а  т  е  л  ь  с  к  о  е     с  о  г  л  а  ш  е  н  и  е"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+        </Border>
+        <TextBlock Style="{StaticResource NormalText}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="813" Width="1328" TextAlignment="Center" Margin="0,122,0,0">
+            <Run Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus fermentum felis eget venenatis. Curabitur nibh libero, tincidunt nec bibendum sed, dictum nec purus. Sed scelerisque vitae risus sit amet bibendum. Morbi ullamcorper dignissim molestie. Sed tristique ipsum id vehicula bibendum. Morbi laoreet turpis laoreet mollis semper. Morbi convallis viverra metus, ut hendrerit tortor."/><LineBreak/>
+            <Run Text="Aenean id risus elementum, volutpat metus eget, ultricies odio. Praesent vestibulum lacus tempor, convallis eros eu, mollis diam. Donec a sapien nibh. Integer molestie sem eget dui ornare posuere. Donec mollis nisl nibh, in ultricies sapien placerat accumsan. Donec et rutrum mauris. Praesent luctus imperdiet turpis, eu faucibus diam semper sit amet. Duis sodales elit non felis aliquet egestas. Duis id nisl semper, ornare lorem in, dictum erat. Morbi ac nisl aliquet, cursus dui ut, sollicitudin sem."/><LineBreak/>
+            <Run Text="Proin ut dapibus arcu, eu eleifend dui. Ut iaculis dictum dui, non faucibus dolor accumsan sed. Pellentesque at euismod ligula. Donec dapibus dolor et lorem semper, luctus commodo lorem egestas. Suspendisse potenti. Sed non nisi tempus augue finibus hendrerit quis nec leo. Praesent id ipsum in turpis bibendum facilisis sit amet at tellus. Fusce sit amet sem hendrerit, rutrum sapien eu, malesuada leo. Mauris gravida ultrices nisl eu tempus. Donec eget aliquet orci. Cras feugiat turpis mollis sapien scelerisque pellentesque porttitor vel arcu."/><LineBreak/>
+            <Run Text="Duis nec risus pulvinar, porttitor orci id, suscipit leo. Sed nisi nisi, lobortis vitae scelerisque at, cursus commodo magna. Aenean vehicula, tellus ac sollicitudin rhoncus, magna arcu venenatis velit, sit amet consectetur velit ex sit amet ipsum. Aliquam fringilla velit tortor, sed vulputate orci pretium non. Nam ornare neque ex, et dapibus diam viverra nec. Duis sit amet mattis ipsum. Nunc tristique purus sed urna vulputate malesuada at vel lorem. Integer vitae condimentum turpis. Morbi accumsan risus id laoreet tristique. Integer sit amet mauris eu augue finibus pretium sed sed quam. Nulla pharetra maximus commodo. Fusce porta tristique mauris accumsan condimentum. Aenean non ante felis. Fusce non auctor nunc. Morbi gravida lectus et mi convallis sodales a nec massa."/><LineBreak/>
+            <Run Text="Phasellus imperdiet magna turpis, nec tempor nisl imperdiet ut. Aliquam et venenatis risus, at ornare tortor. Duis pharetra turpis quis purus sollicitudin elementum ac ut dui. Mauris vel sapien at sem sagittis dapibus. Sed ac ex sed erat placerat posuere et sed leo. Nullam id arcu magna. In gravida ante et libero interdum, quis commodo velit elementum. Morbi sagittis massa id tincidunt aliquet. Nam rutrum posuere lacus. Donec ornare imperdiet hendrerit. Nulla erat ex, condimentum eu rutrum at, congue eget dolor. Morbi at tellus quam. Phasellus in augue sit amet mi tempus pharetra. Nullam auctor ante vitae nibh laoreet pellentesque."/><LineBreak/>
+            <Run Text="Morbi a facilisis nisl, a placerat lectus. Praesent consectetur convallis leo ut fringilla. Phasellus tristique porta aliquam. Praesent dictum libero lorem, eget facilisis neque consequat vel. Praesent quis laoreet tellus, a feugiat mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam imperdiet tincidunt urna, quis commodo turpis pulvinar eget. Ut vitae ullamcorper mi. Proin nec elit nec eros commodo sollicitudin a quis magna. Aliquam vitae eros viverra, hendrerit orci sed, pulvinar turpis."/><LineBreak/>
+            <Run Text="Maecenas nec eros ut nunc lobortis sagittis. Maecenas bibendum turpis vitae risus ultricies dictum sit amet sed nulla. Curabitur mi orci, gravida a suscipit in, maximus non ex. Phasellus nisi lorem, gravida a mattis ut, pretium quis urna. Donec semper aliquam metus, ac ornare velit suscipit sit amet. Etiam tempus arcu ac dictum mollis. Sed sed lacus commodo, gravida erat ut, mattis mi. Duis pretium, lectus et semper viverra, nunc dui hendrerit magna, sed malesuada enim lectus a magna. Mauris eget efficitur nisl, eget interdum nisl. Quisque arcu ex, scelerisque scelerisque nisi vel, ornare ornare elit. Donec posuere euismod quam quis dictum. Donec condimentum velit vitae orci viverra aliquam. Pellentesque id volutpat nibh, ac egestas lacus."/><LineBreak/>
+            <Run Text="Nunc eleifend, ipsum quis laoreet sollicitudin, metus metus sollicitudin metus, faucibus lacinia sem magna non sapien. Donec ligula ante, volutpat non nisl nec, malesuada tempor purus. Proin vitae viverra nunc. Ut eu sapien a lacus consequat ullamcorper. Quisque vitae mattis nisl, a suscipit nulla. Maecenas eleifend elit id dui finibus dignissim. Vivamus a tellus semper, scelerisque sapien vel, posuere dolor. Pellentesque non urna sem. "/>
+        </TextBlock>
+        <Button HorizontalAlignment="Left" Margin="1361,29,0,0" Width="32" RenderTransformOrigin="0.5,0.5" Height="32" Click="CloseEula" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Group 56.png"/>
+            </Button.Background>
+        </Button>
+
+
+
+    </Grid>
+</Window>

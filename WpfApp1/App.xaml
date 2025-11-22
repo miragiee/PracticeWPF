@@ -5,8 +5,6 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-
-
         <Style TargetType="Border">
             <Setter Property="Background" Value="#5CAD3E"/>
             <Setter Property="CornerRadius" Value="10"/>
@@ -14,38 +12,67 @@
             
         </Style>
 
-        <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Lucida Sans"/>
+        <Style x:Key="Header1" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="./Fonts/Static/#Sofia Sans Condensed Medium"/>
             <Setter Property="FontSize" Value="48"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#F8FEF5"/>
+            <Setter Property="Typography.Kerning" Value="True"/>
         </Style>
 
-        <Style TargetType="TextBox">
-            <Setter Property="FontFamily" Value="Lucida Sans"/>
-            <Setter Property="FontSize" Value="32"></Setter>
+        <Style  x:Key="NormalText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="./Fonts/Static/#Sofia Sans Condensed Regular"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="#071B00"/>
+            <Setter Property="Typography.Kerning" Value="True"/>
+        </Style>
+
+        <Style x:Key="WhiteBox" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Thin" />
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="Cursor" Value="IBeam"/>
             <Setter Property="Background" Value="#F8FEF5"/>
             <Setter Property="Foreground" Value="#071B00"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Width" Value="350"/>
             <Setter Property="Height" Value="70"/>
 
         </Style>
 
+        <Style x:Key="DarkBox" TargetType="TextBox" >
+            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Thin" />
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#DEDDDD"/>
+            <Setter Property="Foreground" Value="#071B00"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Width" Value="350"/>
+            <Setter Property="Height" Value="70"/>
+        </Style>
+
         <Style TargetType="Button">
-            <Setter Property="FontFamily" Value ="Lucida Sans"/>
+            <Setter Property="FontFamily" Value ="./Fonts/#Sofia Sans Condensed Regular"/>
             <Setter Property="FontSize" Value="32"></Setter>
             <Setter Property="Background" Value="#C4E8B7"/>
             <Setter Property="Foreground" Value="#F8FEF5"/>
             <Setter Property="Width" Value="350"/>
             <Setter Property="Height" Value="70"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
         </Style>
 
-        <Style TargetType="Rectangle">
-            <Setter Property="Fill" Value="#5CAD3E"/>
-            <Setter Property="Height" Value="90"/>
-            <Setter Property="Width" Value="1440"/>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontFamily" Value ="./Fonts/#Sofia Sans Condensed Regular"/>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
+
         
     </Application.Resources>
 </Application>

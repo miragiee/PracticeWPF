@@ -10,10 +10,26 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Border BorderBrush="Black" HorizontalAlignment="Left" Height="90" Margin="0,-4,0,0" VerticalAlignment="Top" Width="1464">
-            <TextBlock TextWrapping="Wrap" Text="Шестёрочка" Margin="0,17,0,28"/>
+        <Border HorizontalAlignment="Left" Height="90" Margin="0,-4,0,0" VerticalAlignment="Top" Width="1440" CornerRadius="0">
+            <TextBlock Text="Ш  е  с  т  ё  р  о  ч  к  а"  Style="{StaticResource Header1}" Margin="0,16,0,20"/>
         </Border>
-        <Button Content="" HorizontalAlignment="Left" Margin="1294,6,0,0" VerticalAlignment="Top" Width="70" BorderBrush="#00707070" Background="White" />
+        <Button HorizontalAlignment="Left" Margin="1218,6,0,0" Height="70" Width="70" Click="OpenCart">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Shopping Cart.png"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="1104,6,0,0" Height="70" Width="70" Click="OpenProfile">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Group 46.png"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="1330,6,0,0" Height="70" Width="70" Click="OpenBurger">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/burger.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+
+
 
     </Grid>
 </Window>

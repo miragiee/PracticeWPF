@@ -7,15 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1024" Width="1440">
 
-    <Grid Background="#FFF8FEF5">
+    <Grid>
         <Border BorderBrush="Black" HorizontalAlignment="Center" Height="600" VerticalAlignment="Center" Width="450" Background="#C4E8B7">
-            <TextBlock TextWrapping="Wrap" Text="Вход" Foreground="#071B00"/>
+            <TextBlock TextWrapping="Wrap" Foreground="#071B00" Margin="0,12,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="218" Height="56" Style="{StaticResource Header1}"><Run Language="ru-ru" Text="В    Х    О    Д"/></TextBlock>
         </Border>
 
-        <TextBox x:Name="loginBox" HorizontalAlignment="Center" Margin="0,340,0,0" TextWrapping="Wrap" Text="почта / логин" VerticalAlignment="Top" Width="350" Height="70" FontFamily="Lucida Sans" />
-        <TextBox x:Name="passwordBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="пароль" VerticalAlignment="Center" Width="350"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="432">
+            <TextBox Text="Почта | Логин" Margin="0,0,0,44" Style="{StaticResource WhiteBox}"/>
+            <TextBox Text="Пароль" Margin="0,0,0,44" Style="{StaticResource WhiteBox}"/>
 
-        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,647,0,0" VerticalAlignment="Top" Background="#FF5CAD3E" Cursor="Hand" Click="Button_Click"/>
-        <TextBlock TextWrapping="Wrap" Foreground="#071B00" Margin="652,731,652,257" FontSize="16" TextDecorations="Underline"><Run Language="ru-ru" Text="Создать аккаунт"/></TextBlock>
+            <Button Content="В  о  й  т  и" Margin="0,0,0,0" Background="#FF5CAD3E" Click="Button_Click"/>
+            <Button Content="Создать аккаунт" Margin="0,0,0,44" Background="#C4E8B7" Height="39" Foreground="#071B00" FontSize="20" Click="MoveToRegister"/>
+        </StackPanel>
+        
+
+
     </Grid>
 </Window>

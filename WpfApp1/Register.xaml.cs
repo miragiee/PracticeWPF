@@ -19,9 +19,25 @@ namespace WpfApp1
     /// </summary>
     public partial class Register : Window
     {
+        private bool eulaIsAccepted = false;
+
         public Register()
         {
             InitializeComponent();
+        }
+
+        private void MoveToEULA(object sender, RoutedEventArgs e)
+        {
+            EULA eula = new EULA();
+            eula.Show();
+            this.Close();
+        }
+
+        private void MoveToLogin(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
         }
     }
 }
