@@ -23,5 +23,26 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void OpenProfile(object sender, RoutedEventArgs e)
+        {
+            Profile profile= new Profile();
+            profile.Show();
+            this.Close();
+        }
+
+        private void OpenCart(object sender, RoutedEventArgs e)
+        {
+            ShoppingCart cart= new ShoppingCart();
+            cart.Show();
+            this.Close();
+        }
+
+        private void OpenBurger(object sender, RoutedEventArgs e)
+        {
+            Burger burger= new Burger();
+            burger.Show(); 
+            this.Close();
+        }
     }
 }

@@ -26,3 +26,9 @@ C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\WpfApp1.genru
 C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\ref\WpfApp1.dll
 C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\EULA.g.cs
 C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\EULA.baml
+C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\Burger.g.cs
+C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\Profile.g.cs
+C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\ShoppingCart.g.cs
+C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\Burger.baml
+C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\Profile.baml
+C:\Users\10230922\Desktop\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\ShoppingCart.baml

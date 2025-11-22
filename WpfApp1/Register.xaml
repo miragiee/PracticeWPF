@@ -9,7 +9,7 @@
     <Grid>
 
         <Border BorderBrush="Black" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="1440" CornerRadius="0">
-            <TextBlock Margin="0,19,0,16" Style="{StaticResource Header1}"><Run Language="ru-ru" Text="Р  е  г  и  с  т  р  а  ц  и  я"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+            <TextBlock Margin="0,19,0,16" Style="{StaticResource Header1}"><Run Language="ru-ru" Text="Р  Е  Г  И  С  Т  Р  А  Ц  И  Я"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
         </Border>
 
 

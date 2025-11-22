@@ -10,26 +10,109 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Border HorizontalAlignment="Left" Height="90" Margin="0,-4,0,0" VerticalAlignment="Top" Width="1440" CornerRadius="0">
-            <TextBlock Text="Ш  е  с  т  ё  р  о  ч  к  а"  Style="{StaticResource Header1}" Margin="0,16,0,20"/>
+
+        <Border HorizontalAlignment="Left" Height="90" Margin="0,-4,0,0" VerticalAlignment="Top" Width="1440" CornerRadius="0" >
+            <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А"  Style="{StaticResource Header1}" Margin="0,16,0,20"/>
         </Border>
-        <Button HorizontalAlignment="Left" Margin="1218,6,0,0" Height="70" Width="70" Click="OpenCart">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/Shopping Cart.png"/>
-            </Button.Background>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="1104,6,0,0" Height="70" Width="70" Click="OpenProfile">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/Group 46.png"/>
-            </Button.Background>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="1330,6,0,0" Height="70" Width="70" Click="OpenBurger">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/burger.png" Stretch="None"/>
-            </Button.Background>
-        </Button>
+        <StackPanel Orientation="Horizontal">
 
+            <Button HorizontalAlignment="Left" Margin="1137,6,0,0" Height="70" Width="70" Click="OpenProfile">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Group 46.png"/>
+                </Button.Background>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="22,10,0,0" Height="70" Width="70" Click="OpenCart">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Shopping Cart.png"/>
+                </Button.Background>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="35,17,0,0" Height="50" Width="50" Click="OpenBurger">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/burger.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
 
+        <StackPanel Orientation="Horizontal">
+            <Border BorderBrush="Black" HorizontalAlignment="Left" Height="300" Margin="131,113,0,0" VerticalAlignment="Top" Width="525">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/AD1.png"/>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" HorizontalAlignment="Left" Height="300" Margin="117,113,0,0" VerticalAlignment="Top" Width="525">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/AD2.png"/>
+                </Border.Background>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Margin="147, 160, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/bread.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+            <StackPanel Margin="100, 160, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/orange.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+            <StackPanel  Margin="100, 160, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/toiletpaper.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+            <StackPanel Margin="100, 160, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/ChickenBreast.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+            <StackPanel Margin="100, 160, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/salad.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+            
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal"> 
+            <Border BorderBrush="Black" Width="150" Height="154" Margin="147, 710, 0, 0">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/bread.png"/>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" Width="150" Height="154" Margin="100, 710, 0, 0">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/orange.png"/>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" Width="150" Height="154" Margin="100, 710, 0, 0">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/toiletpaper.png"/>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" Width="150" Height="154" Margin="100, 710, 0, 0">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/ChickenBreast.png"/>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" Width="150" Height="154" Margin="100, 710, 147, 0">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/salad.png"/>
+                </Border.Background>
+            </Border>
+
+        </StackPanel>
 
     </Grid>
 </Window>

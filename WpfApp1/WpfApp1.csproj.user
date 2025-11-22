@@ -2,7 +2,16 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Burger.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EULA.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Profile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ShoppingCart.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

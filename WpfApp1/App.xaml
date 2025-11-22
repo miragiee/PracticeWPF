@@ -18,6 +18,7 @@
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#F8FEF5"/>
             <Setter Property="Typography.Kerning" Value="True"/>
+            <Setter Property="Typography.Capitals" Value="AllPetiteCaps"/>
         </Style>
 
         <Style  x:Key="NormalText" TargetType="TextBlock">
