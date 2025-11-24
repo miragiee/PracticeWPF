@@ -19,6 +19,7 @@ namespace WpfApp1
     /// </summary>
     public partial class GoodsMain : Window
     {
+
         public GoodsMain()
         {
             InitializeComponent();
@@ -34,8 +35,8 @@ namespace WpfApp1
         private void OpenCart(object sender, RoutedEventArgs e)
         {
             ShoppingCart cart= new ShoppingCart();
-            cart.Show();
-            this.Close();
+            cart.cartParent = this;
+            cart.ShowDialog();
         }
 
         private void OpenBurger(object sender, RoutedEventArgs e)

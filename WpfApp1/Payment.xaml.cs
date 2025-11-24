@@ -23,5 +23,12 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void Pay(object sender, RoutedEventArgs e)
+        {
+            PaymentSuccessful paymentSuccessful = new PaymentSuccessful();
+            paymentSuccessful.Show();
+            this.Close();
+        }
     }
 }

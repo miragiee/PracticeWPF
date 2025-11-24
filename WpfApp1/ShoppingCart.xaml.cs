@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,9 +20,25 @@ namespace WpfApp1
     /// </summary>
     public partial class ShoppingCart : Window
     {
+        public Window cartParent { get; set; }
         public ShoppingCart()
         {
             InitializeComponent();
+        }
+
+        private void CloseShoppingCart(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MoveToPayment(object sender, RoutedEventArgs e)
+        {
+            Payment payment = new Payment();
+
+            payment.Show();
+            cartParent.Close();
+            this.Close();
+
         }
     }
 }

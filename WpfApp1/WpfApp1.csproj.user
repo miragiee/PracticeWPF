@@ -11,6 +11,9 @@
     <Compile Update="Payment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PaymentSuccessful.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

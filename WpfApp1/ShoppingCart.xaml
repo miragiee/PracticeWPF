@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="ShoppingCart" Height="450" Width="800">
+        Title="ShoppingCart" Height="750" Width="1000">
     <Grid>
-        
+        <StackPanel Orientation="Horizontal" Width="1000" Height="90" VerticalAlignment="Top">
+            <Border Width="1000" Height="90" CornerRadius="0">
+                <TextBlock Text="К  О  Р  З  И  Н  А" FontSize="40" VerticalAlignment="Center" Style="{StaticResource Header1}"/>
+            </Border>
+
+            <Button Width="32" Height="32" Margin="-90, 25, 0, 0" Click="CloseShoppingCart">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Group 56.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="74,134,455,414">
+            <Image Source="/Images/salad.png" Width="150"/>
+            <StackPanel Height="157">
+                <TextBlock Text="Т О В А Р   N" Margin="18, 0, 0, 0"  Style="{StaticResource NormalText}"/>
+                <TextBlock Text="К О Л И Ч Е С Т В О   M" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}"/>
+                <TextBlock Text="С Т О И М О С Т Ь   З А   Ш Т У К У   F" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}" Width="368"/>
+                <TextBlock Text="И Т О Г О В А Я   С Т О И М О С Т Ь W" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}"/>
+                <StackPanel Orientation="Horizontal" Height="45" Margin="18, 5, 0, 0">
+                    <Button Content="+" Height="42" Width="42" Foreground="#071B00" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#F8FEF5"/>
+                    <TextBlock Text="КОЛ-ВО" VerticalAlignment="Center" Style="{StaticResource NormalText}"/>
+                    <Button Content="-" Height="42" Width="42" Foreground="#071B00" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#F8FEF5"/>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="74,325,452,215">
+            <Image Source="/Images/orange.png" Width="150"/>
+            <StackPanel Height="157">
+                <TextBlock Text="Т О В А Р   N" Margin="18, 0, 0, 0"  Style="{StaticResource NormalText}"/>
+                <TextBlock Text="К О Л И Ч Е С Т В О   M" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}"/>
+                <TextBlock Text="С Т О И М О С Т Ь   З А   Ш Т У К У   F" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}" Width="368"/>
+                <TextBlock Text="И Т О Г О В А Я   С Т О И М О С Т Ь W" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}"/>
+                <StackPanel Orientation="Horizontal" Height="45" Margin="18, 5, 0, 0">
+                    <Button Content="+" Height="42" Width="42" Foreground="#071B00" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#F8FEF5"/>
+                    <TextBlock Text="КОЛ-ВО" VerticalAlignment="Center" Style="{StaticResource NormalText}"/>
+                    <Button Content="-" Height="42" Width="42" Foreground="#071B00" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#F8FEF5"/>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+        <TextBlock Text="С У М М А:   9 9 9 9"/>
+        <Button Content="З  А  К  А  З  А  Т  Ь" Margin="74,635,676,0" FontSize="20" Width="250" Click="MoveToPayment" Foreground="#071B00"/>
     </Grid>
 </Window>

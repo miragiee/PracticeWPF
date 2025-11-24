@@ -43,7 +43,7 @@
                     <TextBox Text="Н О М Е Р   К А Р Т Ы" Margin ="-910, 50, 0, 0"  Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
                     <TextBox Text="C V V " Margin ="-910, 23.21, 0, 0" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
                     <TextBox Text="С Р О К   Г О Д Н О С Т И " Margin ="-910, 23.21, 0, 0" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
-                    <Button Content="О П Л А Т И Т Ь" Margin ="-910, 23.21, 0, 0" Width="400" Foreground="#071B00"/>
+                    <Button Content="О П Л А Т И Т Ь" Margin ="-910, 23.21, 0, 0" Width="400" Foreground="#071B00" Click="Pay"/>
                 </StackPanel>
 
                 <StackPanel Margin="-500, 530, 252, 0">

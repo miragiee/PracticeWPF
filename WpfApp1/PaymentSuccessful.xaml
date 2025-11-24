@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp1.PaymentSuccessful" Style="{StaticResource BigWindow}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d">
+    <Grid>
+        <StackPanel Orientation="Horizontal" Height="90" Width="1440" VerticalAlignment="Top">
+            <Border CornerRadius="0">
+                <TextBlock Margin ="0, 21, 0, 0" Text="О  П  Л  А  Т  А     З  А  К  А  З  А" Width="1440" Style="{StaticResource Header1}"/>
+            </Border>
+            <Button Width="32" Height="32" Margin="-90, 29, 0, 0" Click="ClosePayment">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Group 56.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        
+        <StackPanel VerticalAlignment="Top" Margin="0, 227, 0, 0">
+            <TextBlock Text="О  П  Л  А  Т  А       П  Р  О  Ш  Л  А     У  С  П  Е  Ш  Н  О" FontSize="32" Style="{StaticResource Header2}"/>
+            <Image Source="/Images/Success.png" Width="180" Height="180" Margin="0, 55, 0, 55"/>
+            <TextBlock Text="Н О М Е Р   З А К А З А:    2 2 8" Style="{StaticResource Header2}"/>
+        </StackPanel>
+    </Grid>
+</Window>

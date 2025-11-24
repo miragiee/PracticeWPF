@@ -29,7 +29,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-            <Button Width="70" Margin="36, 0, 0, 10" HorizontalAlignment="Left">
+            <Button Width="70" Margin="36, 0, 0, 10" HorizontalAlignment="Left" Click="Open_Cart">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Shopping Cart.png"/>
                 </Button.Background>

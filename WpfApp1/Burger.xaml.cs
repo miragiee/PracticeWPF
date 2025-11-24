@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace WpfApp1
     public partial class Burger : Window
     {
         public Window ParentWindow { get; set; }
+        
         public Burger()
         {
             InitializeComponent();
@@ -36,6 +38,16 @@ namespace WpfApp1
             profile.Show();
             this.Close();
             ParentWindow?.Close();
+        }
+
+        private void Open_Cart(object sender, RoutedEventArgs e)
+        {
+            ShoppingCart cart = new ShoppingCart();
+
+            cart.cartParent = this;
+            cart.ShowDialog();
+            this.Close();
+            
         }
     }
 }
