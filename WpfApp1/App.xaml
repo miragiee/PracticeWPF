@@ -9,12 +9,27 @@
             <Setter Property="Width" Value="1440"/>
             <Setter Property="Background" Value ="#F8FEF5"/>
         </Style>
-        
+
+        <Style x:Key="AdminWindow" TargetType="Window">
+            <Setter Property="Height" Value="1024"/>
+            <Setter Property="Width" Value="1440"/>
+            <Setter Property="Background" Value ="#F5F8FE"/>
+        </Style>
+
         <Style TargetType="Border">
             <Setter Property="Background" Value="#5CAD3E"/>
             <Setter Property="CornerRadius" Value="10"/>
             <Setter Property="BorderThickness" Value="0"/>
             
+        </Style>
+
+        <Style x:Key="AdminBorder" TargetType="Border">
+            <Setter Property="Background" Value="#3E44AD"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="1440"/>
+            <Setter Property="Height" Value="90"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
         </Style>
 
         <Style x:Key="Header1" TargetType="TextBlock">
@@ -24,6 +39,7 @@
             <Setter Property="Foreground" Value="#F8FEF5"/>
             <Setter Property="Typography.Kerning" Value="True"/>
             <Setter Property="Typography.Capitals" Value="AllPetiteCaps"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
         <Style x:Key="Header2" TargetType="TextBlock">
@@ -43,6 +59,16 @@
             <Setter Property="Typography.Kerning" Value="True"/>
         </Style>
 
+        <Style x:Key="AdminText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="./Fonts/Static/#Sofia Sans Condensed Regular"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="#00061B"/>
+            <Setter Property="Typography.Kerning" Value="True"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
         <Style x:Key="WhiteBox" TargetType="TextBox">
             <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Thin" />
             <Setter Property="FontSize" Value="32"/>
@@ -54,6 +80,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Width" Value="350"/>
             <Setter Property="Height" Value="70"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
 
         </Style>
 
@@ -68,6 +95,7 @@
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="Width" Value="350"/>
             <Setter Property="Height" Value="70"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
 
         <Style TargetType="Button">
@@ -99,13 +127,27 @@
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Background" Value="#5CAD3E"/>
             <Setter Property="Foreground" Value="#F8FEF5"/>
-            <Setter Property="Width" Value="350"/>
             <Setter Property="Height" Value="70"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="Width" Value="212"/>
+        </Style>
+
+        <Style x:Key="adminButton" TargetType="Button">
+            <Setter Property="FontFamily" Value ="./Fonts/#Sofia Sans Condensed Regular"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Background" Value="#B8B7E8"/>
+            <Setter Property="Foreground" Value="#00061B"/>
+            <Setter Property="Width" Value="270"/>
+            <Setter Property="Height" Value="55"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+
         </Style>
         
     </Application.Resources>

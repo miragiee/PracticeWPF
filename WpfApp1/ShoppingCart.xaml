@@ -51,7 +51,7 @@
 
         </StackPanel>
 
-        <TextBlock Text="С У М М А:   9 9 9 9"/>
+        <TextBlock Text="С У М М А:   9 9 9 9" Margin="74, 600, 0, 0"  Style="{StaticResource NormalText}"/>
         <Button Content="З  А  К  А  З  А  Т  Ь" Margin="74,635,676,0" FontSize="20" Width="250" Click="MoveToPayment" Foreground="#071B00"/>
     </Grid>
 </Window>

@@ -36,6 +36,7 @@
     <None Remove="Images\burgerClose.png" />
     <None Remove="Images\Group 46.png" />
     <None Remove="Images\Group 56.png" />
+    <None Remove="Images\Open Door.png" />
     <None Remove="Images\PaymentQR.png" />
     <None Remove="Images\Shopping Cart.png" />
     <None Remove="Images\Success.png" />
@@ -68,6 +69,7 @@
     <Resource Include="Fonts\static\SofiaSansCondensed-ThinItalic.ttf" />
     <Resource Include="Images\Avatar.png" />
     <Resource Include="Images\burgerClose.png" />
+    <Resource Include="Images\Open Door.png" />
     <Resource Include="Images\orange.png" />
     <Resource Include="Images\bread.png" />
     <Resource Include="Images\PaymentQR.png" />

@@ -13,8 +13,8 @@
         </Border>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="432">
-            <TextBox Text="Почта | Логин" Margin="0,0,0,44" Style="{StaticResource WhiteBox}"/>
-            <TextBox Text="Пароль" Margin="0,0,0,44" Style="{StaticResource WhiteBox}"/>
+            <TextBox x:Name="LoginBox" Text="Почта | Логин" Margin="0,0,0,44" Style="{StaticResource WhiteBox}" GotFocus="Login_Focused" LostFocus="LoginNotFocused"/>
+            <TextBox x:Name="PasswordBox" Text="Пароль" Margin="0,0,0,44" Style="{StaticResource WhiteBox}" GotFocus="Password_Focused" LostFocus="PasswordNotFocused" Cursor="IBeam"/>
 
             <Button Content="В  о  й  т  и" Margin="0,0,0,0" Background="#FF5CAD3E" Click="Button_Click"/>
             <Button Content="Создать аккаунт" Margin="0,0,0,44" Background="#C4E8B7" Height="39" Foreground="#071B00" FontSize="20" Click="MoveToRegister"/>
