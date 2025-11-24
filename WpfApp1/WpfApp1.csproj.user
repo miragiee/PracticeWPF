@@ -2,10 +2,19 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="AddEmployee.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AdminPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Burger.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChangeEmployeeData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EULA.xaml.cs">

@@ -30,5 +30,26 @@ namespace WpfApp1
             mw.Show();
             this.Close();
         }
+
+        private void GoToEmployeeList(object sender, RoutedEventArgs e)
+        {
+            EmployeeList employeeList = new EmployeeList();
+            employeeList.Show();
+            this.Close();
+        }
+
+        private void AddEmployee(object sender, RoutedEventArgs e)
+        {
+            AddEmployee addEmployee = new AddEmployee();
+            addEmployee.Show();
+            this.Close();
+        }
+
+        private void ChangeEmployeeData(object sender, RoutedEventArgs e)
+        {
+            ChangeEmployeeData employeeData = new ChangeEmployeeData();
+            employeeData.Show();
+            this.Close();
+        }
     }
 }

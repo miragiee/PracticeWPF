@@ -25,9 +25,9 @@
                     <TextBlock Text="С О Т Р У Д Н И К И" Foreground="#F5F8FE" Style="{StaticResource AdminText}"/>
                 </Border>
 
-                <Button Content="С П И С О К   С О Т Р У Д Н И К О В" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
-                <Button Content="Д О Б А В И Т Ь   С О Т Р У Д Н И К А" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
-                <Button Content="И З М Е Н И Т Ь   Д А Н Н Ы Е   С О Т Р У Д Н И К А" FontSize="16"  Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
+                <Button Content="С П И С О К   С О Т Р У Д Н И К О В" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}" Click="GoToEmployeeList"/>
+                <Button Content="Д О Б А В И Т Ь   С О Т Р У Д Н И К А" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}" Click="AddEmployee"/>
+                <Button Content="И З М Е Н И Т Ь   Д А Н Н Ы Е   С О Т Р У Д Н И К А" FontSize="16"  Margin="27, 0, 0, 20" Style="{StaticResource adminButton}" Click="ChangeEmployeeData"/>
             </StackPanel>
 
             <StackPanel Margin="-100, 0, 0, 0">

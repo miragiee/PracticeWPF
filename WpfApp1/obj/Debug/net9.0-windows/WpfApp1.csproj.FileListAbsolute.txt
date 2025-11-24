@@ -72,3 +72,10 @@ C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\PaymentSuccessful.baml
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminPanel.g.cs
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminPanel.baml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AddEmployee.g.cs
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\ChangeEmployeeData.g.cs
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\EmployeeList.g.cs
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AddEmployee.baml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\ChangeEmployeeData.baml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\EmployeeList.baml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\bin\Debug\net9.0-windows\WpfApp1.dll.config
