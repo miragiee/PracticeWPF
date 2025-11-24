@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Burger" Height="450" Width="800">
-    <Grid>
+        Title="Burger" Height="600" Width="400">
+    <Grid Background="#FF5CAD3E">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <TextBlock Text="К   А   Т   А   Л   О   Г " Margin="25, 26, 0, 0" Width="190" FontSize="32" Style="{StaticResource ResourceKey=Header1}" Height="73"/>
+            
+            <Button Height="30" Width="40" Margin="83, 30, 0, 0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/burgerClose.png" Stretch="Fill"/>
+                </Button.Background>
+            </Button>
+
+        </StackPanel>
+
         
+
+
     </Grid>
 </Window>
