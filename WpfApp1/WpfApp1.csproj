@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Avatar.png" />
     <None Remove="burger.png" />
     <None Remove="Fonts\SofiaSansCondensed-Italic-VariableFont_wght.ttf" />
     <None Remove="Fonts\SofiaSansCondensed-VariableFont_wght.ttf" />
@@ -37,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Avatar.png" />
     <Resource Include="Fonts\SofiaSansCondensed-Italic-VariableFont_wght.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
