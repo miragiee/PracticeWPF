@@ -19,9 +19,24 @@ namespace WpfApp1
     /// </summary>
     public partial class Burger : Window
     {
+        public Window ParentWindow { get; set; }
+        s
         public Burger()
         {
             InitializeComponent();
+        }
+
+        private void Close_Burger(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Open_Profile(object sender, RoutedEventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+            this.Close();
+            ParentWindow?.Close();
         }
     }
 }

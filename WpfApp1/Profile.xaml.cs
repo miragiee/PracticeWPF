@@ -23,5 +23,12 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void Save_Changes(object sender, RoutedEventArgs e)
+        {
+            GoodsMain goods = new GoodsMain();
+            goods.Show();
+            this.Close();
+        }
     }
 }

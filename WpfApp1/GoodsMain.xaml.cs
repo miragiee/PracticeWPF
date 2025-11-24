@@ -41,8 +41,9 @@ namespace WpfApp1
         private void OpenBurger(object sender, RoutedEventArgs e)
         {
             Burger burger= new Burger();
-            burger.Show(); 
-            this.Close();
+
+            burger.ParentWindow = this;
+            burger.ShowDialog();
         }
     }
 }

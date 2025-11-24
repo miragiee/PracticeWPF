@@ -46,8 +46,8 @@
             </Border>
         </StackPanel>
 
-        <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,428,512,549" Style="{StaticResource Header2}"/>
-        <StackPanel Orientation="Horizontal" Margin="146,464,78,309">
+        <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,428,512,519" Style="{StaticResource Header2}"/>
+        <StackPanel Orientation="Horizontal" Margin="146,467,78,306">
             
             <StackPanel Margin="0, 0, 0, 0" Height="287">
                 <Border BorderBrush="Black" Width="150" Height="154" >
@@ -97,7 +97,7 @@
             
         </StackPanel>
 
-        <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,722,512,252" Style="{StaticResource Header2}"/>
+        <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,722,512,217" Style="{StaticResource Header2}"/>
         <StackPanel Orientation="Horizontal" Margin="146,760,78,0">
 
             <StackPanel Margin="0, 0, 0, 0" Height="287">

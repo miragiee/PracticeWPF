@@ -8,18 +8,38 @@
         Title="Burger" Height="600" Width="400">
     <Grid Background="#FF5CAD3E">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-            <TextBlock Text="К   А   Т   А   Л   О   Г " Margin="25, 26, 0, 0" Width="190" FontSize="32" Style="{StaticResource ResourceKey=Header1}" Height="73"/>
+            <TextBlock Text="К   А   Т   А   Л   О   Г " Margin="25, 26, 0, 0" Width="190" FontSize="32" Style="{StaticResource ResourceKey=Header1}" Height="42"/>
             
-            <Button Height="30" Width="40" Margin="83, 30, 0, 0">
+            <Button Height="30" Width="57" Margin="83, 30, 0, 0" Click="Close_Burger">
                 <Button.Background>
-                    <ImageBrush ImageSource="/burgerClose.png" Stretch="Fill"/>
+                    <ImageBrush Stretch="Uniform" TileMode="None" ImageSource="./Images/burgerClose.png"/>
                 </Button.Background>
             </Button>
 
         </StackPanel>
 
-        
+        <StackPanel Margin="75,86,0,271" HorizontalAlignment="Left">
+            <Button Height="30" Background="#5CAD3E" Content="М У Ч Н Ы Е   И З Д Е Л И Я" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="Ф Р У К Т Ы   И   О В О Щ И" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="М Я С О" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="Н А П И Т К И" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="Г О Т О В А Я   П Р О Д У К Ц И Я" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="С Л А Д О С Т И" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="С Р Е Д С Т В А   Г И Г И Е Н Ы" Style="{StaticResource CatButton}"/>
+        </StackPanel>
 
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+            <Button Width="70" Margin="36, 0, 0, 10" HorizontalAlignment="Left">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Shopping Cart.png"/>
+                </Button.Background>
+            </Button>
+            <Button Width="70" Margin="188, 0, 0, 10" HorizontalAlignment="Right" Click="Open_Profile">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Group 46.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
 
     </Grid>
 </Window>

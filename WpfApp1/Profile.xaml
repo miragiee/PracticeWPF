@@ -57,6 +57,6 @@
 
         </StackPanel>
 
-        <Button Margin="101,890,989,0" Content="С О Х Р А Н И Т Ь    И З М Е Н Е Н И Я" Foreground="#071B00" FontSize="20"></Button>
+        <Button Margin="101,890,989,0" Content="С О Х Р А Н И Т Ь    И З М Е Н Е Н И Я" Foreground="#071B00" FontSize="20" Click="Save_Changes"></Button>
     </Grid>
 </Window>

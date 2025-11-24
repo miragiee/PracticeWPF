@@ -11,7 +11,6 @@
   <ItemGroup>
     <None Remove="Avatar.png" />
     <None Remove="burger.png" />
-    <None Remove="burgerClose.png" />
     <None Remove="Fonts\SofiaSansCondensed-Italic-VariableFont_wght.ttf" />
     <None Remove="Fonts\SofiaSansCondensed-VariableFont_wght.ttf" />
     <None Remove="Fonts\static\SofiaSansCondensed-Black.ttf" />
@@ -33,6 +32,7 @@
     <None Remove="Fonts\static\SofiaSansCondensed-Thin.ttf" />
     <None Remove="Fonts\static\SofiaSansCondensed-ThinItalic.ttf" />
     <None Remove="Images\burger.png" />
+    <None Remove="Images\burgerClose.png" />
     <None Remove="Images\Group 46.png" />
     <None Remove="Images\Group 56.png" />
     <None Remove="Images\Shopping Cart.png" />
@@ -40,7 +40,6 @@
 
   <ItemGroup>
     <Resource Include="Avatar.png" />
-    <Resource Include="burgerClose.png" />
     <Resource Include="Fonts\SofiaSansCondensed-Italic-VariableFont_wght.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -65,6 +64,7 @@
     <Resource Include="Fonts\static\SofiaSansCondensed-SemiBoldItalic.ttf" />
     <Resource Include="Fonts\static\SofiaSansCondensed-Thin.ttf" />
     <Resource Include="Fonts\static\SofiaSansCondensed-ThinItalic.ttf" />
+    <Resource Include="Images\burgerClose.png" />
     <Resource Include="Images\orange.png" />
     <Resource Include="Images\bread.png" />
     <Resource Include="Images\toiletpaper.png" />
