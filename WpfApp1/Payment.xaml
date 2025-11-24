@@ -1,11 +1,11 @@
-﻿<Window x:Class="WpfApp1.Payment"
+﻿<Window x:Class="WpfApp1.Payment" Style="{StaticResource BigWindow}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Payment" Height="1024" Width="1440">
+        Title="Payment" Height="1024" Width="1440" Background="White">
     <Grid>
         <StackPanel Orientation="Horizontal" Height="90" Width="1440" VerticalAlignment="Top">
             <Border CornerRadius="0">
@@ -37,8 +37,22 @@
         <TextBlock Text="О П Л А Т А"  Margin="58,439,0,520" FontSize="36" HorizontalAlignment="Left" Style="{StaticResource Header2}" Width="140"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="К А Р Т О Й" Margin="73, 527, 1278, 468" Style="{StaticResource Header2}"/>
+                <TextBlock Text="К А Р Т О Й" Margin="73, 527, 0 0" Style="{StaticResource Header2}"/>
+
+                <StackPanel Margin="-110, 530, 0, 0" Width="1337">
+                    <TextBox Text="Н О М Е Р   К А Р Т Ы" Margin ="-910, 50, 0, 0"  Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
+                    <TextBox Text="C V V " Margin ="-910, 23.21, 0, 0" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
+                    <TextBox Text="С Р О К   Г О Д Н О С Т И " Margin ="-910, 23.21, 0, 0" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
+                    <Button Content="О П Л А Т И Т Ь" Margin ="-910, 23.21, 0, 0" Width="400" Foreground="#071B00"/>
+                </StackPanel>
+
+                <StackPanel Margin="-500, 530, 252, 0">
+                    <TextBlock Text="По QR-Коду" Style="{StaticResource Header2}"/>
+                    <Image Source="./Images/PaymentQR.png" Width="308" Height="307"/>
+                </StackPanel>
             </StackPanel>
+
+
         </StackPanel>
     </Grid>
 </Window>
