@@ -46,71 +46,105 @@
             </Border>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
-            <StackPanel Margin="147, 160, 0, 0">
+        <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,428,512,549" Style="{StaticResource Header2}"/>
+        <StackPanel Orientation="Horizontal" Margin="146,464,78,309">
+            
+            <StackPanel Margin="0, 0, 0, 0" Height="287">
                 <Border BorderBrush="Black" Width="150" Height="154" >
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/bread.png"/>
                     </Border.Background>
                 </Border>
+                <TextBlock Text="Х л е б   Ч ё р н ы й" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
             </StackPanel>
-            <StackPanel Margin="100, 160, 0, 0">
+            <StackPanel Margin="100, 0, 0, 0">
                 <Border BorderBrush="Black" Width="150" Height="154" >
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/orange.png"/>
                     </Border.Background>
                 </Border>
+                <TextBlock Text="А п е л ь с и н" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
             </StackPanel>
-            <StackPanel  Margin="100, 160, 0, 0">
+            <StackPanel  Margin="100, 0, 0, 0">
                 <Border BorderBrush="Black" Width="150" Height="154">
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/toiletpaper.png"/>
                     </Border.Background>
                 </Border>
+                <TextBlock Text="Т у а л.   Б у м а г а" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
             </StackPanel>
-            <StackPanel Margin="100, 160, 0, 0">
+            <StackPanel Margin="100, 0, 0, 0">
                 <Border BorderBrush="Black" Width="150" Height="154" >
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/ChickenBreast.png"/>
                     </Border.Background>
                 </Border>
+                <TextBlock Text="Г р у д к а   К у р." FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
             </StackPanel>
-            <StackPanel Margin="100, 160, 0, 0">
+            <StackPanel Margin="100, 0, 0, 0">
                 <Border BorderBrush="Black" Width="150" Height="154">
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/salad.png"/>
                     </Border.Background>
                 </Border>
+                <TextBlock Text="С а л а т 'Ц е з а р ь' " FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
             </StackPanel>
             
         </StackPanel>
-        
-        <StackPanel Orientation="Horizontal"> 
-            <Border BorderBrush="Black" Width="150" Height="154" Margin="147, 710, 0, 0">
-                <Border.Background>
-                    <ImageBrush ImageSource="/Images/bread.png"/>
-                </Border.Background>
-            </Border>
-            <Border BorderBrush="Black" Width="150" Height="154" Margin="100, 710, 0, 0">
-                <Border.Background>
-                    <ImageBrush ImageSource="/Images/orange.png"/>
-                </Border.Background>
-            </Border>
-            <Border BorderBrush="Black" Width="150" Height="154" Margin="100, 710, 0, 0">
-                <Border.Background>
-                    <ImageBrush ImageSource="/Images/toiletpaper.png"/>
-                </Border.Background>
-            </Border>
-            <Border BorderBrush="Black" Width="150" Height="154" Margin="100, 710, 0, 0">
-                <Border.Background>
-                    <ImageBrush ImageSource="/Images/ChickenBreast.png"/>
-                </Border.Background>
-            </Border>
-            <Border BorderBrush="Black" Width="150" Height="154" Margin="100, 710, 147, 0">
-                <Border.Background>
-                    <ImageBrush ImageSource="/Images/salad.png"/>
-                </Border.Background>
-            </Border>
+
+        <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,722,512,252" Style="{StaticResource Header2}"/>
+        <StackPanel Orientation="Horizontal" Margin="146,760,78,0">
+
+            <StackPanel Margin="0, 0, 0, 0" Height="287">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/bread.png"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="Х л е б   Ч ё р н ы й" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
+            <StackPanel Margin="100, 0, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/orange.png"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="А п е л ь с и н" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
+            <StackPanel  Margin="100, 0, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/toiletpaper.png"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="Т у а л.   Б у м а г а" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
+            <StackPanel Margin="100, 0, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/ChickenBreast.png"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="Г р у д к а   К у р." FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
+            <StackPanel Margin="100, 0, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/salad.png"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="С а л а т 'Ц е з а р ь' " FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
 
         </StackPanel>
 

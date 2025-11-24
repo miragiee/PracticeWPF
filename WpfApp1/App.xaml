@@ -21,6 +21,15 @@
             <Setter Property="Typography.Capitals" Value="AllPetiteCaps"/>
         </Style>
 
+        <Style x:Key="Header2" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="./Fonts/Static/#Sofia Sans Condensed Medium"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#071B00"/>
+            <Setter Property="Typography.Kerning" Value="True"/>
+            <Setter Property="Typography.Capitals" Value="AllPetiteCaps"/>
+        </Style>
+
         <Style  x:Key="NormalText" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="./Fonts/Static/#Sofia Sans Condensed Regular"/>
             <Setter Property="FontSize" Value="24"/>
@@ -66,6 +75,18 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+        <Style x:Key="BuyButton" TargetType="Button">
+            <Setter Property="FontFamily" Value ="./Fonts/#Sofia Sans Condensed Regular"/>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="Background" Value="#5ED234"/>
+            <Setter Property="Foreground" Value="#071B00"/>
+            <Setter Property="Width" Value="148"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            
         </Style>
 
         <Style TargetType="CheckBox">
