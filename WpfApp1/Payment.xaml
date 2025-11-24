@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfApp1.Payment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Payment" Height="1024" Width="1440">
+    <Grid>
+        <StackPanel Orientation="Horizontal" Height="90" Width="1440" VerticalAlignment="Top">
+            <Border CornerRadius="0">
+                <TextBlock Margin ="0, 21, 0, 0" Text="О  П  Л  А  Т  А     З  А  К  А  З  А" Width="1440" Style="{StaticResource Header1}"/>
+            </Border>
+            <Button Width="32" Height="32" Margin="-90, 29, 0, 0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Group 56.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Margin="0, 132, 0, 0">
+            <StackPanel Orientation="Horizontal" Margin="50, 23.21, 0, 0">
+                <TextBlock Text="И М Я   П О Л У Ч А Т Е Л Я" Style="{StaticResource Header2}"/>
+                <TextBox Text="И М Я" Margin="274, 0, 0, 0"  Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="50, 23.21, 0, 0">
+                <TextBlock Text="Ф А М И Л И Я    П О Л У Ч А Т Е Л Я " Style="{StaticResource Header2}"/>
+                <TextBox Text="Ф А М И Л И Я" Margin="203 0, 0, 0"  Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="50, 23.21, 0, 0">
+                <TextBlock Text="А Д Р Е С   П О Л У Ч А Т Е Л Я " Style="{StaticResource Header2}"/>
+                <TextBox Text="А Д Р Е С" Margin="245, 0, 0, 0"  Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+            <TextBlock Margin="49, 23.21, 0, 0" Text="С У М М А   К   О П Л А Т Е:   9 9 9 9" TextAlignment="Left" Style="{StaticResource Header2}"/>
+        </StackPanel>
+
+        <TextBlock Text="О П Л А Т А"  Margin="58,439,0,520" FontSize="36" HorizontalAlignment="Left" Style="{StaticResource Header2}" Width="140"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="К А Р Т О Й" Margin="73, 527, 1278, 468" Style="{StaticResource Header2}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

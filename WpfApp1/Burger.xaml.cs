@@ -20,7 +20,6 @@ namespace WpfApp1
     public partial class Burger : Window
     {
         public Window ParentWindow { get; set; }
-        s
         public Burger()
         {
             InitializeComponent();

@@ -35,6 +35,7 @@
     <None Remove="Images\burgerClose.png" />
     <None Remove="Images\Group 46.png" />
     <None Remove="Images\Group 56.png" />
+    <None Remove="Images\PaymentQR.png" />
     <None Remove="Images\Shopping Cart.png" />
   </ItemGroup>
 
@@ -67,6 +68,7 @@
     <Resource Include="Images\burgerClose.png" />
     <Resource Include="Images\orange.png" />
     <Resource Include="Images\bread.png" />
+    <Resource Include="Images\PaymentQR.png" />
     <Resource Include="Images\toiletpaper.png" />
     <Resource Include="Images\salad.png" />
     <Resource Include="Images\AD2.png" />

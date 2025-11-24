@@ -8,6 +8,9 @@
     <Compile Update="EULA.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Payment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
