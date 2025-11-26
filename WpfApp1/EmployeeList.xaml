@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="EmployeeList">
     <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Border CornerRadius="0" Style="{StaticResource AdminBorder}">
+                <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А      А  Д  М  И  Н  И  С  Т  Р  И  Р  О  В  А  Н  И  Е" Style="{StaticResource Header1}"/>
+            </Border>
+            <Button Margin="-100, 20, 0, 0" Width="50" Height="50" Click="GoBack" Style="{StaticResource adminButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Open Door.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <TextBlock Text="С  П  И  С  О  К     С  О  Т  Р  У  Д  Н  И  К  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
         
     </Grid>
 </Window>

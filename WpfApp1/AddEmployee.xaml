@@ -18,7 +18,44 @@
             </Button>
         </StackPanel>
 
-        <TextBlock Text="С  П  И  С  О  К      С  О  Т  Р  У  Д  Н  И  К  О  В" VerticalAlignment="Top" Margin="0, 115, 0, 0" Style="{StaticResource AdminText}"/>
+        <TextBlock Text="Д  О  Б  А  В  И  Т  Ь      С  О  Т  Р  У  Д  Н  И  К  О  В" VerticalAlignment="Top" Margin="0, 115, 0, 0" Style="{StaticResource AdminText}"/>
 
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите имя сотрудника" Margin="49, 201, 160, 23" Style="{StaticResource AdminText}"/>
+                <TextBox Text="Имя" Margin="0, 173, 0, 0" Width="450" Height="55" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите имя сотрудника" Margin="49, 20, 160, 23" Style="{StaticResource AdminText}"/>
+                <TextBox Text="Имя" Margin="0, 0, 0, 0" Width="450" Height="55" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите имя сотрудника" Margin="49, 20, 160, 32" Style="{StaticResource AdminText}"/>
+                <TextBox Text="Имя" Margin="0, 0, 0, 0" Width="450" Height="55" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите имя сотрудника" Margin="49, 20, 160, 23" Style="{StaticResource AdminText}"/>
+                <TextBox Text="Имя" Margin="0, 0, 0, 0" Width="450" Height="55" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите имя сотрудника" Margin="49, 20, 160, 23" Style="{StaticResource AdminText}"/>
+                <TextBox Text="Имя" Margin="0, 0, 0, 0" Width="450" Height="55" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите имя сотрудника" Margin="49, 20, 160, 23" Style="{StaticResource AdminText}"/>
+                <TextBox Text="Имя" Margin="0, 0, 0, 0" Width="450" Height="55" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите имя сотрудника" Margin="49, 20, 160, 23" Style="{StaticResource AdminText}"/>
+                <TextBox Text="Имя" Margin="0, 0, 0, 0" Width="450" Height="55" Style="{StaticResource DarkBox}"/>
+            </StackPanel>
+            
+        </StackPanel>
     </Grid>
 </Window>
