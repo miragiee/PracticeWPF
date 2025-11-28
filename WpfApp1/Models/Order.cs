@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-    public class Orders
+    public class Order
     {
         public int Id { get; set; }
         public int ClientId { get; set; }

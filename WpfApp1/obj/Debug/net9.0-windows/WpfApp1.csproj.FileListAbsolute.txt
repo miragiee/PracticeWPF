@@ -108,3 +108,9 @@ C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\bin\Debug\net9.0-
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\WpfApp1.csproj.Up2Date
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\ClientList.g.cs
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\ClientList.baml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\OrderList.g.cs
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\OrderList.baml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\GoodsList.g.cs
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\GoodsList.baml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\ManageGoods.g.cs
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\ManageGoods.baml

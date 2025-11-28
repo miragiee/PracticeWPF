@@ -43,7 +43,7 @@
                     <TextBlock Text="З А К А З Ы" Foreground="#F5F8FE" Style="{StaticResource AdminText}"/>
                 </Border>
 
-                <Button Content="С П И С О К   З А К А З О В" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
+                <Button Content="С П И С О К   З А К А З О В" Margin="27, 0, 0, 20" Click="GoToOrderList" Style="{StaticResource adminButton}"/>
                 <Button Content="У П Р А В Л Е Н И Е   З А К А З А М И" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
             </StackPanel>
 
@@ -52,9 +52,9 @@
                     <TextBlock Text="Т О В А Р Ы" Foreground="#F5F8FE" Style="{StaticResource AdminText}"/>
                 </Border>
 
-                <Button Content="С П И С О К   Т О В А Р О В" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
+                <Button Content="С П И С О К   Т О В А Р О В" Margin="27, 0, 0, 20" Click="GoToGoodsList" Style="{StaticResource adminButton}"/>
                 <Button Content="З А К А З А Т Ь   Т О В А Р Ы" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
-                <Button Content="У П Р А В Л Е Н И Е   Т О В А Р А М И"  Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
+                <Button Content="У П Р А В Л Е Н И Е   Т О В А Р А М И"  Margin="27, 0, 0, 20" Click="GoToManageGoods" Style="{StaticResource adminButton}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

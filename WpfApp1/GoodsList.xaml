@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfApp1.GoodsList" Style="{StaticResource AdminWindow}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="GoodsList">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Border CornerRadius="0" Style="{StaticResource AdminBorder}">
+                <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А      А  Д  М  И  Н  И  С  Т  Р  И  Р  О  В  А  Н  И  Е" Style="{StaticResource Header1}"/>
+            </Border>
+            <Button Margin="-100, 20, 0, 0" Width="50" Height="50" Click="GoBack" Style="{StaticResource adminButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Open Door.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <TextBlock Text="С  П  И  С  О  К     Т  О  В  А  Р  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
+        
+        <DataGrid Name="EmployeeListDataGrid" ItemsSource="{Binding Goods}" Style="{StaticResource adminTable}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding CategoryId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -58,5 +58,26 @@ namespace WpfApp1
             clientList.Show();
             this.Close();
         }
+
+        private void GoToOrderList(object sender, RoutedEventArgs e)
+        {
+            OrderList orderList = new OrderList();
+            orderList.Show();
+            this.Close();
+        }
+
+        private void GoToGoodsList(object sender, RoutedEventArgs e)
+        {
+            GoodsList goodsList = new GoodsList();
+            goodsList.Show();
+            this.Close();
+        }
+
+        private void GoToManageGoods(object sender, RoutedEventArgs e)
+        {
+            ManageGoods goodsList = new ManageGoods();
+            goodsList.Show();
+            this.Close();
+        }
     }
 }

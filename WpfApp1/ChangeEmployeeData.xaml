@@ -43,25 +43,25 @@
             
             <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
                 <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  У  Ю      Ф  А  М  И  Л  И  Ю      С  О  Т  Р  У  Д  Н  И  К  А" Margin="0, 0, 59, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="И  М  Я" Width="450" Height="55" Margin="0, 0, 12, 0" Style="{StaticResource AdminBox}"/>
+                <TextBox Text="Ф А М И Л И Я" Width="450" Height="55" Margin="0, 0, 12, 0" Style="{StaticResource AdminBox}"/>
                 <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
                 <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  О  Е      О  Т  Ч  Е  С  Т  В  О      С  О  Т  Р  У  Д  Н  И  К  А" Margin="0, 0, 59, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="И  М  Я" Width="450" Height="55" Margin="0, 0, 12, 0" Style="{StaticResource AdminBox}"/>
+                <TextBox Text="О Ч Т Е СТ В О" Width="450" Height="55" Margin="0, 0, 12, 0" Style="{StaticResource AdminBox}"/>
                 <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
                 <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  У  Ю      Д  О  Л  Ж  Н  О  С  Т  Ь      С  О  Т  Р  У  Д  Н  И  К  А" Margin="0, 0, 35, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="И  М  Я" Width="450" Height="55" Margin="0, 0, 12, 0" Style="{StaticResource AdminBox}"/>
+                <TextBox Text="Д О Л Ж Н О С Т Ь" Width="450" Height="55" Margin="0, 0, 12, 0" Style="{StaticResource AdminBox}"/>
                 <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
                 <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  У  Ю      З  А  Р  П  Л  А  Т  У      С  О  Т  Р  У  Д  Н  И  К  А" Margin="0, 0, 60, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="И  М  Я" Width="450" Height="55" Margin="0, 0, 12, 0" Style="{StaticResource AdminBox}"/>
+                <TextBox Text="З А Р П Л А Т А" Width="450" Height="55" Margin="0, 0, 12, 0" Style="{StaticResource AdminBox}"/>
                 <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
             </StackPanel>
             

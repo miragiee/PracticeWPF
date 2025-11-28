@@ -94,7 +94,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ManageGoods.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ClientList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GoodsList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="OrderList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

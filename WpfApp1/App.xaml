@@ -205,7 +205,7 @@
             <Setter Property="ColumnWidth" Value="220"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="10, 0, 0, 0"/>
+
         </Style>
 
         <Style x:Key="headerStyle" TargetType="DataGridColumnHeader">
