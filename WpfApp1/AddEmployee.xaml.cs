@@ -23,5 +23,12 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            AdminPanel adminPanel = new AdminPanel();
+            adminPanel.Show();
+            this.Close();
+        }
     }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mirag\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\
 WpfApp1
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\mirag\Desktop\Практика\PracticeWPF\WpfApp1\App.xaml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\App.xaml
 13-1979711707
 
-181858840268
-2002054085731
+191504247223
+220554206575
 AddEmployee.xaml;AdminPanel.xaml;Burger.xaml;ChangeEmployeeData.xaml;EmployeeList.xaml;EULA.xaml;GoodsMain.xaml;MainWindow.xaml;Payment.xaml;PaymentSuccessful.xaml;Profile.xaml;Register.xaml;ShoppingCart.xaml;
 
-False
+True
 

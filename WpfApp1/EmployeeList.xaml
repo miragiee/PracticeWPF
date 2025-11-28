@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
         Title="EmployeeList">
     <Grid>
@@ -19,5 +20,14 @@
         </StackPanel>
         <TextBlock Text="С  П  И  С  О  К     С  О  Т  Р  У  Д  Н  И  К  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
         
+        <DataGrid Name="EmployeeListDataGrid" ItemsSource="{Binding Employees}" Style="{StaticResource adminTable}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding PhoneNumber}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

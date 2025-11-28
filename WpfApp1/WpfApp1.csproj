@@ -31,15 +31,21 @@
     <None Remove="Fonts\static\SofiaSansCondensed-SemiBoldItalic.ttf" />
     <None Remove="Fonts\static\SofiaSansCondensed-Thin.ttf" />
     <None Remove="Fonts\static\SofiaSansCondensed-ThinItalic.ttf" />
+    <None Remove="Galochka.png" />
     <None Remove="Images\Avatar.png" />
     <None Remove="Images\burger.png" />
     <None Remove="Images\burgerClose.png" />
+    <None Remove="Images\Galochka.png" />
     <None Remove="Images\Group 46.png" />
     <None Remove="Images\Group 56.png" />
     <None Remove="Images\Open Door.png" />
     <None Remove="Images\PaymentQR.png" />
     <None Remove="Images\Shopping Cart.png" />
     <None Remove="Images\Success.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="9.0.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -67,8 +73,10 @@
     <Resource Include="Fonts\static\SofiaSansCondensed-SemiBoldItalic.ttf" />
     <Resource Include="Fonts\static\SofiaSansCondensed-Thin.ttf" />
     <Resource Include="Fonts\static\SofiaSansCondensed-ThinItalic.ttf" />
+    <Resource Include="Galochka.png" />
     <Resource Include="Images\Avatar.png" />
     <Resource Include="Images\burgerClose.png" />
+    <Resource Include="Images\Galochka.png" />
     <Resource Include="Images\Open Door.png" />
     <Resource Include="Images\orange.png" />
     <Resource Include="Images\bread.png" />

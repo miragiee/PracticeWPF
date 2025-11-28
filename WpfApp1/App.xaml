@@ -98,6 +98,20 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
 
+        <Style x:Key="AdminBox" TargetType="TextBox" >
+            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Thin" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#B8B7E8"/>
+            <Setter Property="Foreground" Value="#7F000000"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Width" Value="350"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value ="./Fonts/#Sofia Sans Condensed Regular"/>
             <Setter Property="FontSize" Value="32"></Setter>
@@ -147,8 +161,59 @@
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
 
         </Style>
-        
+
+        <Style x:Key="adminButtonDarker" TargetType="Button">
+            <Setter Property="FontFamily" Value ="./Fonts/#Sofia Sans Condensed Regular"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Background" Value="#3E44AD"/>
+            <Setter Property="Foreground" Value="#F5F8FE"/>
+            <Setter Property="Width" Value="270"/>
+            <Setter Property="Height" Value="55"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+
+        </Style>
+
+        <Style x:Key="adminTable" TargetType="DataGrid">
+            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Regular" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#B8B7E8"/>
+            <Setter Property="Foreground" Value="#00061B"/>
+            <Setter Property="Width" Value="1200"/>
+            <Setter Property="Height" Value="186"/>
+            <Setter Property="ColumnHeaderHeight" Value="31"/>
+            <Setter Property="RowHeight" Value="31"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="RowBackground" Value="#B8B7E8"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#00061B"/>
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource headerStyle}"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="False"/>
+            <Setter Property="ColumnWidth" Value="220"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10, 0, 0, 0"/>
+        </Style>
+
+        <Style x:Key="headerStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Bold" />
+            <Setter Property="Background" Value="#B8B7E8"/>
+            <Setter Property="Foreground" Value="#00061B"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
     </Application.Resources>
 </Application>
