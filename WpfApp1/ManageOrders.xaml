@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfApp1.ManageOrders" Style="{StaticResource AdminWindow}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="ManageOrders">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Border CornerRadius="0" Style="{StaticResource AdminBorder}">
+                <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А      А  Д  М  И  Н  И  С  Т  Р  И  Р  О  В  А  Н  И  Е" Style="{StaticResource Header1}"/>
+            </Border>
+            <Button Margin="-100, 20, 0, 0" Width="50" Height="50" Click="GoBack" Style="{StaticResource adminButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Open Door.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <TextBlock Text="У  П  Р  А  В  Л  Е  Н  И  Е     З  А  К  А  З  А  М  И" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
+        
+        
+        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="33, 186, 0, 0">
+                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      З  А  К  А  З" Margin="0, 0, 243, 0" Style="{StaticResource AdminText}"/>
+                <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   З  А  К  А  З  О  В" Width="450" Height="24" FontSize="14" Style="{StaticResource adminButton}"/>
+                <Border Width="24" Height="24" Margin="-875, 0, 0, 0" CornerRadius="0"  Style="{StaticResource AdminBorder}">
+                    <Button  Width="24" Height="24" Style="{StaticResource adminButtonDarker}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Galochka.png" Stretch="None" TileMode="None"/>
+                        </Button.Background>
+                    </Button>
+                </Border>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="33, 53, 0, 0">
+                <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  Ы  Й     А  Д  Р  Е  С     Д  О  С  Т  А  В  К  И" Margin="0, 0, 133, 0" Style="{StaticResource AdminText}"/>
+                <TextBox Text="Н О В Ы Й   А Д Р Е С" Width="450" Height="55" Margin="10, 0, 12, 0" Style="{StaticResource AdminBox}"/>
+                <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
+                <Button Content="C  О  Х  Р  А  Н  И  Т  Ь      И  З  М  Е  Н  Е  Н  И  Я" Width="450" Height="55" Margin="555, 0, 12, 0" Style="{StaticResource adminButtonDarker}"/>
+                <Button Content="О Т М Е Н И Т Ь   З А К А З" Width="150" Height="55" FontSize="14" Background="#D51A1A" Style="{StaticResource adminButtonDarker}"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>

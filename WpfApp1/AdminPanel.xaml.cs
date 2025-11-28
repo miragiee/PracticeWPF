@@ -79,5 +79,19 @@ namespace WpfApp1
             goodsList.Show();
             this.Close();
         }
+
+        private void GoToBuyGoods(object sender, RoutedEventArgs e)
+        {
+            BuyGoods goodsList = new BuyGoods();
+            goodsList.Show();
+            this.Close();
+        }
+
+        private void GoToManageOrders(object sender, RoutedEventArgs e)
+        {
+            ManageOrders goodsList = new ManageOrders();
+            goodsList.Show();
+            this.Close();
+        }
     }
 }
