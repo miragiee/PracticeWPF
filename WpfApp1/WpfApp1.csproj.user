@@ -1,33 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
-  <ItemGroup>
-    <Compile Update="AdminPanel.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Burger.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="ChangeEmployeeData.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="EmployeeList.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="EULA.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Payment.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="PaymentSuccessful.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Profile.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="ShoppingCart.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
+  <ItemGroup />
 </Project>

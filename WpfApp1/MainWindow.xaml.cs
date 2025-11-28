@@ -29,35 +29,30 @@ namespace WpfApp1
             login = LoginBox.Text;
             password = PasswordBox.Text;
 
-            if (login != "" && password != "")
+            switch (login)
             {
-                if (login == "admin" && password == "123456")
-                {
-                    AdminPanel admPanel = new AdminPanel();
-                    admPanel.Show();
-                    this.Close();
-                }
-                else
-                {
+                case "admin":
+                    if (password == "123456")
+                    {
+                        AdminPanel adminPanel = new AdminPanel();
+                        adminPanel.Show();
+                        this.Close();
+                    }
+                    break;
+                case "baker":
+                    if (password == "bakingBread")
+                    {
+                        BakerInterface bakerInterface = new BakerInterface();
+                        bakerInterface.Show();
+                        this.Close();
+                    }
+                    break;
+
+                case "user":
                     GoodsMain goodsMain = new GoodsMain();
                     goodsMain.Show();
-                    this.Close();
-                    
-                }
+                    break;
             }
-            //else
-            //{
-            //    if (LoginBox.Text == "Почта | Логин")
-            //    {
-            //        LoginBox.Text = "Введите логин*";
-            //        LoginBox.Foreground = Brushes.Red;
-            //    }
-            //    if (PasswordBox.Text == "Пароль")
-            //    {
-            //        PasswordBox.Text = "Введите пароль*";
-            //        PasswordBox.Foreground = Brushes.Red;
-            //    }
-            //}
         }
 
         private void MoveToRegister(object sender, RoutedEventArgs e)

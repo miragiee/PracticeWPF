@@ -1,5 +1,23 @@
 ﻿
-
-FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminPanel.xaml;;
-FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\ManageOrders.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\App.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\AddEmployee.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\AdminPanel.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\BuyGoods.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\ChangeEmployeeData.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\ClientList.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\EmployeeList.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\GoodsList.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\ManageGoods.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\ManageOrders.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\AdminInterface\OrderList.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\EmployeeInterface\BakerInterface.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\MainWindow.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\UserInterface\Burger.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\UserInterface\EULA.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\UserInterface\GoodsMain.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\UserInterface\Payment.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\UserInterface\PaymentSuccessful.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\UserInterface\Profile.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\UserInterface\Register.xaml;;
+FC:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\UserInterface\ShoppingCart.xaml;;
 

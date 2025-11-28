@@ -15,6 +15,12 @@
             <Setter Property="Width" Value="1440"/>
             <Setter Property="Background" Value ="#F5F8FE"/>
         </Style>
+        
+        <Style x:Key="BakerWindow" TargetType="Window">
+            <Setter Property="Height" Value="1024"/>
+            <Setter Property="Width" Value="1440"/>
+            <Setter Property="Background" Value ="#FEFDF5"/>
+        </Style>
 
         <Style TargetType="Border">
             <Setter Property="Background" Value="#5CAD3E"/>
@@ -25,6 +31,15 @@
 
         <Style x:Key="AdminBorder" TargetType="Border">
             <Setter Property="Background" Value="#3E44AD"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="1440"/>
+            <Setter Property="Height" Value="90"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+        
+        <Style x:Key="BakerBorder" TargetType="Border">
+            <Setter Property="Background" Value="#C78D54"/>
             <Setter Property="CornerRadius" Value="10"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Width" Value="1440"/>
@@ -69,12 +84,22 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
+        <Style x:Key="BakerText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="./Fonts/Static/#Sofia Sans Condensed Regular"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="#1B1500"/>
+            <Setter Property="Typography.Kerning" Value="True"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
         <Style x:Key="WhiteBox" TargetType="TextBox">
             <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Thin" />
             <Setter Property="FontSize" Value="32"/>
             <Setter Property="Cursor" Value="IBeam"/>
-            <Setter Property="Background" Value="#F8FEF5"/>
-            <Setter Property="Foreground" Value="#071B00"/>
+            <Setter Property="Background" Value="#FEFDF5"/>
+            <Setter Property="Foreground" Value="#1B1500"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -123,6 +148,7 @@
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
         </Style>
+        
         <Style x:Key="BuyButton" TargetType="Button">
             <Setter Property="FontFamily" Value ="./Fonts/#Sofia Sans Condensed Regular"/>
             <Setter Property="FontSize" Value="14"></Setter>
@@ -180,6 +206,18 @@
 
         </Style>
 
+        <Style x:Key="bakerButton" TargetType="Button">
+            <Setter Property="FontFamily" Value ="./Fonts/#Sofia Sans Condensed Regular"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Background" Value="#C78D54"/>
+            <Setter Property="Foreground" Value="#FEFDF5"/>
+            <Setter Property="Width" Value="280"/>
+            <Setter Property="Height" Value="55"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
         <Style x:Key="adminTable" TargetType="DataGrid">
             <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Regular" />
             <Setter Property="FontSize" Value="20"/>
@@ -203,8 +241,7 @@
             <Setter Property="CanUserResizeColumns" Value="False"/>
             <Setter Property="CanUserSortColumns" Value="False"/>
             <Setter Property="ColumnWidth" Value="220"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
 
         </Style>
 
@@ -212,6 +249,41 @@
             <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Bold" />
             <Setter Property="Background" Value="#B8B7E8"/>
             <Setter Property="Foreground" Value="#00061B"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
+        <Style x:Key="bakerTable" TargetType="DataGrid">
+            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Regular" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#EDEAC8"/>
+            <Setter Property="Foreground" Value="#1B1500"/>
+            <Setter Property="Width" Value="1200"/>
+            <Setter Property="Height" Value="186"/>
+            <Setter Property="ColumnHeaderHeight" Value="31"/>
+            <Setter Property="RowHeight" Value="31"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="RowBackground" Value="#EDEAC8"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#00061B"/>
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource headerStyle1}"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="False"/>
+            <Setter Property="ColumnWidth" Value="220"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+
+        </Style>
+
+        <Style x:Key="headerStyle1" TargetType="DataGridColumnHeader">
+            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Bold" />
+            <Setter Property="Background" Value="#EDEAC8"/>
+            <Setter Property="Foreground" Value="#1B1500"/>
             <Setter Property="FontSize" Value="24"/>
         </Style>
 
