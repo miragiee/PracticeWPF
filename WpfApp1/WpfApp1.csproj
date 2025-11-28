@@ -93,4 +93,10 @@
     <Resource Include="Images\Shopping Cart.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ClientList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

@@ -51,5 +51,12 @@ namespace WpfApp1
             employeeData.Show();
             this.Close();
         }
+
+        private void GoToClientLost(object sender, RoutedEventArgs e)
+        {
+            ClientList clientList = new ClientList();
+            clientList.Show();
+            this.Close();
+        }
     }
 }

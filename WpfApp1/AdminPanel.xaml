@@ -35,7 +35,7 @@
                     <TextBlock Text="К Л И Е Н Т Ы" Foreground="#F5F8FE" Style="{StaticResource AdminText}"/>
                 </Border>
 
-                <Button Content="С П И С О К   К Л И Е Н Т О В" Margin="27, 0, 0, 20" Style="{StaticResource adminButton}"/>
+                <Button Content="С П И С О К   К Л И Е Н Т О В" Margin="27, 0, 0, 20" Click="GoToClientLost" Style="{StaticResource adminButton}"/>
             </StackPanel>
 
             <StackPanel Margin="-100, 0, 0, 0">

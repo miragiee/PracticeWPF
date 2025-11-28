@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\App.xaml
-13-1979711707
+14-724401464
 
-17-857907834
+21-643976414
 220554206575
-AddEmployee.xaml;AdminPanel.xaml;Burger.xaml;ChangeEmployeeData.xaml;EmployeeList.xaml;EULA.xaml;GoodsMain.xaml;MainWindow.xaml;Payment.xaml;PaymentSuccessful.xaml;Profile.xaml;Register.xaml;ShoppingCart.xaml;
+AddEmployee.xaml;AdminPanel.xaml;Burger.xaml;ChangeEmployeeData.xaml;ClientList.xaml;EmployeeList.xaml;EULA.xaml;GoodsMain.xaml;MainWindow.xaml;Payment.xaml;PaymentSuccessful.xaml;Profile.xaml;Register.xaml;ShoppingCart.xaml;
 
 False
 
