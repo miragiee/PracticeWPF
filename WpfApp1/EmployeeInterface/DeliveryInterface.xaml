@@ -48,9 +48,9 @@
         <StackPanel Margin="0, 400, 0, 0">
             <TextBlock Text="Д  А  Н  Н  Ы  Е     О     З  А  К  А  З  Е" Margin="0, 202, 0, 0" FontSize="24" Style="{StaticResource DeliveryText}"/>
 
-            <DataGrid Name="EmplGirdData" Margin="0, 28, 0, 0" ItemsSource="{Binding Delivery}" Style="{StaticResource DeliveryTable}" Width="864">
+            <DataGrid Name="EmplGirdData" Margin="0, 28, 0, 0" ItemsSource="{Binding Delivery}" Style="{StaticResource DeliveryTable}" Width="988">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Номер" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Номер"  Binding="{Binding Id}" />
                     <DataGridTextColumn Header="Адрес получения" Binding="{Binding PickUpAddress}" />
                     <DataGridTextColumn Header="Срок доставки" Binding="{Binding DeliveryTime}" />
                     <DataGridTextColumn Header="Адрес доставки" Binding="{Binding DeliveryAddress}" />

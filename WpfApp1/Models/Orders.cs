@@ -10,12 +10,16 @@ namespace WpfApp1.Models
     {
         private Client _client = new Client();
         private string? _deliveryAddress;
+        private string? _goodsDisplay;
         public int Id { get; set; }
         public int ClientId { get; set; }
         public decimal totalCost { get; set; }
         public bool Delivery { get; set; }
         public TimeSpan CookingTime { get; set; }
         public int[]? OrderedGoodsID {  get; set; }
+
+        public string GoodsDisplay => OrderedGoodsID != null ? string.Join(", ", OrderedGoodsID) : string.Empty;
+       
         public double Weight { get; set; }
 
         public TimeSpan DeliveryTime { get; set; }

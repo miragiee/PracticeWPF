@@ -6,6 +6,7 @@
     <Application.Resources>
         
         <!--Global-->
+        
         <Style x:Key="Header1" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="./Fonts/Static/#Sofia Sans Condensed Medium"/>
             <Setter Property="FontSize" Value="48"/>
@@ -80,8 +81,13 @@
             <Setter Property="Background" Value="#EDC8C8"/>
             <Setter Property="Foreground" Value="#1B1500"/>
             <Setter Property="FontSize" Value="24"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
-        
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="Margin" Value="90, 0, 0, 0"/>
+        </Style>
+
         <!--UserInterface-->
 
         <Style x:Key="BigWindow" TargetType="Window">

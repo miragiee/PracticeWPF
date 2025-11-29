@@ -37,7 +37,7 @@ namespace WpfApp1.EmployeeInterface
                 {
                     Id = 1,
                     DeliveryAddress = "Улица Пушкина",
-                    PickUpAdress = "Магазин",
+                    PickUpAddress = "Магазин",
                     DeliveryTime = new TimeSpan(1, 0, 0),
                     EmployeeID = 5,
                     OrderID = 228,
@@ -47,7 +47,7 @@ namespace WpfApp1.EmployeeInterface
                 {
                     Id = 2,
                     DeliveryAddress = "Улица Лермонтова",
-                    PickUpAdress = "Магазин",
+                    PickUpAddress = "Магазин",
                     DeliveryTime = new TimeSpan(0, 30, 0),
                     EmployeeID = 5,
                     OrderID = 1337

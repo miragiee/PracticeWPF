@@ -35,6 +35,7 @@ namespace WpfApp1
                     Id = 2,
                     Delivery = true,
                     OrderedGoodsID = [1, 2, 3, 4],
+                    
                     CookingTime = new TimeSpan(1, 0, 0)
                 },
 
