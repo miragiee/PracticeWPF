@@ -12,20 +12,20 @@
             
             <Button Height="30" Width="57" Margin="83, 30, 0, 0" Click="Close_Burger">
                 <Button.Background>
-                    <ImageBrush Stretch="Uniform" TileMode="None" ImageSource="./Images/burgerClose.png"/>
+                    <ImageBrush Stretch="Uniform" TileMode="None" ImageSource="/Images/burgerClose.png"/>
                 </Button.Background>
             </Button>
 
         </StackPanel>
 
         <StackPanel Margin="75,86,0,271" HorizontalAlignment="Left">
-            <Button Height="30" Background="#5CAD3E" Content="М У Ч Н Ы Е   И З Д Е Л И Я" Style="{StaticResource CatButton}"/>
-            <Button Height="30" Background="#5CAD3E" Content="Ф Р У К Т Ы   И   О В О Щ И" Style="{StaticResource CatButton}"/>
-            <Button Height="30" Background="#5CAD3E" Content="М Я С О" Style="{StaticResource CatButton}"/>
-            <Button Height="30" Background="#5CAD3E" Content="Н А П И Т К И" Style="{StaticResource CatButton}"/>
-            <Button Height="30" Background="#5CAD3E" Content="Г О Т О В А Я   П Р О Д У К Ц И Я" Style="{StaticResource CatButton}"/>
-            <Button Height="30" Background="#5CAD3E" Content="С Л А Д О С Т И" Style="{StaticResource CatButton}"/>
-            <Button Height="30" Background="#5CAD3E" Content="С Р Е Д С Т В А   Г И Г И Е Н Ы" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="М У Ч Н Ы Е   И З Д Е Л И Я" Click="SwitchCategoryToBread" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="Ф Р У К Т Ы   И   О В О Щ И" Click="SwitchCategoryToFruit" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="М Я С О" Click="SwitchCategoryToMeat" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="Н А П И Т К И" Click="SwitchCategoryToDrinks" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="Г О Т О В А Я   П Р О Д У К Ц И Я" Click="SwitchCategoryToReadyMeals" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="С Л А Д О С Т И" Click="SwitchCategoryToSweets" Style="{StaticResource CatButton}"/>
+            <Button Height="30" Background="#5CAD3E" Content="С Р Е Д С Т В А   Г И Г И Е Н Ы" Click="SwitchCategoryToHygiene" Style="{StaticResource CatButton}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">

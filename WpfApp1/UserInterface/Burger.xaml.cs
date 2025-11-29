@@ -20,7 +20,7 @@ namespace WpfApp1
     /// </summary>
     public partial class Burger : Window
     {
-        public Window ParentWindow { get; set; }
+        public Window? ParentWindow { get; set; }
         
         public Burger()
         {
@@ -48,6 +48,41 @@ namespace WpfApp1
             cart.ShowDialog();
             this.Close();
             
+        }
+
+        private void SwitchCategoryToBread(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SwitchCategoryToFruit(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SwitchCategoryToMeat(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SwitchCategoryToDrinks(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SwitchCategoryToReadyMeals(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SwitchCategoryToSweets(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SwitchCategoryToHygiene(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
