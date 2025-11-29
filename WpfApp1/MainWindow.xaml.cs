@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.EmployeeInterface;
 
 namespace WpfApp1
 {
@@ -16,8 +17,8 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string login;
-        public string password;
+        public string? login;
+        public string? password;
         public MainWindow()
         {
             InitializeComponent();
@@ -44,6 +45,15 @@ namespace WpfApp1
                     {
                         BakerInterface bakerInterface = new BakerInterface();
                         bakerInterface.Show();
+                        this.Close();
+                    }
+                    break;
+
+                case "cashier":
+                    if(password == "cashier1")
+                    {
+                        CashierInterface cashierInterface = new CashierInterface();
+                        cashierInterface.Show();
                         this.Close();
                     }
                     break;

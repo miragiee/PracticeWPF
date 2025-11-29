@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfApp1.EmployeeInterface.CashierInterface" Style="{StaticResource CashierWindow}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.EmployeeInterface"
+        mc:Ignorable="d"
+        Title="CashierInterface">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Border CornerRadius="0" Style="{StaticResource CashierBorder}">
+                <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А      А  Д  М  И  Н  И  С  Т  Р  И  Р  О  В  А  Н  И  Е" Style="{StaticResource Header1}"/>
+            </Border>
+            <Button Margin="-100, 20, 0, 0" Width="50" Height="50" Click="GoBack" Style="{StaticResource cashierButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Open Door.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <TextBlock Text="С  П  И  С  О  К     З  А  К  А  З  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource CashierText}"/>
+
+        <DataGrid Name="EmployeeListDataGrid" Margin="0, -400, 0, 0" ItemsSource="{Binding OrdersGoods}" Style="{StaticResource cashierTable}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Название товара" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Количество" Binding="{Binding Amount}" />
+                <DataGridTextColumn Header="Стоимость 1 шт" Width="300" Binding="{Binding Price}" />
+                <DataGridTextColumn Header="Итого" Binding="{Binding TotalPrice}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" Margin="120, 0, 0, 0">
+            <TextBlock Text="В  Ы  Б  О  Р       З  А  К  А  З  А" Margin="0, -60, 243, 0" Style="{StaticResource CashierText}"/>
+            <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   З  А  К  А  З  О  В" Foreground="#1B1500" Background="#DEDEDE" Margin="-200, 462, 0, 0" Width="450" Height="24" FontSize="14" Style="{StaticResource cashierButton}"/>
+            <Border Width="24" Height="24" Margin="-900, 462, 0, 0" CornerRadius="0"  Style="{StaticResource CashierBorder}">
+                <Button   Width="24" Height="24" Style="{StaticResource cashierButton}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Galochka.png" Stretch="None" TileMode="None"/>
+                    </Button.Background>
+                </Button>
+            </Border>
+
+            <Button Content="С  Д  А  Т  Ь     З  А  К  А  З" Margin="-1065, 530, 0, 0"  Style="{StaticResource cashierButton}"/>
+        </StackPanel>
+        
+        <Button Content="О Т М Е Н И Т Ь   П О К У П К У" HorizontalAlignment="Left" Style="{StaticResource cashierButton}" Margin="120,652,0,0"/>
+        <StackPanel Height="120" Width="829" Margin="120,878,491,10">
+            <TextBlock Text="И  Т  О  Г  О:     С  У  М  М  А     С  Т  О  И  М  О  С  Т  Ь     В  С  Е  Х     Т  О  В  А  Р  О  В" HorizontalAlignment="Left" FontSize="32" Foreground="#000000" Style="{StaticResource Header2}" Width="857"/>
+            <Button Content="П Е Р Е Й Т И   К   О П Л А Т Е" HorizontalAlignment="Left" Click="GoToPayment" Style="{StaticResource cashierButton}"/>
+        </StackPanel>
+    </Grid>
+</Window>

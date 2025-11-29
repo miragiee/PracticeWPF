@@ -120,3 +120,5 @@ C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\UserInterface\ShoppingCart.baml
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\EmployeeInterface\BakerInterface.g.cs
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\EmployeeInterface\BakerInterface.baml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\EmployeeInterface\CashierInterface.g.cs
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\EmployeeInterface\CashierInterface.baml
