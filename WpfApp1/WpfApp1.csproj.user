@@ -8,5 +8,26 @@
     <Compile Update="EmployeeInterface\DeliveryInterface.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserInterface\Categories\BreadCat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserInterface\Categories\DrinksCat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserInterface\Categories\FruitCat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserInterface\Categories\HygienaCat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserInterface\Categories\MeatCat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserInterface\Categories\ReadyMealCat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserInterface\Categories\SweetsCat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
