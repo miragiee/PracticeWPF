@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\App.xaml
-211487750365
+22281862568
 
-29-2054247320
+311135122136
 220-933066306
-AdminInterface\AddEmployee.xaml;AdminInterface\AdminPanel.xaml;AdminInterface\BuyGoods.xaml;AdminInterface\ChangeEmployeeData.xaml;AdminInterface\ClientList.xaml;AdminInterface\EmployeeList.xaml;AdminInterface\GoodsList.xaml;AdminInterface\ManageGoods.xaml;AdminInterface\ManageOrders.xaml;AdminInterface\OrderList.xaml;EmployeeInterface\BakerInterface.xaml;EmployeeInterface\CashierInterface.xaml;MainWindow.xaml;UserInterface\Burger.xaml;UserInterface\EULA.xaml;UserInterface\GoodsMain.xaml;UserInterface\Payment.xaml;UserInterface\PaymentSuccessful.xaml;UserInterface\Profile.xaml;UserInterface\Register.xaml;UserInterface\ShoppingCart.xaml;
+AdminInterface\AddEmployee.xaml;AdminInterface\AdminPanel.xaml;AdminInterface\BuyGoods.xaml;AdminInterface\ChangeEmployeeData.xaml;AdminInterface\ClientList.xaml;AdminInterface\EmployeeList.xaml;AdminInterface\GoodsList.xaml;AdminInterface\ManageGoods.xaml;AdminInterface\ManageOrders.xaml;AdminInterface\OrderList.xaml;EmployeeInterface\BakerInterface.xaml;EmployeeInterface\CashierInterface.xaml;EmployeeInterface\DeliveryInterface.xaml;MainWindow.xaml;UserInterface\Burger.xaml;UserInterface\EULA.xaml;UserInterface\GoodsMain.xaml;UserInterface\Payment.xaml;UserInterface\PaymentSuccessful.xaml;UserInterface\Profile.xaml;UserInterface\Register.xaml;UserInterface\ShoppingCart.xaml;
 
 False
 

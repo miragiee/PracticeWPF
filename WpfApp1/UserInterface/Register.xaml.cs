@@ -19,7 +19,7 @@ namespace WpfApp1
     /// </summary>
     public partial class Register : Window
     {
-        private bool eulaIsAccepted = false;
+        //private bool eulaIsAccepted = false;
 
         public Register()
         {

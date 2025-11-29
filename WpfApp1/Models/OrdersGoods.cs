@@ -8,7 +8,7 @@ namespace WpfApp1.Models
 {
     public class OrdersGoods
     {
-        private Goods _goods;
+        //private Goods _goods;
         private decimal _totalPrice;
         private decimal _price;
         private int _amount;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-    public class Order
+    public class Orders
     {
         private Client _client = new Client();
         private string? _deliveryAddress;
@@ -16,6 +16,9 @@ namespace WpfApp1.Models
         public bool Delivery { get; set; }
         public TimeSpan CookingTime { get; set; }
         public int[]? OrderedGoodsID {  get; set; }
+        public double Weight { get; set; }
+
+        public TimeSpan DeliveryTime { get; set; }
 
         public string? DeliveryAddress
         {
@@ -26,7 +29,6 @@ namespace WpfApp1.Models
             set
             {
                 _deliveryAddress = value;
-                value = _client.Address;
             }
         }
     }

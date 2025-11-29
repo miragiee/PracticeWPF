@@ -62,6 +62,15 @@ namespace WpfApp1
                     GoodsMain goodsMain = new GoodsMain();
                     goodsMain.Show();
                     break;
+
+                case "delivery":
+                    if (password == "delivery")
+                    {
+                        DeliveryInterface deliveryInterface = new DeliveryInterface();
+                        deliveryInterface.Show();
+                        this.Close();
+                    }
+                    break;
             }
         }
 

@@ -1,0 +1,68 @@
+﻿<Window x:Class="WpfApp1.EmployeeInterface.DeliveryInterface" Style="{StaticResource DeliveryWindow}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.EmployeeInterface"
+        mc:Ignorable="d"
+        Title="DeliveryInterface">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Border CornerRadius="0" Style="{StaticResource DeliveryBorder}">
+                <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А      А  Д  М  И  Н  И  С  Т  Р  И  Р  О  В  А  Н  И  Е" Style="{StaticResource Header1}"/>
+            </Border>
+            <Button Margin="-100, 20, 0, 0" Width="50" Height="50" Click="GoBack" Style="{StaticResource DeliveryButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Open Door.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+        <TextBlock Text="С  П  И  С  О  К     З  А  К  А  З  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource DeliveryText}"/>
+
+        <DataGrid Name="EmployeeListDataGrid" Margin="0, -400, 0, 0" ItemsSource="{Binding Order}" Style="{StaticResource DeliveryTable}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="ФИО Клиента" Binding="{Binding ClientId}" />
+                <DataGridTextColumn Header="Вес заказа" Binding="{Binding Weight}" />
+                <DataGridTextColumn Header="Срок доставки" Binding="{Binding DeliveryTime}" />
+                <DataGridTextColumn Header="Адрес доставки" Binding="{Binding DeliveryAddress}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" Margin="120, 0, 0, 0">
+            <TextBlock Text="В  Ы  Б  О  Р       З  А  К  А  З  А" Margin="0, -60, 243, 0" Style="{StaticResource DeliveryText}"/>
+            <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   З  А  К  А  З  О  В" Foreground="#1B1500" Background="#EDC8C8" Margin="-200, 462, 0, 0" Width="450" Height="24" FontSize="14" Style="{StaticResource DeliveryButton}"/>
+            <Border Width="24" Height="24" Margin="-900, 462, 0, 0" CornerRadius="0"  Style="{StaticResource DeliveryBorder}">
+                <Button   Width="24" Height="24" Style="{StaticResource DeliveryButton}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Galochka.png" Stretch="None" TileMode="None"/>
+                    </Button.Background>
+                </Button>
+            </Border>
+
+            <Button Content="В  З  Я  Т  Ь     З  А  К  А  З" Margin="-1065, 530, 0, 0"  Style="{StaticResource DeliveryButton}"/>
+
+        </StackPanel>
+
+        <StackPanel Margin="0, 400, 0, 0">
+            <TextBlock Text="Д  А  Н  Н  Ы  Е     О     З  А  К  А  З  Е" Margin="0, 202, 0, 0" FontSize="24" Style="{StaticResource DeliveryText}"/>
+
+            <DataGrid Name="EmplGirdData" Margin="0, 28, 0, 0" ItemsSource="{Binding Delivery}" Style="{StaticResource DeliveryTable}" Width="864">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Адрес получения" Binding="{Binding PickUpAddress}" />
+                    <DataGridTextColumn Header="Срок доставки" Binding="{Binding DeliveryTime}" />
+                    <DataGridTextColumn Header="Адрес доставки" Binding="{Binding DeliveryAddress}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Orientation="Horizontal" Margin="120, 0, 0, 0">
+                
+
+                <Button Content="С  Д  А  Т  Ь     З  А  К  А  З" Margin="0, 28, 0, 0"  Style="{StaticResource DeliveryButton}"/>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

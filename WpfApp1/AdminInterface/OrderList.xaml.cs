@@ -22,16 +22,16 @@ namespace WpfApp1
 
     public partial class OrderList : Window
     {
-        public ObservableCollection<Order> Orders { get; set; }
+        public ObservableCollection<Orders> Orders { get; set; }
 
         public OrderList()
         {
 
             InitializeComponent();
 
-            Orders = new ObservableCollection<Order>()
+            Orders = new ObservableCollection<Orders>()
             {
-                new Order
+                new Orders
                 {
                    Id = 1,
                    ClientId = 1,
@@ -41,7 +41,7 @@ namespace WpfApp1
                    OrderedGoodsID = [1, 2, 3, 4]
                 },
 
-                new Order
+                new Orders
                 {
                    Id = 3,
                    ClientId= 3,

@@ -23,14 +23,14 @@ namespace WpfApp1
     /// </summary>
     public partial class BakerInterface : Window
     {
-        public ObservableCollection<Order> Bakery { get; set; }
+        public ObservableCollection<Orders> Bakery { get; set; }
         public BakerInterface()
         {
             InitializeComponent();
 
-            Bakery = new ObservableCollection<Order>()
+            Bakery = new ObservableCollection<Orders>()
             {
-                new Order
+                new Orders
                 {
                     Id = 2,
                     Delivery = true,
@@ -38,7 +38,7 @@ namespace WpfApp1
                     CookingTime = new TimeSpan(1, 0, 0)
                 },
 
-                new Order
+                new Orders
                 {
                     Id = 3,
                     Delivery = false,

@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\employeeinterface\\cashierinterface.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\employeeinterface\\cashierinterface.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\employeeinterface\\deliveryinterface.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\employeeinterface\\deliveryinterface.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\employeeinterface\\deliveryinterface.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\employeeinterface\\deliveryinterface.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\ordersgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\ordersgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\employeeinterface\\cashierinterface.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\employeeinterface\\cashierinterface.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\employeeinterface\\bakerinterface.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\employeeinterface\\bakerinterface.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,12 +37,12 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 223,
           "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\App.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\App.xaml",
@@ -58,89 +58,86 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrdersGoods.cs",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\OrdersGoods.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\OrdersGoods.cs",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\OrdersGoods.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\OrdersGoods.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA5wC8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T07:16:44.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CashierInterface.xaml",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\CashierInterface.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\EmployeeInterface\\CashierInterface.xaml",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\CashierInterface.xaml",
-              "RelativeToolTip": "WpfApp1\\EmployeeInterface\\CashierInterface.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-29T06:26:16.63Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\MainWindow.xaml.cs",
               "RelativeToolTip": "WpfApp1\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAqwDgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowEgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T13:57:40.651Z",
+              "WhenOpened": "2025-11-29T08:24:37.685Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Order.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Order.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T06:10:10.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BakerInterface.xaml",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\BakerInterface.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\EmployeeInterface\\BakerInterface.xaml",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\BakerInterface.xaml",
-              "RelativeToolTip": "WpfApp1\\EmployeeInterface\\BakerInterface.xaml",
+              "DocumentIndex": 2,
+              "Title": "DeliveryInterface.xaml",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\DeliveryInterface.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\EmployeeInterface\\DeliveryInterface.xaml",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\DeliveryInterface.xaml",
+              "RelativeToolTip": "WpfApp1\\EmployeeInterface\\DeliveryInterface.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-28T13:31:27.572Z",
+              "WhenOpened": "2025-11-29T07:47:28.44Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 177,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CashierInterface.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\CashierInterface.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\EmployeeInterface\\CashierInterface.xaml.cs",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\CashierInterface.xaml.cs",
-              "RelativeToolTip": "WpfApp1\\EmployeeInterface\\CashierInterface.xaml.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAuwBUAAAASAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Orders.cs",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Orders.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Models\\Orders.cs",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Orders.cs",
+              "RelativeToolTip": "WpfApp1\\Models\\Orders.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T06:56:22.539Z",
+              "WhenOpened": "2025-11-29T08:13:41.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeliveryInterface.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\DeliveryInterface.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\EmployeeInterface\\DeliveryInterface.xaml.cs",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\EmployeeInterface\\DeliveryInterface.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\EmployeeInterface\\DeliveryInterface.xaml.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAQwDIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T08:03:19.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrdersGoods.cs",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\OrdersGoods.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Models\\OrdersGoods.cs",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\OrdersGoods.cs",
+              "RelativeToolTip": "WpfApp1\\Models\\OrdersGoods.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T08:41:23.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Delivery.cs",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Delivery.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Models\\Delivery.cs",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Delivery.cs",
+              "RelativeToolTip": "WpfApp1\\Models\\Delivery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T08:11:24.293Z",
               "EditorCaption": ""
             }
           ]
