@@ -7,7 +7,7 @@ using WpfApp1.Models;
 
 namespace WpfApp1.Classes
 {
-    class CartItem
+    public class CartItem
     {
         public Goods Goods { get; set; }
         public int Amount { get; set; }

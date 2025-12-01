@@ -11,7 +11,7 @@ using WpfApp1.Models;
 
 namespace WpfApp1.Managers
 {
-    class CartManager
+    public class CartManager
     {
         private static CartManager _instance;
         private static object _instanceLock = new object();

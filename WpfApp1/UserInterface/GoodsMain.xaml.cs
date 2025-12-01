@@ -24,6 +24,7 @@ namespace WpfApp1
     public partial class GoodsMain : Window
     {
         public GoodsMainViewModel ViewModel { get; }
+        public CartManager CartManager { get; set; }
 
         public GoodsMain()
         {
@@ -62,14 +63,9 @@ namespace WpfApp1
             int totalItems = CartManager.Instance.Items.Sum(item => item.Amount);
         }
 
-        private void BuyButton_Click(object sender, RoutedEventArgs e)
+        private void BuyButton(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement element && element.DataContext is Goods goods)
-            {
-                CartManager.Instance.AddProduct(goods);
-
-                UpdateCartCounter();
-            }
+            
         }
     }
 }
