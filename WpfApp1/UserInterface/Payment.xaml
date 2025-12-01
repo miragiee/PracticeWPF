@@ -48,7 +48,7 @@
 
                 <StackPanel Margin="-500, 530, 252, 0">
                     <TextBlock Text="По QR-Коду" Style="{StaticResource Header2}"/>
-                    <Image Source="./Images/PaymentQR.png" Width="308" Height="307"/>
+                    <Image Source="/Images/PaymentQR.png" Width="308" Height="307"/>
                 </StackPanel>
             </StackPanel>
 

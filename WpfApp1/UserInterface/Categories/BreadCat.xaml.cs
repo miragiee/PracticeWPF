@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Managers;
+using WpfApp1.Models;
 
 namespace WpfApp1.UserInterface
 {
@@ -22,6 +24,7 @@ namespace WpfApp1.UserInterface
         public BreadCat()
         {
             InitializeComponent();
+            DataContext = new BreadCatViewModel();
         }
 
         private void OpenProfile(object sender, RoutedEventArgs e)
@@ -43,9 +46,19 @@ namespace WpfApp1.UserInterface
         private void OpenBurger(object sender, RoutedEventArgs e)
         {
             Burger burger = new Burger();
-
             burger.ParentWindow = this;
             burger.ShowDialog();
+        }
+
+        // Обработчик для кнопки "Купить"
+        private void BuyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is Goods goods)
+            {
+                CartManager.Instance.AddProduct(goods, 1);
+                MessageBox.Show($"Товар \"{goods.Name}\" добавлен в корзину!",
+                               "Корзина", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

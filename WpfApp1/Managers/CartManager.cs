@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
-using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls.Primitives;
 using WpfApp1.Classes;
 using WpfApp1.Models;
 
 namespace WpfApp1.Managers
 {
-    public class CartManager
+    public class CartManager : INotifyPropertyChanged
     {
         private static CartManager _instance;
         private static object _instanceLock = new object();
@@ -22,32 +22,42 @@ namespace WpfApp1.Managers
             {
                 lock (_instanceLock)
                 {
-                    return _instance ??=new CartManager();
+                    return _instance ??= new CartManager();
                 }
             }
-
         }
 
         public ObservableCollection<CartItem> Items { get; } = new ObservableCollection<CartItem>();
-        public decimal TotalPrice => Items.Sum(item => item.TotalPrice);
-        public event EventHandler CartChanged;
 
-        private CartManager() 
-        { 
+        private decimal _totalPrice;
+        public decimal TotalPrice
+        {
+            get => _totalPrice;
+            private set
+            {
+                _totalPrice = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event EventHandler CartChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private CartManager()
+        {
         }
 
         public void AddProduct(Goods goods, int Amount = 1)
         {
-            var existingItem = Items.FirstOrDefault(item => item.Goods.Id == goods.Id);
+            var existingItem = Items.FirstOrDefault(item => item.Product.Id == goods.Id);
 
             if (existingItem != null)
             {
                 existingItem.Amount += Amount;
             }
-
             else
             {
-                Items.Add(new CartItem { Goods = goods, Amount = Amount });
+                Items.Add(new CartItem { Product = goods, Amount = Amount });
             }
 
             CartWasChanged();
@@ -55,13 +65,13 @@ namespace WpfApp1.Managers
 
         public void DeleteProduct(Goods goods, int Amount = 1)
         {
-            var existingItem = Items.FirstOrDefault(item => item.Goods.Id == goods.Id);
+            var existingItem = Items.FirstOrDefault(item => item.Product.Id == goods.Id);
 
-            if(existingItem != null)
+            if (existingItem != null)
             {
                 existingItem.Amount -= Amount;
 
-                if(existingItem.Amount <= 0)
+                if (existingItem.Amount <= 0)
                 {
                     Items.Remove(existingItem);
                 }
@@ -78,7 +88,13 @@ namespace WpfApp1.Managers
 
         private void CartWasChanged()
         {
+            TotalPrice = Items.Sum(item => item.TotalPrice);
             CartChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -63,9 +63,22 @@ namespace WpfApp1
             int totalItems = CartManager.Instance.Items.Sum(item => item.Amount);
         }
 
-        private void BuyButton(object sender, RoutedEventArgs e)
+        private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (sender is Button button && button.Tag is Goods goods)
+            {
+                CartManager.Instance.AddProduct(goods, 1);
+                MessageBox.Show($"Товар \"{goods.Name}\" добавлен в корзину!", "Корзина",
+                               MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void ItemContainer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.OriginalSource is Button button && button.Content.ToString() == "К у п и т ь")
+            {
+                BuyButton_Click(button, e);
+            }
         }
     }
 }

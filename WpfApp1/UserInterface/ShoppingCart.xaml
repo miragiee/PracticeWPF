@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="ShoppingCart" Height="750" Width="1000">
+    <Window.Resources>
+        <local:StringToImageConverter x:Key="StringToImageConverter"/>
+    </Window.Resources>
     <Grid>
         <StackPanel Orientation="Horizontal" Width="1000" Height="90" VerticalAlignment="Top">
             <Border Width="1000" Height="90" CornerRadius="0">
@@ -19,39 +22,50 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="74,134,455,414">
-            <Image Source="/Images/salad.png" Width="150"/>
-            <StackPanel Height="157">
-                <TextBlock Text="Т О В А Р   N" Margin="18, 0, 0, 0"  Style="{StaticResource NormalText}"/>
-                <TextBlock Text="К О Л И Ч Е С Т В О   M" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}"/>
-                <TextBlock Text="С Т О И М О С Т Ь   З А   Ш Т У К У   F" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}" Width="368"/>
-                <TextBlock Text="И Т О Г О В А Я   С Т О И М О С Т Ь W" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}"/>
-                <StackPanel Orientation="Horizontal" Height="45" Margin="18, 5, 0, 0">
-                    <Button Content="+" Height="42" Width="42" Foreground="#071B00" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#F8FEF5"/>
-                    <TextBlock Text="КОЛ-ВО" VerticalAlignment="Center" Style="{StaticResource NormalText}"/>
-                    <Button Content="-" Height="42" Width="42" Foreground="#071B00" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#F8FEF5"/>
-                </StackPanel>
-            </StackPanel>
+        <ScrollViewer Margin="74,134,74,100">
+            <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Image Width="150" Height="150" Stretch="Uniform">
+                                <Image.Source>
+                                    <Binding Path="Product.ImagePath">
+                                        <Binding.TargetNullValue>
+                                            <!-- Пустое изображение по умолчанию -->
+                                            <DrawingImage/>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <StackPanel Margin="18,0,0,0" Width="368">
+                                <TextBlock Text="{Binding Product.Name}" Style="{StaticResource NormalText}"/>
+                                <TextBlock Text="{Binding Amount, StringFormat='К О Л И Ч Е С Т В О   {0}'}" 
+                                           Style="{StaticResource NormalText}"/>
+                                <TextBlock Text="{Binding Product.Price, StringFormat='С Т О И М О С Т Ь   З А   Ш Т У К У   {0}₽'}" 
+                                           Style="{StaticResource NormalText}"/>
+                                <TextBlock Text="{Binding TotalPrice, StringFormat='И Т О Г О В А Я   С Т О И М О С Т Ь   {0}₽'}" 
+                                           Style="{StaticResource NormalText}"/>
+                                <StackPanel Orientation="Horizontal" Height="45" Margin="0,5,0,0">
+                                    <Button Content="+" Height="42" Width="42" Foreground="#071B00" 
+                                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                                            Background="#F8FEF5" Click="IncreaseQuantity_Click" Tag="{Binding}"/>
+                                    <TextBlock Text="{Binding Amount}" VerticalAlignment="Center" 
+                                               Style="{StaticResource NormalText}" Margin="10,0,10,0" MinWidth="100" 
+                                               TextAlignment="Center"/>
+                                    <Button Content="-" Height="42" Width="42" Foreground="#071B00" 
+                                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                                            Background="#F8FEF5" Click="DecreaseQuantity_Click" Tag="{Binding}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
 
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal" Margin="74,325,452,215">
-            <Image Source="/Images/orange.png" Width="150"/>
-            <StackPanel Height="157">
-                <TextBlock Text="Т О В А Р   N" Margin="18, 0, 0, 0"  Style="{StaticResource NormalText}"/>
-                <TextBlock Text="К О Л И Ч Е С Т В О   M" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}"/>
-                <TextBlock Text="С Т О И М О С Т Ь   З А   Ш Т У К У   F" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}" Width="368"/>
-                <TextBlock Text="И Т О Г О В А Я   С Т О И М О С Т Ь W" Margin="18, 0, 0, 0" Style="{StaticResource NormalText}"/>
-                <StackPanel Orientation="Horizontal" Height="45" Margin="18, 5, 0, 0">
-                    <Button Content="+" Height="42" Width="42" Foreground="#071B00" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#F8FEF5"/>
-                    <TextBlock Text="КОЛ-ВО" VerticalAlignment="Center" Style="{StaticResource NormalText}"/>
-                    <Button Content="-" Height="42" Width="42" Foreground="#071B00" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#F8FEF5"/>
-                </StackPanel>
-            </StackPanel>
-
-        </StackPanel>
-
-        <TextBlock x:Name="TotalBlock" Text="С У М М А:   9 9 9 9" Margin="74, 600, 0, 0"  Style="{StaticResource NormalText}"/>
-        <Button Content="З  А  К  А  З  А  Т  Ь" Margin="74,635,676,0" FontSize="20" Width="250" Click="MoveToPayment" Foreground="#071B00"/>
+        <TextBlock x:Name="TotalBlock" Text="{Binding TotalPrice, StringFormat='С У М М А:   {0}₽'}" 
+                   Margin="74, 600, 0, 0" Style="{StaticResource NormalText}"/>
+        <Button Content="З  А  К  А  З  А  Т  Ь" Margin="74,635,676,0" FontSize="20" Width="250" 
+                Click="MoveToPayment" Foreground="#071B00"/>
     </Grid>
 </Window>
