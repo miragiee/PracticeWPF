@@ -12,9 +12,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Classes;
 using WpfApp1.Managers;
 using WpfApp1.Models;
 using WpfApp1.UserInterface;
+using WpfApp1.Managers;
+using WpfApp1.Classes;
 
 namespace WpfApp1
 {
@@ -61,6 +64,22 @@ namespace WpfApp1
             cartParent?.Close();
             this.Close();
 
+        }
+
+        private void IncreaseQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is CartItem item)
+            {
+                CartManager.Instance.AddProduct(item.Product, 1);
+            }
+        }
+
+        private void DecreaseQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is CartItem item)
+            {
+                CartManager.Instance.DeleteProduct(item.Product, 1);
+            }
         }
     }
 }

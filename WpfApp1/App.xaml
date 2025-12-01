@@ -16,7 +16,7 @@
                 </Border>
                 <TextBlock Text="{Binding Name}" FontSize="14" TextAlignment="Center"  Style="{DynamicResource NormalText}"/>
                 <TextBlock Text="{Binding Price, StringFormat='Цена: {0}₽'}" FontSize="12" TextAlignment="Center" Style="{DynamicResource NormalText}"/>
-                <Button Content="К у п и т ь" Style="{DynamicResource BuyButton}" Tag="{Binding Id}" Click="BuyButton" Margin="0,7,0,2"/>
+                <Button Content="К у п и т ь" Style="{DynamicResource BuyButton}" Tag="{Binding Id}" Margin="0,7,0,2"/>
             </StackPanel>
         </DataTemplate>
 

@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="GoodsMain" Height="1080" Width="1440">
 
+    <Window.Resources>
+        <DataTemplate x:Key="ProductTemplate">
+            <StackPanel Margin="100,0,0,0" Height="287">
+                <Border BorderBrush="Black" Width="150" Height="154">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding ImagePath}"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="{Binding Name}" FontSize="14" TextAlignment="Center"  Style="{DynamicResource NormalText}"/>
+                <TextBlock Text="{Binding Price, StringFormat='Цена: {0}₽'}" FontSize="12" TextAlignment="Center" Style="{DynamicResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{DynamicResource BuyButton}" Tag="{Binding}" Margin="0,7,0,2"
+                Click="BuyButton_Click"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
         <Grid.Background>
             <ImageBrush/>
@@ -50,6 +66,11 @@
         <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,428,512,519" Style="{StaticResource Header2}"/>
 
         <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,467,78,306">
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ItemContainer_MouseLeftButtonDown"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
@@ -59,13 +80,18 @@
 
         <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,722,512,217" Style="{StaticResource Header2}"/>
 
-        <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,744,0,0">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
+        <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,467,78,306">
+    <ItemsControl.ItemContainerStyle>
+        <Style TargetType="ContentPresenter">
+            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ItemContainer_MouseLeftButtonDown"/>
+        </Style>
+    </ItemsControl.ItemContainerStyle>
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+</ItemsControl>
 
     </Grid>
 </Window>

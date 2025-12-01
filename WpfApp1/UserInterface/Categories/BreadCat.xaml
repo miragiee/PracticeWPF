@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.UserInterface"
         mc:Ignorable="d"
-        Title="BreadCat">
+        Title="BreadCat" Height="1080" Width="1440">
+
     <Grid>
         <Grid.Background>
             <ImageBrush/>
@@ -47,29 +48,30 @@
         </StackPanel>
 
         <TextBlock Text="М  У  Ч  Н  Ы  Е     И  З  Д  Е  Л  И  Я" Margin="512,428,512,519" Style="{StaticResource Header2}"/>
-        <StackPanel Orientation="Horizontal" Width="410" Margin="0,467,0,0" VerticalAlignment="Top">
 
-            <StackPanel Margin="0, 0, 0, 0" Height="287">
-                <Border BorderBrush="Black" Width="150" Height="154" >
-                    <Border.Background>
-                        <ImageBrush ImageSource="/Images/bread.png"/>
-                    </Border.Background>
-                </Border>
-                <TextBlock Text="Х л е б   Ч ё р н ы й" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
-                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
-            </StackPanel>
-            <StackPanel Margin="100, 0, 0, 0">
-                <Border BorderBrush="Black" Width="150" Height="154" BorderThickness="1">
-                    <Border.Background>
-                        <ImageBrush ImageSource="/Images/lawash.jpg"/>
-                    </Border.Background>
-                </Border>
-                <TextBlock Text="Л а в а ш" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
-                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
-            </StackPanel>
-
-
-        </StackPanel>
+        <!-- Используем ItemsControl для динамического отображения товаров -->
+        <ItemsControl ItemsSource="{Binding Goods}" Margin="46,467,78,306">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="100,0,0,0" Height="287" Width="250">
+                        <Border BorderBrush="Black" Width="150" Height="154">
+                            <Border.Background>
+                                <ImageBrush ImageSource="{Binding ImagePath}"/>
+                            </Border.Background>
+                        </Border>
+                        <TextBlock Text="{Binding Name}" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                        <TextBlock Text="{Binding Price, StringFormat='Цена: {0}₽'}" FontSize="12" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                        <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" 
+                                Tag="{Binding}" Margin="0,7,0,2" Click="BuyButton_Click"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
 
     </Grid>
 </Window>
