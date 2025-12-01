@@ -51,7 +51,7 @@
             </StackPanel>
             <Rectangle Height="380" Width="380" Margin="89, 0, 0, 0" VerticalAlignment="Top">
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="./Images/Avatar.png"/>
+                    <ImageBrush ImageSource="/Images/Avatar.png"/>
                 </Rectangle.Fill>
             </Rectangle>
 

@@ -60,6 +60,7 @@
             <Setter Property="Background" Value="#B8B7E8"/>
             <Setter Property="Foreground" Value="#00061B"/>
             <Setter Property="FontSize" Value="24"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
         
         <Style x:Key="headerStyle1" TargetType="DataGridColumnHeader">
@@ -67,6 +68,7 @@
             <Setter Property="Background" Value="#EDEAC8"/>
             <Setter Property="Foreground" Value="#1B1500"/>
             <Setter Property="FontSize" Value="24"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
 
         <Style x:Key="headerStyle2" TargetType="DataGridColumnHeader">
@@ -74,6 +76,7 @@
             <Setter Property="Background" Value="#DEDEDE"/>
             <Setter Property="Foreground" Value="#1B1500"/>
             <Setter Property="FontSize" Value="24"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
 
         <Style x:Key="headerStyle3" TargetType="DataGridColumnHeader">

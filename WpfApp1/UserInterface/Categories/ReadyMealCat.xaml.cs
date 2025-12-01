@@ -23,5 +23,28 @@ namespace WpfApp1.UserInterface.Categories
         {
             InitializeComponent();
         }
+        private void OpenProfile(object sender, RoutedEventArgs e)
+        {
+            WindowManager.SaveWindowStats(this);
+            Profile profile = new Profile();
+            WindowManager.SetWindowStats(profile);
+            profile.Show();
+            this.Close();
+        }
+
+        private void OpenCart(object sender, RoutedEventArgs e)
+        {
+            ShoppingCart cart = new ShoppingCart();
+            cart.cartParent = this;
+            cart.ShowDialog();
+        }
+
+        private void OpenBurger(object sender, RoutedEventArgs e)
+        {
+            Burger burger = new Burger();
+
+            burger.ParentWindow = this;
+            burger.ShowDialog();
+        }
     }
 }

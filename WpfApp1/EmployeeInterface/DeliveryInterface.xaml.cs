@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.Models;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1.EmployeeInterface
 {
@@ -87,7 +88,9 @@ namespace WpfApp1.EmployeeInterface
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             MainWindow mainWindow = new MainWindow();
+            WindowManager.SetWindowStats(mainWindow);
             mainWindow.Show();
             this.Close();
         }

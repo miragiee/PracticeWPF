@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.EmployeeInterface;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -19,9 +20,11 @@ namespace WpfApp1
     {
         public string? login;
         public string? password;
+        
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         // Временный алгоритм авторизации
@@ -30,12 +33,15 @@ namespace WpfApp1
             login = LoginBox.Text;
             password = PasswordBox.Text;
 
+            WindowManager.SaveWindowStats(this);
+
             switch (login)
             {
                 case "admin":
                     if (password == "123456")
                     {
                         AdminPanel adminPanel = new AdminPanel();
+                        WindowManager.SetWindowStats(adminPanel);
                         adminPanel.Show();
                         this.Close();
                     }
@@ -44,6 +50,7 @@ namespace WpfApp1
                     if (password == "bakingBread")
                     {
                         BakerInterface bakerInterface = new BakerInterface();
+                        WindowManager.SetWindowStats(bakerInterface);
                         bakerInterface.Show();
                         this.Close();
                     }
@@ -53,6 +60,7 @@ namespace WpfApp1
                     if(password == "cashier1")
                     {
                         CashierInterface cashierInterface = new CashierInterface();
+                        WindowManager.SetWindowStats(cashierInterface);
                         cashierInterface.Show();
                         this.Close();
                     }
@@ -60,6 +68,7 @@ namespace WpfApp1
 
                 case "user":
                     GoodsMain goodsMain = new GoodsMain();
+                    WindowManager.SetWindowStats(goodsMain);
                     goodsMain.Show();
                     break;
 
@@ -67,16 +76,20 @@ namespace WpfApp1
                     if (password == "delivery")
                     {
                         DeliveryInterface deliveryInterface = new DeliveryInterface();
+                        WindowManager.SetWindowStats(deliveryInterface);
                         deliveryInterface.Show();
                         this.Close();
                     }
                     break;
             }
+            this.Close();
         }
 
         private void MoveToRegister(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             Register register = new Register();
+            WindowManager.SetWindowStats(register);
             register.Show();
             this.Close();
         }

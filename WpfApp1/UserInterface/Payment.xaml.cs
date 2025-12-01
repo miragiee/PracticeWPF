@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -22,11 +23,14 @@ namespace WpfApp1
         public Payment()
         {
             InitializeComponent();
+            
         }
 
         private void Pay(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             PaymentSuccessful paymentSuccessful = new PaymentSuccessful();
+            WindowManager.SetWindowStats(paymentSuccessful);
             paymentSuccessful.Show();
             this.Close();
         }

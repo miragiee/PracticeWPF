@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.UserInterface;
+using WpfApp1.UserInterface.Categories;
 
 namespace WpfApp1
 {
@@ -20,11 +22,13 @@ namespace WpfApp1
     /// </summary>
     public partial class Burger : Window
     {
-        public Window? ParentWindow { get; set; }
+        private Window _parentWindow;
+        public Window ParentWindow { get; set; }
         
         public Burger()
         {
             InitializeComponent();
+            
         }
 
         private void Close_Burger(object sender, RoutedEventArgs e)
@@ -35,6 +39,7 @@ namespace WpfApp1
         private void Open_Profile(object sender, RoutedEventArgs e)
         {
             Profile profile = new Profile();
+            WindowManager.SetWindowStats(profile);
             profile.Show();
             this.Close();
             ParentWindow?.Close();
@@ -42,9 +47,11 @@ namespace WpfApp1
 
         private void Open_Cart(object sender, RoutedEventArgs e)
         {
+
             ShoppingCart cart = new ShoppingCart();
 
             cart.cartParent = this;
+            
             cart.ShowDialog();
             this.Close();
             
@@ -52,37 +59,58 @@ namespace WpfApp1
 
         private void SwitchCategoryToBread(object sender, RoutedEventArgs e)
         {
-
+            BreadCat cat = new BreadCat();
+            cat.Show();
+            this.Close();
+            ParentWindow?.Close();
         }
 
         private void SwitchCategoryToFruit(object sender, RoutedEventArgs e)
         {
-
+            FruitCat fruit = new FruitCat();
+            fruit.Show();
+            this.Close();
+            ParentWindow?.Close();
         }
 
         private void SwitchCategoryToMeat(object sender, RoutedEventArgs e)
         {
-
+            MeatCat meat = new MeatCat();
+            meat.Show();
+            this.Close();
+            ParentWindow?.Close();
         }
 
         private void SwitchCategoryToDrinks(object sender, RoutedEventArgs e)
         {
-
+            DrinksCat cat = new DrinksCat();
+            cat.Show();
+            this.Close();
+            ParentWindow?.Close();
         }
 
         private void SwitchCategoryToReadyMeals(object sender, RoutedEventArgs e)
         {
-
+            ReadyMealCat cat = new ReadyMealCat();
+            cat.Show();
+            this.Close();
+            ParentWindow?.Close();
         }
 
         private void SwitchCategoryToSweets(object sender, RoutedEventArgs e)
         {
-
+            SweetsCat cat = new SweetsCat();
+            cat.Show();
+            this.Close();
+            ParentWindow?.Close();
         }
 
         private void SwitchCategoryToHygiene(object sender, RoutedEventArgs e)
         {
-
+            HygienaCat cat = new HygienaCat();
+            cat.Show();
+            this.Close();
+            ParentWindow?.Close();
         }
     }
 }

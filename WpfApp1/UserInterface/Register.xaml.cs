@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -28,14 +29,18 @@ namespace WpfApp1
 
         private void MoveToEULA(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             EULA eula = new EULA();
+            WindowManager.SetWindowStats(eula);
             eula.Show();
             this.Close();
         }
 
         private void MoveToLogin(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             MainWindow main = new MainWindow();
+            WindowManager.SetWindowStats(main);
             main.Show();
             this.Close();
         }

@@ -35,13 +35,22 @@
     <None Remove="Images\Avatar.png" />
     <None Remove="Images\burger.png" />
     <None Remove="Images\burgerClose.png" />
+    <None Remove="Images\cucumber.jpg" />
+    <None Remove="Images\dobryCola.jpg" />
     <None Remove="Images\Galochka.png" />
+    <None Remove="Images\gapple.jpg" />
     <None Remove="Images\Group 46.png" />
     <None Remove="Images\Group 56.png" />
+    <None Remove="Images\lawash.jpg" />
+    <None Remove="Images\notHalal.jpg" />
     <None Remove="Images\Open Door.png" />
     <None Remove="Images\PaymentQR.png" />
+    <None Remove="Images\pevo.jpg" />
+    <None Remove="Images\potato.jpg" />
     <None Remove="Images\Shopping Cart.png" />
     <None Remove="Images\Success.png" />
+    <None Remove="Images\tomato.jpg" />
+    <None Remove="Images\tulskyPryanik.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,11 +85,18 @@
     <Resource Include="Galochka.png" />
     <Resource Include="Images\Avatar.png" />
     <Resource Include="Images\burgerClose.png" />
+    <Resource Include="Images\cucumber.jpg" />
+    <Resource Include="Images\dobryCola.jpg" />
     <Resource Include="Images\Galochka.png" />
+    <Resource Include="Images\gapple.jpg" />
+    <Resource Include="Images\lawash.jpg" />
+    <Resource Include="Images\notHalal.jpg" />
     <Resource Include="Images\Open Door.png" />
     <Resource Include="Images\orange.png" />
     <Resource Include="Images\bread.png" />
     <Resource Include="Images\PaymentQR.png" />
+    <Resource Include="Images\pevo.jpg" />
+    <Resource Include="Images\potato.jpg" />
     <Resource Include="Images\Success.png" />
     <Resource Include="Images\toiletpaper.png" />
     <Resource Include="Images\salad.png" />
@@ -91,6 +107,8 @@
     <Resource Include="Images\Group 56.png" />
     <Resource Include="Images\ChickenBreast.png" />
     <Resource Include="Images\Shopping Cart.png" />
+    <Resource Include="Images\tomato.jpg" />
+    <Resource Include="Images\tulskyPryanik.jpg" />
   </ItemGroup>
 
   <ItemGroup>

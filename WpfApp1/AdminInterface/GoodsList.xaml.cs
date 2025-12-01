@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.Models;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -54,7 +55,9 @@ namespace WpfApp1
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             AdminPanel adminPanel = new AdminPanel();
+            WindowManager.SetWindowStats(adminPanel);
             adminPanel.Show();
             this.Close();
         }

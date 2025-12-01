@@ -1,12 +1,75 @@
-﻿<Window x:Class="WpfApp1.UserInterface.BreadCat"
+﻿<Window x:Class="WpfApp1.UserInterface.BreadCat" Style="{StaticResource BigWindow}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.UserInterface"
         mc:Ignorable="d"
-        Title="BreadCat" Height="450" Width="800">
+        Title="BreadCat">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+
+        <Border HorizontalAlignment="Left" Height="90" Margin="0,-4,0,0" VerticalAlignment="Top" Width="1440" CornerRadius="0" >
+            <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А"  Style="{StaticResource Header1}" Margin="0,16,0,20"/>
+        </Border>
+        <StackPanel Orientation="Horizontal">
+
+            <Button HorizontalAlignment="Left" Margin="1137,6,0,0" Height="70" Width="70" Click="OpenProfile">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Group 46.png"/>
+                </Button.Background>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="22,10,0,0" Height="70" Width="70" Click="OpenCart">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Shopping Cart.png"/>
+                </Button.Background>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="35,17,0,0" Height="50" Width="50" Click="OpenBurger">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/burger.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Border BorderBrush="Black" HorizontalAlignment="Left" Height="300" Margin="131,113,0,0" VerticalAlignment="Top" Width="525">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/AD1.png"/>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" HorizontalAlignment="Left" Height="300" Margin="117,113,0,0" VerticalAlignment="Top" Width="525">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/AD2.png"/>
+                </Border.Background>
+            </Border>
+        </StackPanel>
+
+        <TextBlock Text="М  У  Ч  Н  Ы  Е     И  З  Д  Е  Л  И  Я" Margin="512,428,512,519" Style="{StaticResource Header2}"/>
+        <StackPanel Orientation="Horizontal" Width="410" Margin="0,467,0,0" VerticalAlignment="Top">
+
+            <StackPanel Margin="0, 0, 0, 0" Height="287">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/bread.png"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="Х л е б   Ч ё р н ы й" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
+            <StackPanel Margin="100, 0, 0, 0">
+                <Border BorderBrush="Black" Width="150" Height="154" BorderThickness="1">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/lawash.jpg"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="Л а в а ш" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
+
+
+        </StackPanel>
+
     </Grid>
 </Window>

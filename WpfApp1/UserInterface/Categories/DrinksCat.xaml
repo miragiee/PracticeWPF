@@ -1,12 +1,79 @@
-﻿<Window x:Class="WpfApp1.UserInterface.DrinksCat"
+﻿<Window x:Class="WpfApp1.UserInterface.DrinksCat" Style="{StaticResource BigWindow}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.UserInterface"
         mc:Ignorable="d"
-        Title="DrinksCat" Height="450" Width="800">
+        Title="DrinksCat">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+
+        <Border HorizontalAlignment="Left" Height="90" Margin="0,-4,0,0" VerticalAlignment="Top" Width="1440" CornerRadius="0" >
+            <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А"  Style="{StaticResource Header1}" Margin="0,16,0,20"/>
+        </Border>
+        <StackPanel Orientation="Horizontal">
+
+            <Button HorizontalAlignment="Left" Margin="1137,6,0,0" Height="70" Width="70" Click="OpenProfile">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Group 46.png"/>
+                </Button.Background>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="22,10,0,0" Height="70" Width="70" Click="OpenCart">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Shopping Cart.png"/>
+                </Button.Background>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="35,17,0,0" Height="50" Width="50" Click="OpenBurger">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/burger.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Border BorderBrush="Black" HorizontalAlignment="Left" Height="300" Margin="131,113,0,0" VerticalAlignment="Top" Width="525">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/AD1.png"/>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" HorizontalAlignment="Left" Height="300" Margin="117,113,0,0" VerticalAlignment="Top" Width="525">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/AD2.png"/>
+                </Border.Background>
+            </Border>
+        </StackPanel>
+
+        <TextBlock Text="Б  Е  З     А  Л  К  О  Г  О  Л  Ь  Н  Ы  Е" Margin="512,428,512,519" Style="{StaticResource Header2}"/>
+        <StackPanel Orientation="Horizontal" Width="160" Margin="0,467,0,306">
+
+            <StackPanel Margin="0, 0, 0, 0" Height="287">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/dobryCola.jpg"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="Д о б р ы й   К о л а" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
+          
+
+        </StackPanel>
+
+        <TextBlock Text="А  Л  К  О  Г  О  Л  Ь  Н  Ы  Е" Margin="512,722,512,217" Style="{StaticResource Header2}"/>
+        <StackPanel Orientation="Horizontal" Width="240" Margin="0,760,0,0">
+
+            <StackPanel Margin="0, 0, 0, 0" Height="287">
+                <Border BorderBrush="Black" Width="150" Height="154" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/pevo.jpg"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="П и в о   С в е т л о е   Н е ф и л ь т р о в а н н о е" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

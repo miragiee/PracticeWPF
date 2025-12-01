@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -26,7 +27,9 @@ namespace WpfApp1
 
         private void Save_Changes(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             GoodsMain goods = new GoodsMain();
+            WindowManager.SetWindowStats(goods);
             goods.Show();
             this.Close();
         }

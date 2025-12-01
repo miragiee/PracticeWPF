@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -20,7 +21,7 @@ namespace WpfApp1
     /// </summary>
     public partial class ShoppingCart : Window
     {
-        public Window cartParent { get; set; }
+        public Window? cartParent { get; set; }
         public ShoppingCart()
         {
             InitializeComponent();
@@ -34,9 +35,10 @@ namespace WpfApp1
         private void MoveToPayment(object sender, RoutedEventArgs e)
         {
             Payment payment = new Payment();
-
+            WindowManager.SaveWindowStats(this);
             payment.Show();
-            cartParent.Close();
+            WindowManager.SetWindowStats(payment);
+            cartParent?.Close();
             this.Close();
 
         }

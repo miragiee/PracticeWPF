@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -22,11 +23,13 @@ namespace WpfApp1
         public EULA()
         {
             InitializeComponent();
+            WindowManager.SaveWindowStats(this);
         }
 
         private void CloseEula(object sender, RoutedEventArgs e)
         {
             Register register = new Register();
+            WindowManager.SetWindowStats(register);
             register.Show();
             this.Close();
         }

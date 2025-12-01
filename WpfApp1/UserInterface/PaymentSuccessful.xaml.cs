@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Threading;
 using System.Windows.Threading;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -28,8 +29,9 @@ namespace WpfApp1
 
         private void ClosePayment(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             GoodsMain gm = new GoodsMain();
-
+            WindowManager.SetWindowStats(gm);
             gm.Show();
             this.Close();
         }

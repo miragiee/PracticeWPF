@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.UserInterface;
 
 namespace WpfApp1
 {
@@ -27,7 +28,9 @@ namespace WpfApp1
 
         private void OpenProfile(object sender, RoutedEventArgs e)
         {
+            WindowManager.SaveWindowStats(this);
             Profile profile= new Profile();
+            WindowManager.SetWindowStats(profile);
             profile.Show();
             this.Close();
         }
@@ -42,7 +45,7 @@ namespace WpfApp1
         private void OpenBurger(object sender, RoutedEventArgs e)
         {
             Burger burger= new Burger();
-
+            
             burger.ParentWindow = this;
             burger.ShowDialog();
         }
