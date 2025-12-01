@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 using WpfApp1.UserInterface;
 
 namespace WpfApp1
@@ -22,16 +23,16 @@ namespace WpfApp1
 
     public partial class EmployeeList : Window
     {
-        public ObservableCollection<Employee> Employees { get; set; }
+        public ObservableCollection<Users> Employees { get; set; }
 
         public EmployeeList()
         {
 
             InitializeComponent();
 
-            Employees = new ObservableCollection<Employee>()
+            Employees = new ObservableCollection<Users>()
             {
-                new Employee
+                new Users
                 {
                     Id = 1,
                     RoleId = 1,
@@ -47,7 +48,7 @@ namespace WpfApp1
 
                 },
 
-                new Employee
+                new Users
                 {
                     Id = 2,
                     RoleId = 2,

@@ -5,7 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.UserInterface"
         mc:Ignorable="d"
-        Title="DrinksCat">
+        Title="DrinksCat" Height="1080" Width="1440">
+
+    <Window.Resources>
+        <!-- Шаблон для товаров -->
+        <DataTemplate x:Key="DrinkProductTemplate">
+            <StackPanel Margin="100,0,0,0" Height="287" Width="250">
+                <Border BorderBrush="Black" Width="150" Height="154">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding ImagePath}"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="{Binding Name}" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <TextBlock Text="{Binding Price, StringFormat='Цена: {0}₽'}" FontSize="12" TextAlignment="Center" Style="{StaticResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" 
+                        Tag="{Binding}" Margin="0,7,0,2" Click="BuyButton_Click"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <Grid.Background>
             <ImageBrush/>
@@ -46,34 +64,31 @@
             </Border>
         </StackPanel>
 
+        <!-- Секция безалкогольных напитков -->
         <TextBlock Text="Б  Е  З     А  Л  К  О  Г  О  Л  Ь  Н  Ы  Е" Margin="512,428,512,519" Style="{StaticResource Header2}"/>
-        <StackPanel Orientation="Horizontal" Width="160" Margin="0,467,0,306">
 
-            <StackPanel Margin="0, 0, 0, 0" Height="287">
-                <Border BorderBrush="Black" Width="150" Height="154" >
-                    <Border.Background>
-                        <ImageBrush ImageSource="/Images/dobryCola.jpg"/>
-                    </Border.Background>
-                </Border>
-                <TextBlock Text="Д о б р ы й   К о л а" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
-                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
-            </StackPanel>
-          
+        <ItemsControl ItemsSource="{Binding NonAlcoholicGoods}" 
+                      ItemTemplate="{StaticResource DrinkProductTemplate}" 
+                      Margin="46,467,78,306">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
 
-        </StackPanel>
-
+        <!-- Секция алкогольных напитков -->
         <TextBlock Text="А  Л  К  О  Г  О  Л  Ь  Н  Ы  Е" Margin="512,722,512,217" Style="{StaticResource Header2}"/>
-        <StackPanel Orientation="Horizontal" Width="240" Margin="0,760,0,0">
 
-            <StackPanel Margin="0, 0, 0, 0" Height="287">
-                <Border BorderBrush="Black" Width="150" Height="154" >
-                    <Border.Background>
-                        <ImageBrush ImageSource="/Images/pevo.jpg"/>
-                    </Border.Background>
-                </Border>
-                <TextBlock Text="П и в о   С в е т л о е   Н е ф и л ь т р о в а н н о е" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
-                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Margin="0,7,0,2"></Button>
-            </StackPanel>
-        </StackPanel>
+        <ItemsControl ItemsSource="{Binding AlcoholicGoods}" 
+                      ItemTemplate="{StaticResource DrinkProductTemplate}" 
+                      Margin="46,760,78,0">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
     </Grid>
 </Window>

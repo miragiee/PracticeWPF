@@ -8,7 +8,7 @@ namespace WpfApp1.Models
 {
     public class Orders
     {
-        private Client _client = new Client();
+        private Users _client = new Users();
         private string? _deliveryAddress;
         public int Id { get; set; }
         public int ClientId { get; set; }

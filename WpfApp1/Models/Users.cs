@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-    public class Client
+    public class Users
     {
-        public int Id {get; set; }
+        public int Id { get; set; }
         public int RoleId { get; set; }
         public string? Login { get; set; }
         public string? Password { get; set; }

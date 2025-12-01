@@ -9,7 +9,7 @@
 
         <DataTemplate x:Key="ProductTemplate">
             <StackPanel Margin="100,0,0,0" Height="287">
-                <Border BorderBrush="Black" Width="150" Height="154">
+                <Border BorderBrush="Black" Width="150" Height="154" BorderThickness="1">
                     <Border.Background>
                         <ImageBrush ImageSource="{Binding ImagePath}"/>
                     </Border.Background>

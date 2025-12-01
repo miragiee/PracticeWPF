@@ -80,7 +80,7 @@
 
         <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,722,512,217" Style="{StaticResource Header2}"/>
 
-        <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,467,78,306">
+        <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,744,78,1">
     <ItemsControl.ItemContainerStyle>
         <Style TargetType="ContentPresenter">
             <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ItemContainer_MouseLeftButtonDown"/>

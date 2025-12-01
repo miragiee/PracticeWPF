@@ -69,7 +69,7 @@ namespace WpfApp1.EmployeeInterface {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp1;V1.0.0.0;component/employeeinterface/deliveryinterface.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfApp1;component/employeeinterface/deliveryinterface.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\EmployeeInterface\DeliveryInterface.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

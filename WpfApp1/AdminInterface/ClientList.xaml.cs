@@ -23,16 +23,16 @@ namespace WpfApp1
 
     public partial class ClientList : Window
     {
-        public ObservableCollection<Client> Clients { get; set; }
+        public ObservableCollection<Users> Clients { get; set; }
 
         public ClientList()
         {
 
             InitializeComponent();
 
-            Clients = new ObservableCollection<Client>()
+            Clients = new ObservableCollection<Users>()
             {
-                new Client
+                new Users
                 {
                     Id = 1,
                     RoleId = 3,
@@ -47,7 +47,7 @@ namespace WpfApp1
                     Address = "Улица Пушкина"
                 },
 
-                new Client
+                new Users
                 {
                     Id = 2,
                     RoleId = 3,

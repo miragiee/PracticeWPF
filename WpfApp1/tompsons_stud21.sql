@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Ноя 21 2025 г., 13:54
+-- Время создания: Дек 01 2025 г., 14:44
 -- Версия сервера: 5.7.21-20-beget-5.7.21-20-1-log
 -- Версия PHP: 5.6.40
 
@@ -162,7 +162,8 @@ INSERT INTO `goods_accounting` (`ID`, `GoodsID`, `GoodsAmount`, `WarehouseID`) V
 --
 -- Структура таблицы `orders`
 --
--- Создание: Ноя 18 2025 г., 07:21
+-- Создание: Ноя 28 2025 г., 13:45
+-- Последнее обновление: Ноя 28 2025 г., 13:45
 --
 
 DROP TABLE IF EXISTS `orders`;
@@ -170,19 +171,20 @@ CREATE TABLE `orders` (
   `ID` int(11) NOT NULL,
   `ClientID` int(11) NOT NULL,
   `TotalCost` decimal(10,0) NOT NULL,
-  `Delivery` tinyint(1) NOT NULL
+  `Delivery` tinyint(1) NOT NULL,
+  `CookingTIme` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`ID`, `ClientID`, `TotalCost`, `Delivery`) VALUES
-(1, 1, '390', 1),
-(2, 2, '900', 1),
-(3, 3, '2730', 0),
-(4, 4, '550', 0),
-(5, 5, '620', 1);
+INSERT INTO `orders` (`ID`, `ClientID`, `TotalCost`, `Delivery`, `CookingTIme`) VALUES
+(1, 1, '390', 1, '01:00:00'),
+(2, 2, '900', 1, '01:00:00'),
+(3, 3, '2730', 0, '01:00:00'),
+(4, 4, '550', 0, '01:00:00'),
+(5, 5, '620', 1, '01:00:00');
 
 -- --------------------------------------------------------
 
