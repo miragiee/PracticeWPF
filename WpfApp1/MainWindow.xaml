@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Practice"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="1024" Width="1440">
+        Title="MainWindow" Height="1080" Width="1440">
 
     <Grid>
         <Border BorderBrush="Black" HorizontalAlignment="Center" Height="600" VerticalAlignment="Center" Width="450" Background="#C4E8B7">
@@ -17,7 +17,7 @@
             <TextBox x:Name="LoginBox" Text="Почта | Логин" Margin="0,0,0,44" Style="{StaticResource WhiteBox}" GotFocus="Login_Focused" LostFocus="LoginNotFocused"/>
             <TextBox x:Name="PasswordBox" Text="Пароль" Margin="0,0,0,44" Style="{StaticResource WhiteBox}" GotFocus="Password_Focused" LostFocus="PasswordNotFocused" Cursor="IBeam"/>
 
-            <Button Content="В  о  й  т  и" Margin="0,0,0,0" Background="#FF5CAD3E" Click="Button_Click"/>
+            <Button Content="В  о  й  т  и" Margin="0,0,0,0" Background="#FF5CAD3E" Click="Button_Click" IsDefault="True"/>
             <Button Content="Создать аккаунт" Margin="0,0,0,44" Background="#C4E8B7" Height="39" Foreground="#071B00" FontSize="20" Click="MoveToRegister"/>
         </StackPanel>
         

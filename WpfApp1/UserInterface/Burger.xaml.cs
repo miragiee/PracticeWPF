@@ -22,7 +22,6 @@ namespace WpfApp1
     /// </summary>
     public partial class Burger : Window
     {
-        private Window _parentWindow;
         public Window ParentWindow { get; set; }
         
         public Burger()

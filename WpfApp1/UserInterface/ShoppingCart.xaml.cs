@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Managers;
+using WpfApp1.Models;
 using WpfApp1.UserInterface;
 
 namespace WpfApp1
@@ -25,7 +27,25 @@ namespace WpfApp1
         public ShoppingCart()
         {
             InitializeComponent();
+
+            DataContext = CartManager.Instance;
+
+            CartManager.Instance.CartChanged += CartWasChanged;
         }
+
+        private void CartWasChanged(object sender, EventArgs e)
+        {
+            UpdateTotal();
+        }
+
+        private void UpdateTotal()
+        {
+            if (FindName("TotalBlock") is TextBlock TotalBlock)
+            {
+                TotalBlock.Text = $"С У М М А: {CartManager.Instance.TotalPrice:C}";
+            }
+        }
+
 
         private void CloseShoppingCart(object sender, RoutedEventArgs e)
         {

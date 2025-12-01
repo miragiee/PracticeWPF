@@ -11,7 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Managers;
+using WpfApp1.Models;
 using WpfApp1.UserInterface;
+using WpfApp1.ViewModels;
 
 namespace WpfApp1
 {
@@ -20,10 +23,14 @@ namespace WpfApp1
     /// </summary>
     public partial class GoodsMain : Window
     {
+        public GoodsMainViewModel ViewModel { get; }
 
         public GoodsMain()
         {
             InitializeComponent();
+
+            ViewModel = new GoodsMainViewModel();
+            DataContext = ViewModel;
         }
 
         private void OpenProfile(object sender, RoutedEventArgs e)
@@ -48,6 +55,21 @@ namespace WpfApp1
             
             burger.ParentWindow = this;
             burger.ShowDialog();
+        }
+
+        private void UpdateCartCounter()
+        {
+            int totalItems = CartManager.Instance.Items.Sum(item => item.Amount);
+        }
+
+        private void BuyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement element && element.DataContext is Goods goods)
+            {
+                CartManager.Instance.AddProduct(goods);
+
+                UpdateCartCounter();
+            }
         }
     }
 }

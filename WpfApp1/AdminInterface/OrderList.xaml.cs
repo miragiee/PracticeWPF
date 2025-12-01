@@ -36,7 +36,7 @@ namespace WpfApp1
                 {
                    Id = 1,
                    ClientId = 1,
-                   totalCost = 390,
+                   TotalCost = 390,
                    Delivery = true,
                    CookingTime = new TimeSpan(1, 0, 0),
                    OrderedGoodsID = [1, 2, 3, 4]
@@ -46,7 +46,7 @@ namespace WpfApp1
                 {
                    Id = 3,
                    ClientId= 3,
-                   totalCost = 2730,
+                   TotalCost = 2730,
                    Delivery = false,
                    CookingTime = new TimeSpan(1, 0, 0),
                    OrderedGoodsID = [1, 2, 3, 4]

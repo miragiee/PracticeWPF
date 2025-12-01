@@ -20,6 +20,7 @@ namespace WpfApp1
     {
         public string? login;
         public string? password;
+
         
         public MainWindow()
         {
@@ -27,12 +28,10 @@ namespace WpfApp1
             
         }
 
-        // Временный алгоритм авторизации
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             login = LoginBox.Text;
             password = PasswordBox.Text;
-
             WindowManager.SaveWindowStats(this);
 
             switch (login)

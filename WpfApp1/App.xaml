@@ -6,7 +6,20 @@
     <Application.Resources>
         
         <!--Global-->
-        
+
+        <DataTemplate x:Key="ProductTemplate">
+            <StackPanel Margin="100,0,0,0" Height="287">
+                <Border BorderBrush="Black" Width="150" Height="154">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding ImagePath}"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Text="{Binding Name}" FontSize="14" TextAlignment="Center"  Style="{DynamicResource NormalText}"/>
+                <TextBlock Text="{Binding Price, StringFormat='Цена: {0}₽'}" FontSize="12" TextAlignment="Center" Style="{DynamicResource NormalText}"/>
+                <Button Content="К у п и т ь" Style="{DynamicResource BuyButton}" Margin="0,7,0,2"/>
+            </StackPanel>
+        </DataTemplate>
+
         <Style x:Key="Header1" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="./Fonts/Static/#Sofia Sans Condensed Medium"/>
             <Setter Property="FontSize" Value="48"/>
