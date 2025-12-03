@@ -1,23 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using WpfApp1.Models;
-using WpfApp1.UserInterface;
 
-namespace WpfApp1.ViewModels
+namespace WpfApp1.UserInterface
 {
     public class FruitCatViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<Goods> _fruits = new ObservableCollection<Goods>();
         private ObservableCollection<Goods> _vegetables = new ObservableCollection<Goods>();
-
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         public ObservableCollection<Goods> Fruits
         {
@@ -27,7 +18,6 @@ namespace WpfApp1.ViewModels
                 _fruits = value;
                 OnPropertyChanged();
             }
-
         }
 
         public ObservableCollection<Goods> Vegetables
@@ -42,57 +32,60 @@ namespace WpfApp1.ViewModels
 
         public FruitCatViewModel()
         {
-            
+            LoadProducts();
         }
 
         public void LoadProducts()
         {
-            Fruits.Add(
-                new Goods
-                {
-                    Id = 1,
-                    Name = "Яблоко зелёное",
-                    Price = 40,
-                    CategoryId = 3,
-                    ImagePath = "/Images/gapple.jpgs"
-                }
-            );
+            // Фрукты
+            Fruits.Add(new Goods
+            {
+                Id = 401,
+                Name = "Апельсин",
+                Price = 89.50m,
+                ImagePath = "/Images/orange.png",
+                CategoryId = 2
+            });
 
-            Fruits.Add(
-                new Goods
-                {
-                    Id = 2,
-                    Name = "Апельсин",
-                    Price = 30,
-                    CategoryId = 3,
-                    ImagePath = "/Images/orange.png"
+            Fruits.Add(new Goods
+            {
+                Id = 402,
+                Name = "Яблоки",
+                Price = 79.90m,
+                ImagePath = "/Images/gapple.jpg",
+                CategoryId = 2
+            });
 
-                 }
-            );
+            // Овощи
+            Vegetables.Add(new Goods
+            {
+                Id = 501,
+                Name = "Помидоры",
+                Price = 149.90m,
+                ImagePath = "/Images/tomato.jpg",
+                CategoryId = 3
+            });
 
-            Vegetables.Add
-            (
-                new Goods
-                {
-                    Id = 3,
-                    Name = "Картофель",
-                    Price = 10,
-                    CategoryId = 3,
-                    ImagePath = "/Images/potato.jpg"
-                }
-            );
-            Vegetables.Add
-            (
-                new Goods
-                {
-                    Id = 4,
-                    Name = "Огурец",
-                    Price = 10,
-                    CategoryId = 3,
-                    ImagePath = "/Images/cucumber.jpg"
-                }
-            );
+            Vegetables.Add(new Goods
+            {
+                Id = 502,
+                Name = "Огурцы",
+                Price = 89.50m,
+                ImagePath = "/Images/cucumber.jpg",
+                CategoryId = 3
+            });
+
+            Vegetables.Add(new Goods
+            {
+                Id = 503,
+                Name = "Картофель",
+                Price = 49.90m,
+                ImagePath = "/Images/potato.jpg",
+                CategoryId = 3
+            });
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

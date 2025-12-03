@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.UserInterface"
         mc:Ignorable="d"
-        Title="FruitCat">
+        Title="FruitCat" Height="1080" Width="1440">
 
     <Window.Resources>
         <DataTemplate x:Key="ProductTemplate">
@@ -18,24 +18,20 @@
                 <TextBlock Text="{Binding Name}" FontSize="14" TextAlignment="Center"  Style="{DynamicResource NormalText}"/>
                 <TextBlock Text="{Binding Price, StringFormat='Цена: {0}₽'}" FontSize="12" TextAlignment="Center" Style="{DynamicResource NormalText}"/>
                 <Button Content="К у п и т ь" Style="{DynamicResource BuyButton}" Tag="{Binding}" Margin="0,7,0,2"
-     Click="BuyButton_Click"/>
+                        Click="BuyButton_Click"/>
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    
-    
+
     <Grid>
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
 
-       
-
         <Border HorizontalAlignment="Left" Height="90" Margin="0,-4,0,0" VerticalAlignment="Top" Width="1440" CornerRadius="0" >
             <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А"  Style="{StaticResource Header1}" Margin="0,16,0,20"/>
         </Border>
         <StackPanel Orientation="Horizontal">
-
             <Button HorizontalAlignment="Left" Margin="1137,6,0,0" Height="70" Width="70" Click="OpenProfile">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Group 46.png"/>
@@ -66,13 +62,12 @@
             </Border>
         </StackPanel>
 
+        <!-- Секция фруктов -->
         <TextBlock Text="Ф  Р  У  К  Т  Ы" Margin="512,428,512,519" Style="{StaticResource Header2}"/>
-        <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,467,78,306">
-            <ItemsControl.ItemContainerStyle>
-                <Style TargetType="ContentPresenter">
-                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ItemContainer_MouseLeftButtonDown"/>
-                </Style>
-            </ItemsControl.ItemContainerStyle>
+
+        <ItemsControl ItemsSource="{Binding Fruits}" 
+                      ItemTemplate="{StaticResource ProductTemplate}" 
+                      Margin="46,467,78,306">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
@@ -80,13 +75,13 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
+        <!-- Секция овощей -->
         <TextBlock Text="О  В  О  Щ  И" Margin="512,722,512,217" Style="{StaticResource Header2}"/>
-        <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,467,78,306">
-            <ItemsControl.ItemContainerStyle>
-                <Style TargetType="ContentPresenter">
-                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ItemContainer_MouseLeftButtonDown"/>
-                </Style>
-            </ItemsControl.ItemContainerStyle>
+
+        <ItemsControl ItemsSource="{Binding Vegetables}" 
+                      ItemTemplate="{StaticResource ProductTemplate}" 
+                      Margin="46,760,78,0">
+            <!-- Исправлен Margin -->
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>

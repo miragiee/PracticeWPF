@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Managers;
+using WpfApp1.Models;
+using WpfApp1.ViewModels;
 
 namespace WpfApp1.UserInterface.Categories
 {
@@ -22,7 +25,9 @@ namespace WpfApp1.UserInterface.Categories
         public HygienaCat()
         {
             InitializeComponent();
+            DataContext = new HygienaCatViewModel();
         }
+
         private void OpenProfile(object sender, RoutedEventArgs e)
         {
             WindowManager.SaveWindowStats(this);
@@ -42,9 +47,19 @@ namespace WpfApp1.UserInterface.Categories
         private void OpenBurger(object sender, RoutedEventArgs e)
         {
             Burger burger = new Burger();
-
             burger.ParentWindow = this;
             burger.ShowDialog();
+        }
+
+        // Добавляем обработчик для кнопки "Купить"
+        private void BuyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is Goods goods)
+            {
+                CartManager.Instance.AddProduct(goods, 1);
+                MessageBox.Show($"Товар \"{goods.Name}\" добавлен в корзину!",
+                               "Корзина", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

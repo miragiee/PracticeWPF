@@ -50,7 +50,7 @@ namespace WpfApp1.UserInterface
             burger.ShowDialog();
         }
 
-        // Обработчик для кнопки "Купить" для всех товаров
+        
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is Goods goods)

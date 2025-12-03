@@ -18,8 +18,7 @@
                 </Border>
                 <TextBlock Text="{Binding Name}" FontSize="14" TextAlignment="Center" Style="{StaticResource NormalText}"/>
                 <TextBlock Text="{Binding Price, StringFormat='Цена: {0}₽'}" FontSize="12" TextAlignment="Center" Style="{StaticResource NormalText}"/>
-                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" 
-                        Tag="{Binding}" Margin="0,7,0,2" Click="BuyButton_Click"/>
+                <Button Content="К у п и т ь" Style="{StaticResource BuyButton}" Tag="{Binding}" Margin="0,7,0,2" Click="BuyButton_Click"/>
             </StackPanel>
         </DataTemplate>
     </Window.Resources>

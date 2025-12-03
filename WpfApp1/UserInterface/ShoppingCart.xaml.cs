@@ -16,9 +16,6 @@ using WpfApp1.Classes;
 using WpfApp1.Managers;
 using WpfApp1.Models;
 using WpfApp1.UserInterface;
-using WpfApp1.Managers;
-using WpfApp1.Classes;
-
 namespace WpfApp1
 {
     /// <summary>

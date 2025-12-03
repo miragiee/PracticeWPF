@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,17 +12,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Managers;
+using WpfApp1.Models;
+using WpfApp1.ViewModels;
 
 namespace WpfApp1.UserInterface
 {
     /// <summary>
-    /// Логика взаимодействия для fruitCat.xaml
+    /// Логика взаимодействия для FruitCat.xaml
     /// </summary>
     public partial class FruitCat : Window
     {
         public FruitCat()
         {
             InitializeComponent();
+            DataContext = new FruitCatViewModel();
         }
 
         private void OpenProfile(object sender, RoutedEventArgs e)
@@ -43,9 +48,18 @@ namespace WpfApp1.UserInterface
         private void OpenBurger(object sender, RoutedEventArgs e)
         {
             Burger burger = new Burger();
-
             burger.ParentWindow = this;
             burger.ShowDialog();
+        }
+
+        private void BuyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is Goods goods)
+            {
+                CartManager.Instance.AddProduct(goods, 1);
+                MessageBox.Show($"Товар \"{goods.Name}\" добавлен в корзину!",
+                               "Корзина", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
