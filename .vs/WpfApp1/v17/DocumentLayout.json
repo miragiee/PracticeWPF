@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\userinterface\\categories\\fruitcat.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\userinterface\\categories\\fruitcat.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\admininterface\\clients\\clientlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\admininterface\\clients\\clientlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\userinterface\\goodsmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\userinterface\\goodsmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\admininterface\\clients\\clientlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\admininterface\\clients\\clientlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\viewmodels\\fruitcatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\fruitcatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\admininterface\\employee\\employeelist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\admininterface\\employee\\employeelist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\viewmodels\\drinkscatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\viewmodels\\drinkscatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\models\\goods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\goods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\admininterface\\employee\\employeelist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\admininterface\\employee\\employeelist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\10230922\\desktop\\practicewpf\\wpfapp1\\models\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,12 +37,12 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 228,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 318,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\App.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\App.xaml",
@@ -51,71 +55,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DrinksCatViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\ViewModels\\DrinksCatViewModel.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\DrinksCatViewModel.cs",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\ViewModels\\DrinksCatViewModel.cs",
-              "RelativeToolTip": "WpfApp1\\ViewModels\\DrinksCatViewModel.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowEMAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ClientList.xaml",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\AdminInterface\\Clients\\ClientList.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\AdminInterface\\Clients\\ClientList.xaml",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\AdminInterface\\Clients\\ClientList.xaml",
+              "RelativeToolTip": "WpfApp1\\AdminInterface\\Clients\\ClientList.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-04T15:21:22.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClientList.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\AdminInterface\\Clients\\ClientList.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\AdminInterface\\Clients\\ClientList.xaml.cs",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\AdminInterface\\Clients\\ClientList.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\AdminInterface\\Clients\\ClientList.xaml.cs",
+              "ViewState": "AgIAALYAAAAAAAAAAAAAANgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T13:00:31.829Z",
+              "WhenOpened": "2025-12-04T15:22:31.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataBaseService.cs",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\Services\\DataBaseService.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Services\\DataBaseService.cs",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\Services\\DataBaseService.cs",
+              "RelativeToolTip": "WpfApp1\\Services\\DataBaseService.cs",
+              "ViewState": "AgIAALoBAAAAAAAAAAAqwN8BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T14:13:32.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DataBaseContext.cs",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\Models\\DataBaseContext.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Models\\DataBaseContext.cs",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\Models\\DataBaseContext.cs",
+              "RelativeToolTip": "WpfApp1\\Models\\DataBaseContext.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAywCgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T14:01:57.986Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FruitCatViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\ViewModels\\FruitCatViewModel.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\ViewModels\\FruitCatViewModel.cs",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\ViewModels\\FruitCatViewModel.cs",
-              "RelativeToolTip": "WpfApp1\\ViewModels\\FruitCatViewModel.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAIwFsAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T13:01:37.535Z",
+              "Title": "EmployeeList.xaml",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\AdminInterface\\Employee\\EmployeeList.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\AdminInterface\\Employee\\EmployeeList.xaml",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\AdminInterface\\Employee\\EmployeeList.xaml",
+              "RelativeToolTip": "WpfApp1\\AdminInterface\\Employee\\EmployeeList.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-04T13:59:41.291Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GoodsMain.xaml",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\UserInterface\\GoodsMain.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\UserInterface\\GoodsMain.xaml",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\UserInterface\\GoodsMain.xaml",
-              "RelativeToolTip": "WpfApp1\\UserInterface\\GoodsMain.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-01T12:40:58.501Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 228,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FruitCat.xaml",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\UserInterface\\Categories\\FruitCat.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\UserInterface\\Categories\\FruitCat.xaml",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\UserInterface\\Categories\\FruitCat.xaml",
-              "RelativeToolTip": "WpfApp1\\UserInterface\\Categories\\FruitCat.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-01T13:12:19.803Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Goods.cs",
-              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\Models\\Goods.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Goods.cs",
-              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\Models\\Goods.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Goods.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "EmployeeList.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\AdminInterface\\Employee\\EmployeeList.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\AdminInterface\\Employee\\EmployeeList.xaml.cs",
+              "ToolTip": "C:\\Users\\10230922\\Desktop\\PracticeWPF\\WpfApp1\\AdminInterface\\Employee\\EmployeeList.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\AdminInterface\\Employee\\EmployeeList.xaml.cs",
+              "ViewState": "AgIAAMUAAAAAAAAAAAAAANkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T13:08:13.114Z",
+              "WhenOpened": "2025-12-04T13:56:03.101Z",
               "EditorCaption": ""
             }
           ]

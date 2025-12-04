@@ -23,16 +23,6 @@ namespace WpfApp1.Models
 
         public TimeSpan DeliveryTime { get; set; }
 
-        public string? DeliveryAddress
-        {
-            get
-            {
-                return _deliveryAddress;
-            }
-            set
-            {
-                _deliveryAddress = value;
-            }
-        }
+        public string? DeliveryAddress {  get; set; }
     }
 }

@@ -1,56 +1,154 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
+﻿using WpfApp1.Models;
+using WpfApp1;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp1.Models;
+using System.Windows.Input;
+using WpfApp1.Services;
 
 namespace WpfApp1.ViewModels
 {
-    internal class MainViewModel
+    public class MainViewModel
     {
-        public ObservableCollection<Category> Category { get; set; }
-        public ObservableCollection<Delivery> Deliveries { get; set; }
-        public ObservableCollection<Goods> Goods { get; set; }
-        public ObservableCollection<GoodsAccounting> GoodsAccounting { get; set; }
-        public ObservableCollection<OrderEmployee> OrderEmployees { get; set; }
-        public ObservableCollection<Orders> Orders { get; set; }
-        public ObservableCollection<OrdersGoods> OrdersGoods { get; set; }
-        public ObservableCollection<Postlist> Postlist { get; set; }
-        public ObservableCollection<Role> Roles { get; set; }
-        public ObservableCollection <Suppliers> Suppliers { get; set; }
-        public ObservableCollection<SuppliersGoods> SuppliersGoods { get; set; }
-        public ObservableCollection<UserPost> UserPost { get; set; }
+        private DatabaseService databaseService;
+
+        // Простые публичные свойства - никакого INotifyPropertyChanged
         public ObservableCollection<Users> Users { get; set; }
-        public ObservableCollection<Warehouse> Warehouse { get; set; }
+        public Users SelectedUser { get; set; }
+        public string StatusMessage { get; set; }
+        public bool IsConnected { get; set; }
+
+        // Команды
+        public ICommand LoadDataCommand { get; }
+        public ICommand AddUserCommand { get; }
+        public ICommand UpdateUserCommand { get; }
+        public ICommand DeleteUserCommand { get; }
+        public ICommand TestConnectionCommand { get; }
 
         public MainViewModel()
         {
-            LoadData();
+            databaseService = new DatabaseService();
+            Users = new ObservableCollection<Users>();
+
+            // Простые команды
+            LoadDataCommand = new RelayCommand(LoadData);
+            AddUserCommand = new RelayCommand(AddUser);
+            UpdateUserCommand = new RelayCommand(UpdateUser);
+            DeleteUserCommand = new RelayCommand(DeleteUser);
+            TestConnectionCommand = new RelayCommand(TestConnection);
         }
 
-        private void LoadData()
+        private async void TestConnection()
         {
-            using (var context = new AppDbContext())
+            IsConnected = await databaseService.TestConnectionAsync();
+            StatusMessage = IsConnected ? "Подключено" : "Не подключено";
+
+            // В реальном приложении здесь нужно уведомлять UI
+            Console.WriteLine(StatusMessage);
+        }
+
+        private async void LoadData()
+        {
+            try
             {
-                Users = new ObservableCollection<Users>(context.Users.Include(e => e.RoleId).ToList());
-                Category = new ObservableCollection<Category>(context.Categories.ToList());
-                Deliveries = new ObservableCollection<Delivery>(context.Deliveries.ToList());
-                Goods = new ObservableCollection<Goods>(context.Goods.Include(e => e.CategoryId).ToList());
-                GoodsAccounting = new ObservableCollection<GoodsAccounting>(context.GoodsAccountings.Include(e => e.GoodsID).ToList());
-                OrderEmployees = new ObservableCollection<OrderEmployee>(context.OrderEmployee.Include(e => e.OrderID).ToList());
-                Orders = new ObservableCollection<Orders>(context.Orders.Include(e => e.Id).ToList());
-                OrdersGoods = new ObservableCollection<OrdersGoods>(context.OrdersGoods.Include(e => e.Id).ToList());
-                Postlist = new ObservableCollection<Postlist>(context.Postlist.ToList());
-                Roles = new ObservableCollection<Role>(context.Roles.ToList());
-                Suppliers = new ObservableCollection<Suppliers>(context.Suppliers.ToList());
-                SuppliersGoods = new ObservableCollection<SuppliersGoods>(context.SuppliersGoods.Include(e => e.SupplierID).ToList());
-                UserPost = new ObservableCollection<UserPost>(context.UserPosts.Include(e => e.UserID).ToList());
-                Warehouse = new ObservableCollection<Warehouse>(context.Warehouse.ToList());
+                var users = await databaseService.GetAllUsersAsync();
+                Users.Clear();
+
+                foreach (var user in users)
+                {
+                    Users.Add(user);
+                }
+
+                StatusMessage = $"Загружено {Users.Count} пользователей";
+                Console.WriteLine(StatusMessage);
             }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Ошибка: {ex.Message}";
+                Console.WriteLine(StatusMessage);
+            }
+        }
+
+        private async void AddUser()
+        {
+            var newUser = new Users
+            {
+                RoleId = 1,
+                Login = "new_user",
+                Password = "password",
+                Name = "Имя",
+                LastName = "Фамилия",
+                Patronymic = "Отчество",
+                PhoneNumber = "+79991234567",
+                Email = "test@mail.com",
+                BirthDate = DateTime.Now.AddYears(-30),
+                Address = "Адрес"
+            };
+
+            var success = await databaseService.CreateUserAsync(newUser);
+            StatusMessage = success ? "Пользователь добавлен" : "Ошибка добавления";
+            Console.WriteLine(StatusMessage);
+
+            if (success)
+            {
+                LoadData(); // Перезагружаем данные
+            }
+        }
+
+        private async void UpdateUser()
+        {
+            if (SelectedUser == null)
+            {
+                StatusMessage = "Выберите пользователя";
+                Console.WriteLine(StatusMessage);
+                return;
+            }
+
+            // Меняем имя для примера
+            SelectedUser.Name += " (изменено)";
+
+            var success = await databaseService.UpdateUserAsync(SelectedUser);
+            StatusMessage = success ? "Пользователь обновлен" : "Ошибка обновления";
+            Console.WriteLine(StatusMessage);
+        }
+
+        private async void DeleteUser()
+        {
+            if (SelectedUser == null)
+            {
+                StatusMessage = "Выберите пользователя";
+                Console.WriteLine(StatusMessage);
+                return;
+            }
+
+            var success = await databaseService.DeleteUserAsync(SelectedUser.Id);
+            StatusMessage = success ? "Пользователь удален" : "Ошибка удаления";
+            Console.WriteLine(StatusMessage);
+
+            if (success)
+            {
+                Users.Remove(SelectedUser);
+                SelectedUser = null;
+            }
+        }
+    }
+
+    // Простейшая реализация команды
+    public class RelayCommand : ICommand
+    {
+        private readonly Action execute;
+
+        public event EventHandler CanExecuteChanged;
+
+        public RelayCommand(Action execute)
+        {
+            this.execute = execute;
+        }
+
+        public bool CanExecute(object parameter) => true;
+
+        public void Execute(object parameter)
+        {
+            execute?.Invoke();
         }
     }
 }

@@ -258,9 +258,9 @@
             <Setter Property="CanUserReorderColumns" Value="False"/>
             <Setter Property="CanUserResizeColumns" Value="False"/>
             <Setter Property="CanUserSortColumns" Value="False"/>
-            <Setter Property="ColumnWidth" Value="220"/>
+            <Setter Property="ColumnWidth" Value="300"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-
+            <Setter Property="ScrollViewer.AllowDrop" Value="True"/>
         </Style>
 
         <!--BakerInterface-->
