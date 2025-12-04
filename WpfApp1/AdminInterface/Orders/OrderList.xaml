@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
-        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="OrderList">
+        Title="OrderList" Loaded="Window_Loaded">
     <Grid>
         <StackPanel Orientation="Horizontal">
             <Border CornerRadius="0" Style="{StaticResource AdminBorder}">
@@ -19,13 +18,21 @@
             </Button>
         </StackPanel>
         <TextBlock Text="С  П  И  С  О  К     З  А  К  А  З  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
-        
-        <DataGrid Name="EmployeeListDataGrid" Margin="0, -400, 0, 0" ItemsSource="{Binding Orders}" Style="{StaticResource adminTable}">
+
+        <!-- Исправлено имя DataGrid с EmployeeListDataGrid на OrdersDataGrid -->
+        <DataGrid Name="OrdersDataGrid" 
+                  Margin="0,211,0,611" 
+                  ItemsSource="{Binding Orders}" 
+                  AutoGenerateColumns="False"
+                  HorizontalContentAlignment="Left" 
+                  Style="{StaticResource adminTable}" 
+                  Width="1342">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Айди клиента" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Суммарная стоимость" Width="400" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Доставка" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="100"/>
+                <DataGridTextColumn Header="ID клиента" Binding="{Binding ClientId}" Width="120"/>
+                <DataGridTextColumn Header="Сумма заказа" Binding="{Binding TotalCost, StringFormat={}{0:C2}}" Width="200"/>
+                <DataGridCheckBoxColumn Header="Доставка" Binding="{Binding Delivery}" Width="120"/>
+                <DataGridTextColumn Header="Время приготовления" Binding="{Binding CookingTime, StringFormat={}{0:hh\\:mm}}" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
