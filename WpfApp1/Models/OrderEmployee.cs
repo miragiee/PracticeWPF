@@ -11,5 +11,9 @@ namespace WpfApp1.Models
         public int OrderEmployeeID { get; set; }
         public int OrderID { get; set; }
         public int EmployeeID { get; set; }
+
+        // Навигационные свойства
+        public Orders? Order { get; set; }
+        public Users? Employee { get; set; }
     }
 }

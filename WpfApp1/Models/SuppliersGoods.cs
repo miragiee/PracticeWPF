@@ -11,5 +11,9 @@ namespace WpfApp1.Models
         public int SupplierGoodsID { get; set; }
         public int SupplierID { get; set; }
         public int GoodsID { get; set; }
+
+        // Навигационные свойства
+        public Suppliers? Supplier { get; set; }
+        public Goods? Goods { get; set; }
     }
 }

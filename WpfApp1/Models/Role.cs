@@ -10,5 +10,8 @@ namespace WpfApp1.Models
     {
         public int Id { get; set; }
         public string? RoleName { get; set; }
+
+        // Навигационные свойства
+        public List<Users>? Users { get; set; }
     }
 }

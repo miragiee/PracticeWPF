@@ -19,5 +19,11 @@ namespace WpfApp1.Models
         public string? Email { get; set; }
         public DateTime BirthDate { get; set; }
         public string? Address { get; set; }
+
+        // Навигационные свойства
+        public Role? Role { get; set; }
+        public List<UserPost>? UserPosts { get; set; }
+        public List<OrderEmployee>? OrderEmployees { get; set; }
+        public List<Delivery>? Deliveries { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace WpfApp1.Models
         public int Id { get; set; }
         public string? Name { get; set; }
         public decimal? Salary { get; set; }
-        
+
+        // Навигационные свойства
+        public List<UserPost>? UserPosts { get; set; }
     }
 }

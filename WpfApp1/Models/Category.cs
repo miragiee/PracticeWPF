@@ -10,5 +10,8 @@ namespace WpfApp1.Models
     {
         public int Id { get; set; }
         public string? Name { get; set; }
+
+        // Навигационные свойства
+        public List<Goods>? Goods { get; set; }
     }
 }

@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-     public class GoodsAccounting
+    public class GoodsAccounting
     {
         public int Id { get; set; }
         public string? GoodsID { get; set; }
         public string? GoodsAmount { get; set; }
         public string? WarehouseID { get; set; }
+
+        // Навигационные свойства
+        public Goods? Goods { get; set; }
+        public Warehouse? Warehouse { get; set; }
     }
 }

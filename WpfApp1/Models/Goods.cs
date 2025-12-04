@@ -15,5 +15,11 @@ namespace WpfApp1.Models
         public decimal Price { get; set; }
         public int CategoryId { get; set; }
         public string? ImagePath { get; set; }
+
+        // Связи
+        public Category? Category { get; set; }
+        public List<SuppliersGoods>? SuppliersGoods { get; set; }
+        public List<GoodsAccounting>? GoodsAccounting { get; set; }
+        public List<OrdersGoods>? OrdersGoods { get; set; }
     }
 }

@@ -25,9 +25,10 @@ namespace WpfApp1.Models
                 CalculateTotalPrice();
             }
         }
-        public int Amount 
-        {   get {  return _amount; }
-            set 
+        public int Amount
+        {
+            get { return _amount; }
+            set
             {
                 _amount = value;
                 CalculateTotalPrice();
@@ -39,7 +40,11 @@ namespace WpfApp1.Models
             set { _totalPrice = value; }
         }
 
-    private void CalculateTotalPrice()
+        // Навигационные свойства
+        public Orders? Order { get; set; }
+        public Goods? Goods { get; set; }
+
+        private void CalculateTotalPrice()
         {
             _totalPrice = _amount * _price;
         }

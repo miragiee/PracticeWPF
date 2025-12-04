@@ -15,14 +15,20 @@ namespace WpfApp1.Models
         public decimal TotalCost { get; set; }
         public bool Delivery { get; set; }
         public TimeSpan CookingTime { get; set; }
-        public int[]? OrderedGoodsID {  get; set; }
+        public int[]? OrderedGoodsID { get; set; }
 
         public string GoodsDisplay => OrderedGoodsID != null ? string.Join(", ", OrderedGoodsID) : string.Empty;
-       
+
         public double Weight { get; set; }
 
         public TimeSpan DeliveryTime { get; set; }
 
-        public string? DeliveryAddress {  get; set; }
+        public string? DeliveryAddress { get; set; }
+
+        // Навигационные свойства
+        public Users? Client { get; set; }
+        public List<OrdersGoods>? OrdersGoods { get; set; }
+        public Delivery? OrderDelivery { get; set; }
+        public List<OrderEmployee>? OrderEmployees { get; set; }
     }
 }
