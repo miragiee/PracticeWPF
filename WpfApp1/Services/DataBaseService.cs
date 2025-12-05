@@ -10,6 +10,223 @@ namespace WpfApp1.Services
 {
     public class DatabaseService
     {
+        // Получение пользователя по логину/email
+        public async Task<Users?> GetUserByLoginAsync(string login)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                SELECT u.*, r.RoleName 
+                FROM Users u 
+                LEFT JOIN Role r ON u.RoleId = r.Id 
+                WHERE u.Login = @Login OR u.Email = @Login";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Login", login);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                var user = new Users
+                                {
+                                    ID = reader.GetInt32("Id"),
+                                    RoleID = reader.GetInt32("RoleId"),
+                                    Login = reader["Login"]?.ToString(),
+                                    Password = reader["Password"]?.ToString(),
+                                    Name = reader["Name"]?.ToString(),
+                                    LastName = reader["LastName"]?.ToString(),
+                                    Patronymic = reader["Patronymic"]?.ToString(),
+                                    PhoneNumber = reader["PhoneNumber"]?.ToString(),
+                                    Email = reader["Email"]?.ToString(),
+                                    BirthDate = reader.GetDateTime("BirthDate"),
+                                    Address = reader["Address"]?.ToString()
+                                };
+
+                                if (!reader.IsDBNull(reader.GetOrdinal("RoleName")))
+                                {
+                                    user.Role = new Role
+                                    {
+                                        ID = reader.GetInt32("RoleId"),
+                                        RoleName = reader["RoleName"]?.ToString()
+                                    };
+                                }
+
+                                return user;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetUserByLoginAsync error: {ex.Message}");
+            }
+
+            return null;
+        }
+
+        // Обновление пароля
+        public async Task<bool> UpdatePasswordAsync(int userId, string newPassword)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = "UPDATE Users SET Password = @Password WHERE Id = @Id";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", userId);
+                        command.Parameters.AddWithValue("@Password", newPassword);
+
+                        return await command.ExecuteNonQueryAsync() > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"UpdatePasswordAsync error: {ex.Message}");
+                return false;
+            }
+        }
+
+        // === АВТОРИЗАЦИЯ ===
+        public async Task<Users?> AuthenticateUserAsync(string login, string password)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+        SELECT u.ID, u.RoleID, u.Login, u.Password, u.Name, u.LastName, 
+               u.Patronymic, u.PhoneNumber, u.Email, u.BirthDate, u.Address,
+               r.RoleName
+        FROM Users u
+        LEFT JOIN Roles r ON u.RoleID = r.RoleID
+        WHERE u.Login = @Login AND u.Password = @Password";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Login", login);
+                        command.Parameters.AddWithValue("@Password", password);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                var user = new Users
+                                {
+                                    ID = reader.GetInt32("ID"),
+                                    RoleID = reader.GetInt32("RoleID"),
+                                    Login = reader["Login"]?.ToString(),
+                                    Password = reader["Password"]?.ToString(),
+                                    Name = reader["Name"]?.ToString(),
+                                    LastName = reader["LastName"]?.ToString(),
+                                    Patronymic = reader["Patronymic"]?.ToString(),
+                                    PhoneNumber = reader["PhoneNumber"]?.ToString(),
+                                    Email = reader["Email"]?.ToString(),
+                                    BirthDate = reader.GetDateTime("BirthDate"),
+                                    Address = reader["Address"]?.ToString()
+                                };
+
+                                if (!reader.IsDBNull(reader.GetOrdinal("RoleName")))
+                                {
+                                    user.Role = new Role
+                                    {
+                                        ID = reader.GetInt32("RoleID"),
+                                        RoleName = reader["RoleName"]?.ToString()
+                                    };
+                                }
+
+                                return user;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"AuthenticateUserAsync error: {ex.Message}");
+            }
+
+            return null;
+        }
+
+        // Проверка существования пользователя
+        public async Task<bool> UserExistsAsync(string login, string email)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = "SELECT COUNT(*) FROM Users WHERE Login = @Login OR Email = @Email";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Login", login);
+                        command.Parameters.AddWithValue("@Email", email);
+
+                        var count = Convert.ToInt32(await command.ExecuteScalarAsync());
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"UserExistsAsync error: {ex.Message}");
+                return false;
+            }
+        }
+
+        // Получение роли по имени
+        public async Task<Role?> GetRoleByNameAsync(string roleName)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = "SELECT * FROM Role WHERE RoleName = @RoleName";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@RoleName", roleName);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                return new Role
+                                {
+                                    ID = reader.GetInt32("ID"),
+                                    RoleName = reader["RoleName"]?.ToString()
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetRoleByNameAsync error: {ex.Message}");
+            }
+
+            return null;
+        }
+
         // Вспомогательный метод для безопасного чтения TimeSpan из reader
         private TimeSpan SafeGetTimeSpan(System.Data.Common.DbDataReader reader, string columnName)
         {
@@ -50,8 +267,8 @@ namespace WpfApp1.Services
                         {
                             var user = new Users
                             {
-                                Id = reader.GetInt32("Id"),
-                                RoleId = reader.GetInt32("RoleId"),
+                                ID = reader.GetInt32("ID"),
+                                RoleID = reader.GetInt32("RoleID"),
                                 Login = reader["Login"]?.ToString(),
                                 Password = reader["Password"]?.ToString(),
                                 Name = reader["Name"]?.ToString(),
@@ -89,7 +306,7 @@ namespace WpfApp1.Services
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@RoleId", roleId);
+                        command.Parameters.AddWithValue("@RoleID", roleId);
 
                         using (var reader = await command.ExecuteReaderAsync())
                         {
@@ -97,8 +314,8 @@ namespace WpfApp1.Services
                             {
                                 users.Add(new Users
                                 {
-                                    Id = reader.GetInt32("Id"),
-                                    RoleId = reader.GetInt32("RoleId"),
+                                    ID = reader.GetInt32("ID"),
+                                    RoleID = reader.GetInt32("RoleID"),
                                     Login = reader["Login"]?.ToString(),
                                     Password = reader["Password"]?.ToString(),
                                     Name = reader["Name"]?.ToString(),
@@ -131,14 +348,14 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
                     string query = @"
-                        SELECT u.*, r.Id as Role_Id, r.RoleName 
+                        SELECT u.*, r.ID as Role_Id, r.RoleName 
                         FROM Users u 
-                        LEFT JOIN Role r ON u.RoleId = r.Id 
-                        WHERE u.Id = @UserId";
+                        LEFT JOIN Role r ON u.RoleID = r.ID
+                        WHERE u.ID = @UserId";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@UserId", userId);
+                        command.Parameters.AddWithValue("@UserID", userId);
 
                         using (var reader = await command.ExecuteReaderAsync())
                         {
@@ -146,8 +363,8 @@ namespace WpfApp1.Services
                             {
                                 var user = new Users
                                 {
-                                    Id = reader.GetInt32("Id"),
-                                    RoleId = reader.GetInt32("RoleId"),
+                                    ID = reader.GetInt32("ID"),
+                                    RoleID = reader.GetInt32("RoleID"),
                                     Login = reader["Login"]?.ToString(),
                                     Password = reader["Password"]?.ToString(),
                                     Name = reader["Name"]?.ToString(),
@@ -159,11 +376,11 @@ namespace WpfApp1.Services
                                     Address = reader["Address"]?.ToString()
                                 };
 
-                                if (!reader.IsDBNull(reader.GetOrdinal("Role_Id")))
+                                if (!reader.IsDBNull(reader.GetOrdinal("Role_ID")))
                                 {
                                     user.Role = new Role
                                     {
-                                        Id = reader.GetInt32("Role_Id"),
+                                        ID = reader.GetInt32("Role_ID"),
                                         RoleName = reader["RoleName"]?.ToString()
                                     };
                                 }
@@ -190,14 +407,14 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
 
-                    string query = @"INSERT INTO Users (RoleId, Login, Password, Name, LastName, Patronymic, 
+                    string query = @"INSERT INTO Users (RoleID, Login, Password, Name, LastName, Patronymic, 
                                     PhoneNumber, Email, BirthDate, Address) 
-                                    VALUES (@RoleId, @Login, @Password, @Name, @LastName, @Patronymic, 
+                                    VALUES (@RoleID, @Login, @Password, @Name, @LastName, @Patronymic, 
                                     @PhoneNumber, @Email, @BirthDate, @Address)";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@RoleId", user.RoleId);
+                        command.Parameters.AddWithValue("@RoleID", user.RoleID);
                         command.Parameters.AddWithValue("@Login", user.Login);
                         command.Parameters.AddWithValue("@Password", user.Password);
                         command.Parameters.AddWithValue("@Name", user.Name);
@@ -228,7 +445,7 @@ namespace WpfApp1.Services
                     await connection.OpenAsync();
 
                     string query = @"UPDATE Users SET 
-                                    RoleId = @RoleId, 
+                                    RoleID = @RoleID, 
                                     Login = @Login, 
                                     Password = @Password, 
                                     Name = @Name, 
@@ -238,12 +455,12 @@ namespace WpfApp1.Services
                                     Email = @Email, 
                                     BirthDate = @BirthDate, 
                                     Address = @Address 
-                                    WHERE Id = @Id";
+                                    WHERE ID = @ID";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Id", user.Id);
-                        command.Parameters.AddWithValue("@RoleId", user.RoleId);
+                        command.Parameters.AddWithValue("@ID", user.ID);
+                        command.Parameters.AddWithValue("@RoleID", user.RoleID);
                         command.Parameters.AddWithValue("@Login", user.Login);
                         command.Parameters.AddWithValue("@Password", user.Password);
                         command.Parameters.AddWithValue("@Name", user.Name);
@@ -273,10 +490,10 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
 
-                    string query = "DELETE FROM Users WHERE Id = @Id";
+                    string query = "DELETE FROM Users WHERE ID = @ID";
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@ID", id);
                         return await command.ExecuteNonQueryAsync() > 0;
                     }
                 }
@@ -544,7 +761,7 @@ namespace WpfApp1.Services
                                 {
                                     order.Client = new Users
                                     {
-                                        Id = reader.GetInt32("Client_Id"), // Исправлено
+                                        ID = reader.GetInt32("Client_Id"), // Исправлено
                                         Name = reader["Client_Name"]?.ToString(),
                                         LastName = reader["Client_LastName"]?.ToString()
                                     };
@@ -712,7 +929,7 @@ namespace WpfApp1.Services
                         {
                             roles.Add(new Role
                             {
-                                Id = reader.GetInt32("ID"),
+                                ID = reader.GetInt32("ID"),
                                 RoleName = reader["RoleName"]?.ToString()
                             });
                         }

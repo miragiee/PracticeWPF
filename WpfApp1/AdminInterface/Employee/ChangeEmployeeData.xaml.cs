@@ -86,8 +86,8 @@ namespace WpfApp1
                         {
                             employees.Add(new Users
                             {
-                                Id = reader.GetInt32("Id"),
-                                RoleId = reader.GetInt32("RoleId"),
+                                ID = reader.GetInt32("Id"),
+                                RoleID = reader.GetInt32("RoleId"),
                                 Login = GetSafeString(reader, "Login"),
                                 Password = GetSafeString(reader, "Password"),
                                 Name = GetSafeString(reader, "Name"),
@@ -155,7 +155,7 @@ namespace WpfApp1
         {
             try
             {
-                _selectedEmployee = _employees?.FirstOrDefault(u => u.Id == employeeId);
+                _selectedEmployee = _employees?.FirstOrDefault(u => u.ID == employeeId);
                 if (_selectedEmployee == null)
                 {
                     // Загружаем сотрудника из базы данных с проверкой RoleId
@@ -174,8 +174,8 @@ namespace WpfApp1
                                 {
                                     _selectedEmployee = new Users
                                     {
-                                        Id = userReader.GetInt32("Id"),
-                                        RoleId = userReader.GetInt32("RoleId"),
+                                        ID = userReader.GetInt32("Id"),
+                                        RoleID = userReader.GetInt32("RoleId"),
                                         Login = GetSafeString(userReader, "Login"),
                                         Password = GetSafeString(userReader, "Password"),
                                         Name = GetSafeString(userReader, "Name"),
@@ -214,7 +214,7 @@ namespace WpfApp1
                 else
                 {
                     // Проверяем, что выбранный пользователь - сотрудник
-                    if (_selectedEmployee.RoleId != 2)
+                    if (_selectedEmployee.RoleID != 2)
                     {
                         MessageBox.Show("Выбранный пользователь не является сотрудником", "Ошибка",
                             MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -373,7 +373,7 @@ namespace WpfApp1
             }
 
             // Проверяем, что это сотрудник
-            if (_selectedEmployee.RoleId != 2)
+            if (_selectedEmployee.RoleID != 2)
             {
                 MessageBox.Show("Выбранный пользователь не является сотрудником", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
@@ -404,7 +404,7 @@ namespace WpfApp1
 
                                 using (var command = new MySqlCommand(updateUserQuery, connection, transaction))
                                 {
-                                    command.Parameters.AddWithValue("@Id", _selectedEmployee.Id);
+                                    command.Parameters.AddWithValue("@Id", _selectedEmployee.ID);
                                     command.Parameters.AddWithValue("@Name",
                                         _changeName ? FirstNameTextBox.Text : _selectedEmployee.Name);
                                     command.Parameters.AddWithValue("@LastName",
@@ -438,7 +438,7 @@ namespace WpfApp1
                                         WHERE up.UserID = @UserId AND up.PostID = @PostId AND u.RoleId = 2";
                                     using (var checkCommand = new MySqlCommand(checkQuery, connection, transaction))
                                     {
-                                        checkCommand.Parameters.AddWithValue("@UserId", _selectedEmployee.Id);
+                                        checkCommand.Parameters.AddWithValue("@UserId", _selectedEmployee.ID);
                                         checkCommand.Parameters.AddWithValue("@PostId", postId);
 
                                         long existingCount = Convert.ToInt64(await checkCommand.ExecuteScalarAsync());
@@ -452,7 +452,7 @@ namespace WpfApp1
                                                 WHERE up.UserID = @UserId AND u.RoleId = 2";
                                             using (var deleteCommand = new MySqlCommand(deleteQuery, connection, transaction))
                                             {
-                                                deleteCommand.Parameters.AddWithValue("@UserId", _selectedEmployee.Id);
+                                                deleteCommand.Parameters.AddWithValue("@UserId", _selectedEmployee.ID);
                                                 await deleteCommand.ExecuteNonQueryAsync();
                                             }
 
@@ -460,7 +460,7 @@ namespace WpfApp1
                                             string insertQuery = "INSERT INTO UserPost (UserID, PostID) VALUES (@UserId, @PostId)";
                                             using (var insertCommand = new MySqlCommand(insertQuery, connection, transaction))
                                             {
-                                                insertCommand.Parameters.AddWithValue("@UserId", _selectedEmployee.Id);
+                                                insertCommand.Parameters.AddWithValue("@UserId", _selectedEmployee.ID);
                                                 insertCommand.Parameters.AddWithValue("@PostId", postId);
                                                 await insertCommand.ExecuteNonQueryAsync();
                                             }
@@ -526,7 +526,7 @@ namespace WpfApp1
             }
 
             // Проверяем, что это сотрудник
-            if (_selectedEmployee.RoleId != 2)
+            if (_selectedEmployee.RoleID != 2)
             {
                 MessageBox.Show("Выбранный пользователь не является сотрудником", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
@@ -555,7 +555,7 @@ namespace WpfApp1
                                     WHERE up.UserID = @UserId AND u.RoleId = 2";
                                 using (var command = new MySqlCommand(deletePostQuery, connection, transaction))
                                 {
-                                    command.Parameters.AddWithValue("@UserId", _selectedEmployee.Id);
+                                    command.Parameters.AddWithValue("@UserId", _selectedEmployee.ID);
                                     await command.ExecuteNonQueryAsync();
                                 }
 
@@ -563,7 +563,7 @@ namespace WpfApp1
                                 string deleteUserQuery = "DELETE FROM Users WHERE Id = @Id AND RoleId = 2";
                                 using (var userCommand = new MySqlCommand(deleteUserQuery, connection, transaction))
                                 {
-                                    userCommand.Parameters.AddWithValue("@Id", _selectedEmployee.Id);
+                                    userCommand.Parameters.AddWithValue("@Id", _selectedEmployee.ID);
                                     int rowsAffected = await userCommand.ExecuteNonQueryAsync();
 
                                     if (rowsAffected > 0)

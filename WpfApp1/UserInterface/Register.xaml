@@ -5,33 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Register" Height="1024" Width="1440">
+        Title="Регистрация" Height="1024" Width="1440" 
+        WindowStartupLocation="CenterScreen">
     <Grid>
-
         <Border BorderBrush="Black" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="1440" CornerRadius="0">
-            <TextBlock Margin="0,19,0,16" Style="{StaticResource Header1}"><Run Language="ru-ru" Text="Р  Е  Г  И  С  Т  Р  А  Ц  И  Я"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+            <TextBlock Margin="0,19,0,16" Style="{StaticResource Header1}">
+                <Run Language="ru-ru" Text="Р  Е  Г  И  С  Т  Р  А  Ц  И  Я"/>
+            </TextBlock>
         </Border>
 
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="500">
+            <!-- Логин -->
+            <TextBlock Text="Логин:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
+            <TextBox x:Name="LoginBox" Style="{StaticResource DarkBox}" Height="40" Margin="0,0,0,20"/>
 
+            <!-- Email -->
+            <TextBlock Text="Email:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
+            <TextBox x:Name="EmailBox" Style="{StaticResource DarkBox}" Height="40" Margin="0,0,0,20"/>
 
-        <StackPanel Margin="84,105,1078,510">
-            <TextBlock Margin="0, 0, 0, 46" Style="{StaticResource NormalText}"><Run Text="Введите ваш"/><Run Language="ru-ru" Text="е имя"/></TextBlock>
-            <TextBlock Margin="0, 0, 0, 46" Style="{StaticResource NormalText}"><Run Text="Введите ваш"/><Run Language="ru-ru" Text="у фамилию"/></TextBlock>
-            <TextBlock Margin="0, 0, 0, 46" Style="{StaticResource NormalText}"><Run Text="Введите ваш"/><Run Language="ru-ru" Text="у почту"/></TextBlock>
-            <TextBlock Margin="0, 0, 0, 46" Style="{StaticResource NormalText}"><Run Text="Введите "/><Run Language="ru-ru" Text="пароль"/></TextBlock>
-            <TextBlock Margin="0, 0, 0, 46" Style="{StaticResource NormalText}"><Run Text="Введите "/><Run Language="ru-ru" Text="пароль"/></TextBlock>
+            <!-- Имя -->
+            <TextBlock Text="Имя:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
+            <TextBox x:Name="NameBox" Style="{StaticResource DarkBox}" Height="40" Margin="0,0,0,20"/>
+
+            <!-- Фамилия -->
+            <TextBlock Text="Фамилия:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
+            <TextBox x:Name="LastNameBox" Style="{StaticResource DarkBox}" Height="40" Margin="0,0,0,20"/>
+
+            <!-- Телефон -->
+            <TextBlock Text="Телефон:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
+            <TextBox x:Name="PhoneBox" Style="{StaticResource DarkBox}" Height="40" Margin="0,0,0,20"/>
+
+            <!-- Пароль -->
+            <TextBlock Text="Пароль:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
+            <PasswordBox x:Name="PasswordBox" Height="40" Margin="0,0,0,20" 
+                        FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <!-- Подтверждение пароля -->
+            <TextBlock Text="Подтвердите пароль:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
+            <PasswordBox x:Name="ConfirmPasswordBox" Height="40" Margin="0,0,0,30"
+                        FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <!-- Кнопки -->
+            <Button Content="Зарегистрироваться" Height="50" FontSize="20" 
+                    Background="#FF5CAD3E" Foreground="White" Click="RegisterButton_Click"/>
+
+            <Button Content="Назад к входу" Height="40" FontSize="16" Margin="0,20,0,0"
+                    Background="#C4E8B7" Foreground="#071B00" Click="BackToLogin_Click"/>
         </StackPanel>
-        <StackPanel Margin="585,105,385,510" Cursor="">
-            <TextBox HorizontalAlignment="Left" Margin="0, 0, 0, 23.21" Text="Имя" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
-            <TextBox HorizontalAlignment="Left" Margin="0, 0, 0, 23.21" Text="Фамилия" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
-            <TextBox HorizontalAlignment="Left" Margin="0, 0, 0, 23.21" Text="Почта" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
-            <TextBox HorizontalAlignment="Left" Margin="0, 0, 0, 23.21" Text="Пароль" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
-            <TextBox HorizontalAlignment="Left" Margin="0, 0, 0, 23.21" Text="Подтверждение пароля" Width="400" Height="46.79" Style="{StaticResource DarkBox}"/>
-        </StackPanel>
-
-        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="84,540,0,0" Foreground="#071B00" Click="MoveToLogin"/>
-        <Button Content="Нажимая кнопку РЕГИСТРАЦИЯ, я соглашаюсь с пользовательским соглашением" HorizontalAlignment="Left" Margin="84,504,0,0" Width="452" FontSize="16" Foreground="#FF5CAD3E" Background="#F8FEF5" Height="34" Click="MoveToEULA"/>
-
-
     </Grid>
 </Window>

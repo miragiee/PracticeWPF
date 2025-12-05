@@ -118,8 +118,8 @@ namespace WpfApp1
             // Добавляем тестовые данные с более короткими значениями для отладки
             Employees.Add(new Users
             {
-                Id = 1,
-                RoleId = 2,
+                ID = 1,
+                RoleID = 2,
                 Login = "ivanov_ii",
                 Name = "Иван",
                 LastName = "Иванов",
@@ -132,8 +132,8 @@ namespace WpfApp1
 
             Employees.Add(new Users
             {
-                Id = 2,
-                RoleId = 2,
+                ID = 2,
+                RoleID = 2,
                 Login = "petrova_ms",
                 Name = "Мария",
                 LastName = "Петрова",
@@ -146,8 +146,8 @@ namespace WpfApp1
 
             Employees.Add(new Users
             {
-                Id = 3,
-                RoleId = 2,
+                ID = 3,
+                RoleID = 2,
                 Login = "sidorov_ap",
                 Name = "Алексей",
                 LastName = "Сидоров",

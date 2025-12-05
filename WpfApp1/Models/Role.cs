@@ -8,7 +8,7 @@ namespace WpfApp1.Models
 {
     public class Role
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string? RoleName { get; set; }
 
         // Навигационные свойства

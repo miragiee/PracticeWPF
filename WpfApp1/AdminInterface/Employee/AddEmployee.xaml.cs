@@ -69,7 +69,7 @@ namespace WpfApp1
                 // Создаем объект пользователя
                 var newUser = new Users
                 {
-                    RoleId = roleId,
+                    RoleID = roleId,
                     Name = nameBox.Text.Trim(),
                     LastName = lastnameBox.Text.Trim(),
                     Patronymic = patronymicBox.Text == "О  Т  Ч  Е  С  Т  В  О" ? null : patronymicBox.Text.Trim(),

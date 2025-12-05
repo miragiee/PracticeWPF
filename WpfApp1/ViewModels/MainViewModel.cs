@@ -72,7 +72,7 @@ namespace WpfApp1.ViewModels
         {
             var newUser = new Users
             {
-                RoleId = 1,
+                RoleID = 1,
                 Login = "new_user",
                 Password = "password",
                 Name = "Имя",
@@ -120,7 +120,7 @@ namespace WpfApp1.ViewModels
                 return;
             }
 
-            var success = await databaseService.DeleteUserAsync(SelectedUser.Id);
+            var success = await databaseService.DeleteUserAsync(SelectedUser.ID);
             StatusMessage = success ? "Пользователь удален" : "Ошибка удаления";
             Console.WriteLine(StatusMessage);
 

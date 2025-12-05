@@ -112,8 +112,8 @@ namespace WpfApp1
             // Тестовые данные
             Clients.Add(new Users
             {
-                Id = 1,
-                RoleId = 3,
+                ID = 1,
+                RoleID = 3,
                 Login = "ivanov_client",
                 Name = "Иван",
                 LastName = "Иванов",
@@ -126,8 +126,8 @@ namespace WpfApp1
 
             Clients.Add(new Users
             {
-                Id = 2,
-                RoleId = 3,
+                ID = 2,
+                RoleID = 3,
                 Login = "petrova_client",
                 Name = "Мария",
                 LastName = "Петрова",
