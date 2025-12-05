@@ -111,8 +111,8 @@ namespace WpfApp1
             // Тестовые данные
             Orders.Add(new Orders
             {
-                Id = 1,
-                ClientId = 1,
+                ID = 1,
+                ClientID = 1,
                 TotalCost = 390,
                 Delivery = true,
                 CookingTime = new TimeSpan(1, 0, 0)
@@ -120,8 +120,8 @@ namespace WpfApp1
 
             Orders.Add(new Orders
             {
-                Id = 2,
-                ClientId = 2,
+                ID = 2,
+                ClientID = 2,
                 TotalCost = 1250,
                 Delivery = false,
                 CookingTime = new TimeSpan(0, 45, 0)
@@ -129,8 +129,8 @@ namespace WpfApp1
 
             Orders.Add(new Orders
             {
-                Id = 3,
-                ClientId = 3,
+                ID = 3,
+                ClientID = 3,
                 TotalCost = 2730,
                 Delivery = false,
                 CookingTime = new TimeSpan(1, 30, 0)
@@ -138,8 +138,8 @@ namespace WpfApp1
 
             Orders.Add(new Orders
             {
-                Id = 4,
-                ClientId = 4,
+                ID = 4,
+                ClientID = 4,
                 TotalCost = 890,
                 Delivery = true,
                 CookingTime = new TimeSpan(0, 30, 0)
@@ -147,8 +147,8 @@ namespace WpfApp1
 
             Orders.Add(new Orders
             {
-                Id = 5,
-                ClientId = 5,
+                ID = 5,
+                ClientID = 5,
                 TotalCost = 1560,
                 Delivery = true,
                 CookingTime = new TimeSpan(1, 15, 0)

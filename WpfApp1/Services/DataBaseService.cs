@@ -1,14 +1,36 @@
 ﻿using MySql.Data.MySqlClient;
-using WpfApp1.Models;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using WpfApp1.Models;
 
 namespace WpfApp1.Services
 {
     public class DatabaseService
     {
+        // Вспомогательный метод для безопасного чтения TimeSpan из reader
+        private TimeSpan SafeGetTimeSpan(System.Data.Common.DbDataReader reader, string columnName)
+        {
+            try
+            {
+                if (!reader.IsDBNull(reader.GetOrdinal(columnName)))
+                {
+                    var timeStr = reader[columnName]?.ToString();
+                    if (TimeSpan.TryParse(timeStr, out var timeSpan))
+                    {
+                        return timeSpan;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Если возникла ошибка, возвращаем TimeSpan.Zero
+            }
+            return TimeSpan.Zero;
+        }
+
         // === USERS ===
         public async Task<List<Users>> GetAllUsersAsync()
         {
@@ -461,32 +483,15 @@ namespace WpfApp1.Services
                         {
                             var order = new Orders
                             {
-                                Id = reader.GetInt32("Id"),
-                                ClientId = reader.GetInt32("ClientId"),
+                                ID = reader.GetInt32("ID"),
+                                ClientID = reader.GetInt32("ClientID"),
                                 TotalCost = reader.GetDecimal("TotalCost"),
                                 Delivery = reader.GetBoolean("Delivery"),
                                 Weight = reader.GetDouble("Weight"),
-                                DeliveryAddress = reader["DeliveryAddress"]?.ToString()
+                                DeliveryAddress = reader["DeliveryAddress"]?.ToString(),
+                                CookingTime = SafeGetTimeSpan(reader, "CookingTime"),
+                                DeliveryTime = SafeGetTimeSpan(reader, "DeliveryTime")
                             };
-
-                            // Для TimeSpan используем альтернативный подход
-                            var cookingTimeStr = reader["CookingTime"]?.ToString();
-                            if (!string.IsNullOrEmpty(cookingTimeStr))
-                            {
-                                if (TimeSpan.TryParse(cookingTimeStr, out var cookingTime))
-                                {
-                                    order.CookingTime = cookingTime;
-                                }
-                            }
-
-                            var deliveryTimeStr = reader["DeliveryTime"]?.ToString();
-                            if (!string.IsNullOrEmpty(deliveryTimeStr))
-                            {
-                                if (TimeSpan.TryParse(deliveryTimeStr, out var deliveryTime))
-                                {
-                                    order.DeliveryTime = deliveryTime;
-                                }
-                            }
 
                             orders.Add(order);
                         }
@@ -509,14 +514,14 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
                     string query = @"
-                        SELECT o.*, u.Id as Client_Id, u.Name as Client_Name, u.LastName as Client_LastName
-                        FROM Orders o 
-                        LEFT JOIN Users u ON o.ClientId = u.Id 
-                        WHERE o.Id = @OrderId";
+                SELECT o.*, u.ID as Client_Id, u.Name as Client_Name, u.LastName as Client_LastName
+                FROM Orders o 
+                LEFT JOIN Users u ON o.ClientID = u.ID
+                WHERE o.ID = @OrderID";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@OrderId", orderId);
+                        command.Parameters.AddWithValue("@OrderID", orderId);
 
                         using (var reader = await command.ExecuteReaderAsync())
                         {
@@ -524,38 +529,22 @@ namespace WpfApp1.Services
                             {
                                 var order = new Orders
                                 {
-                                    Id = reader.GetInt32("Id"),
-                                    ClientId = reader.GetInt32("ClientId"),
+                                    ID = reader.GetInt32("ID"),
+                                    ClientID = reader.GetInt32("ClientID"),
                                     TotalCost = reader.GetDecimal("TotalCost"),
                                     Delivery = reader.GetBoolean("Delivery"),
                                     Weight = reader.GetDouble("Weight"),
-                                    DeliveryAddress = reader["DeliveryAddress"]?.ToString()
+                                    DeliveryAddress = reader["DeliveryAddress"]?.ToString(),
+                                    CookingTime = SafeGetTimeSpan(reader, "CookingTime"),
+                                    DeliveryTime = SafeGetTimeSpan(reader, "DeliveryTime")
                                 };
 
-                                // Для TimeSpan используем альтернативный подход
-                                var cookingTimeStr = reader["CookingTime"]?.ToString();
-                                if (!string.IsNullOrEmpty(cookingTimeStr))
-                                {
-                                    if (TimeSpan.TryParse(cookingTimeStr, out var cookingTime))
-                                    {
-                                        order.CookingTime = cookingTime;
-                                    }
-                                }
-
-                                var deliveryTimeStr = reader["DeliveryTime"]?.ToString();
-                                if (!string.IsNullOrEmpty(deliveryTimeStr))
-                                {
-                                    if (TimeSpan.TryParse(deliveryTimeStr, out var deliveryTime))
-                                    {
-                                        order.DeliveryTime = deliveryTime;
-                                    }
-                                }
-
+                                // Исправлено: Client_Id вместо Client_ID
                                 if (!reader.IsDBNull(reader.GetOrdinal("Client_Id")))
                                 {
                                     order.Client = new Users
                                     {
-                                        Id = reader.GetInt32("Client_Id"),
+                                        Id = reader.GetInt32("Client_Id"), // Исправлено
                                         Name = reader["Client_Name"]?.ToString(),
                                         LastName = reader["Client_LastName"]?.ToString()
                                     };
@@ -583,17 +572,17 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
 
-                    string query = @"INSERT INTO Orders (ClientId, TotalCost, Delivery, CookingTime, Weight, DeliveryTime, DeliveryAddress) 
-                                    VALUES (@ClientId, @TotalCost, @Delivery, @CookingTime, @Weight, @DeliveryTime, @DeliveryAddress)";
+                    string query = @"INSERT INTO Orders (ClientID, TotalCost, Delivery, CookingTime, Weight, DeliveryTime, DeliveryAddress) 
+                                    VALUES (@ClientID, @TotalCost, @Delivery, @CookingTime, @Weight, @DeliveryTime, @DeliveryAddress)";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ClientId", order.ClientId);
+                        command.Parameters.AddWithValue("@ClientID", order.ClientID);
                         command.Parameters.AddWithValue("@TotalCost", order.TotalCost);
                         command.Parameters.AddWithValue("@Delivery", order.Delivery);
-                        command.Parameters.AddWithValue("@CookingTime", order.CookingTime);
+                        command.Parameters.AddWithValue("@CookingTime", order.CookingTime.ToString());
                         command.Parameters.AddWithValue("@Weight", order.Weight);
-                        command.Parameters.AddWithValue("@DeliveryTime", order.DeliveryTime);
+                        command.Parameters.AddWithValue("@DeliveryTime", order.DeliveryTime.ToString());
                         command.Parameters.AddWithValue("@DeliveryAddress", order.DeliveryAddress);
 
                         return await command.ExecuteNonQueryAsync() > 0;
@@ -616,24 +605,24 @@ namespace WpfApp1.Services
                     await connection.OpenAsync();
 
                     string query = @"UPDATE Orders SET 
-                                    ClientId = @ClientId, 
+                                    ClientID = @ClientID, 
                                     TotalCost = @TotalCost, 
                                     Delivery = @Delivery, 
                                     CookingTime = @CookingTime,
                                     Weight = @Weight,
                                     DeliveryTime = @DeliveryTime,
                                     DeliveryAddress = @DeliveryAddress
-                                    WHERE Id = @Id";
+                                    WHERE ID = @ID";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Id", order.Id);
-                        command.Parameters.AddWithValue("@ClientId", order.ClientId);
+                        command.Parameters.AddWithValue("@ID", order.ID);
+                        command.Parameters.AddWithValue("@ClientID", order.ClientID);
                         command.Parameters.AddWithValue("@TotalCost", order.TotalCost);
                         command.Parameters.AddWithValue("@Delivery", order.Delivery);
-                        command.Parameters.AddWithValue("@CookingTime", order.CookingTime);
+                        command.Parameters.AddWithValue("@CookingTime", order.CookingTime.ToString());
                         command.Parameters.AddWithValue("@Weight", order.Weight);
-                        command.Parameters.AddWithValue("@DeliveryTime", order.DeliveryTime);
+                        command.Parameters.AddWithValue("@DeliveryTime", order.DeliveryTime.ToString());
                         command.Parameters.AddWithValue("@DeliveryAddress", order.DeliveryAddress);
 
                         return await command.ExecuteNonQueryAsync() > 0;
@@ -655,10 +644,10 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
 
-                    string query = "DELETE FROM Orders WHERE Id = @Id";
+                    string query = "DELETE FROM Orders WHERE ID = @ID";
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@ID", id);
                         return await command.ExecuteNonQueryAsync() > 0;
                     }
                 }
@@ -689,7 +678,7 @@ namespace WpfApp1.Services
                         {
                             categories.Add(new Category
                             {
-                                Id = reader.GetInt32("Id"),
+                                Id = reader.GetInt32("ID"),
                                 Name = reader["Name"]?.ToString()
                             });
                         }
@@ -723,7 +712,7 @@ namespace WpfApp1.Services
                         {
                             roles.Add(new Role
                             {
-                                Id = reader.GetInt32("Id"),
+                                Id = reader.GetInt32("ID"),
                                 RoleName = reader["RoleName"]?.ToString()
                             });
                         }
@@ -751,7 +740,7 @@ namespace WpfApp1.Services
                     string query = @"
                         SELECT og.*, g.Name as Goods_Name, g.Price as Goods_Price
                         FROM OrdersGoods og
-                        LEFT JOIN Goods g ON og.GoodsID = g.Id
+                        LEFT JOIN Goods g ON og.GoodsID = g.ID
                         WHERE og.OrderID = @OrderId";
 
                     using (var command = new MySqlCommand(query, connection))
@@ -805,7 +794,6 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
 
-                    // Выполняем простой запрос для проверки
                     string query = "SELECT 1";
                     using (var command = new MySqlCommand(query, connection))
                     {
@@ -826,8 +814,6 @@ namespace WpfApp1.Services
             }
         }
 
-        // В классе DatabaseService добавьте:
-
         // === POSTLIST ===
         public async Task<List<Postlist>> GetAllPostsAsync()
         {
@@ -847,7 +833,7 @@ namespace WpfApp1.Services
                         {
                             posts.Add(new Postlist
                             {
-                                Id = reader.GetInt32("Id"),
+                                Id = reader.GetInt32("ID"),
                                 Name = reader["Name"]?.ToString(),
                                 Salary = reader.IsDBNull("Salary") ? (decimal?)null : reader.GetDecimal("Salary")
                             });
@@ -920,12 +906,10 @@ namespace WpfApp1.Services
             }
         }
 
-        // Метод для поиска или создания должности
         public async Task<int> GetOrCreatePostIdAsync(string postName, decimal? salary)
         {
             try
             {
-                // Сначала ищем существующую должность
                 var posts = await GetAllPostsAsync();
                 var existingPost = posts.FirstOrDefault(p =>
                     p.Name != null && p.Name.Equals(postName, StringComparison.OrdinalIgnoreCase));
@@ -935,7 +919,6 @@ namespace WpfApp1.Services
                     return existingPost.Id;
                 }
 
-                // Если не найдено, создаем новую
                 var newPost = new Postlist
                 {
                     Name = postName,
@@ -949,6 +932,624 @@ namespace WpfApp1.Services
                 Console.WriteLine($"GetOrCreatePostId error: {ex.Message}");
                 return 0;
             }
+        }
+
+        public async Task<Goods> GetGoodsByIdAsync(int id)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+                    string query = "SELECT * FROM Goods WHERE ID = @ID";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", id);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                return new Goods
+                                {
+                                    Id = reader.GetInt32("ID"),
+                                    Name = reader["Name"]?.ToString(),
+                                    Price = reader.GetDecimal("Price"),
+                                    CategoryId = reader.GetInt32("CategoryID"),
+                                    ImagePath = reader["ImagePath"]?.ToString()
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetGoodsById error: {ex.Message}");
+            }
+
+            return null;
+        }
+
+        // === НОВЫЕ МЕТОДЫ ДЛЯ ЗАКАЗА ТОВАРОВ ===
+        public async Task<bool> IncreaseGoodsAmountAsync(int goodsId, int amountToAdd)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string checkQuery = "SELECT * FROM GoodsAccounting WHERE GoodsID = @GoodsID";
+
+                    using (var checkCommand = new MySqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@GoodsID", goodsId);
+
+                        using (var reader = await checkCommand.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                await reader.CloseAsync();
+
+                                string updateQuery = @"
+                                    UPDATE GoodsAccounting 
+                                    SET GoodsAmount = GoodsAmount + @AmountToAdd 
+                                    WHERE GoodsID = @GoodsID";
+
+                                using (var updateCommand = new MySqlCommand(updateQuery, connection))
+                                {
+                                    updateCommand.Parameters.AddWithValue("@GoodsID", goodsId);
+                                    updateCommand.Parameters.AddWithValue("@AmountToAdd", amountToAdd);
+
+                                    return await updateCommand.ExecuteNonQueryAsync() > 0;
+                                }
+                            }
+                            else
+                            {
+                                await reader.CloseAsync();
+
+                                string insertQuery = @"
+                                    INSERT INTO GoodsAccounting (GoodsID, GoodsAmount, WarehouseID) 
+                                    VALUES (@GoodsID, @GoodsAmount, @WarehouseID)";
+
+                                using (var insertCommand = new MySqlCommand(insertQuery, connection))
+                                {
+                                    insertCommand.Parameters.AddWithValue("@GoodsID", goodsId);
+                                    insertCommand.Parameters.AddWithValue("@GoodsAmount", amountToAdd);
+                                    insertCommand.Parameters.AddWithValue("@WarehouseID", 1);
+
+                                    return await insertCommand.ExecuteNonQueryAsync() > 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"IncreaseGoodsAmount error: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<bool> CreateOrderWithGoodsAsync(Orders order, List<OrderItem> orderItems)
+        {
+            using (var connection = DatabaseContext.GetConnection())
+            {
+                await connection.OpenAsync();
+                var transaction = await connection.BeginTransactionAsync();
+
+                try
+                {
+                    string orderQuery = @"
+                        INSERT INTO Orders (ClientID, TotalCost, Delivery, CookingTime, Weight, DeliveryTime, DeliveryAddress) 
+                        VALUES (@ClientID, @TotalCost, @Delivery, @CookingTime, @Weight, @DeliveryTime, @DeliveryAddress);
+                        SELECT LAST_INSERT_ID();";
+
+                    int orderId;
+                    using (var orderCommand = new MySqlCommand(orderQuery, connection, (MySqlTransaction)transaction))
+                    {
+                        orderCommand.Parameters.AddWithValue("@ClientID", order.ClientID);
+                        orderCommand.Parameters.AddWithValue("@TotalCost", order.TotalCost);
+                        orderCommand.Parameters.AddWithValue("@Delivery", order.Delivery);
+                        orderCommand.Parameters.AddWithValue("@CookingTime", order.CookingTime.ToString());
+                        orderCommand.Parameters.AddWithValue("@Weight", order.Weight);
+                        orderCommand.Parameters.AddWithValue("@DeliveryTime", order.DeliveryTime.ToString());
+                        orderCommand.Parameters.AddWithValue("@DeliveryAddress", order.DeliveryAddress);
+
+                        orderId = Convert.ToInt32(await orderCommand.ExecuteScalarAsync());
+                    }
+
+                    foreach (var item in orderItems)
+                    {
+                        string orderGoodsQuery = @"
+                            INSERT INTO OrdersGoods (OrderID, GoodsID, Amount) 
+                            VALUES (@OrderID, @GoodsID, @Amount)";
+
+                        using (var ogCommand = new MySqlCommand(orderGoodsQuery, connection, (MySqlTransaction)transaction))
+                        {
+                            ogCommand.Parameters.AddWithValue("@OrderID", orderId);
+                            ogCommand.Parameters.AddWithValue("@GoodsID", item.GoodsId);
+                            ogCommand.Parameters.AddWithValue("@Amount", item.Amount);
+                            await ogCommand.ExecuteNonQueryAsync();
+                        }
+                    }
+
+                    await transaction.CommitAsync();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    await transaction.RollbackAsync();
+                    Console.WriteLine($"CreateOrderWithGoods error: {ex.Message}");
+                    return false;
+                }
+            }
+        }
+
+        public async Task<GoodsAccounting> GetGoodsAccountingByGoodsIdAsync(int goodsId)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+                    string query = "SELECT * FROM GoodsAccounting WHERE GoodsID = @GoodsID";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@GoodsID", goodsId);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                return new GoodsAccounting
+                                {
+                                    Id = reader.GetInt32("ID"),
+                                    GoodsID = reader.GetInt32("GoodsID"),
+                                    GoodsAmount = reader.GetInt32("GoodsAmount"),
+                                    WarehouseID = reader.GetInt32("WarehouseID")
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetGoodsAccountingByGoodsId error: {ex.Message}");
+            }
+
+            return null;
+        }
+
+        // === МЕТОДЫ ДЛЯ СОТРУДНИКОВ ===
+
+        // Получение всех заказов для пекаря
+        public async Task<List<Orders>> GetAllOrdersForBakerAsync()
+        {
+            var orders = new List<Orders>();
+
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                        SELECT o.*, 
+                               CONCAT(u.Name, ' ', u.LastName) as ClientName
+                        FROM Orders o
+                        LEFT JOIN Users u ON o.ClientID = u.ID
+                        ORDER BY o.ID DESC";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var order = new Orders
+                            {
+                                ID = reader.GetInt32("ID"),
+                                ClientID = reader.GetInt32("ClientID"),
+                                TotalCost = reader.GetDecimal("TotalCost"),
+                                Delivery = reader.GetBoolean("Delivery"),
+                                Weight = reader.GetDouble("Weight"),
+                                DeliveryAddress = reader["DeliveryAddress"]?.ToString(),
+                                CookingTime = SafeGetTimeSpan(reader, "CookingTime"),
+                                DeliveryTime = SafeGetTimeSpan(reader, "DeliveryTime")
+                            };
+
+                            orders.Add(order);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetAllOrdersForBakerAsync error: {ex.Message}");
+            }
+
+            return orders;
+        }
+
+        // Получение товаров в заказе для кассира
+        public async Task<List<OrdersGoods>> GetOrderGoodsForCashierAsync(int orderId)
+        {
+            var orderGoods = new List<OrdersGoods>();
+
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                        SELECT og.*, g.Name, g.Price, g.ImagePath,
+                               c.Name as CategoryName
+                        FROM OrdersGoods og
+                        LEFT JOIN Goods g ON og.GoodsID = g.ID
+                        LEFT JOIN Category c ON g.CategoryId = c.ID
+                        WHERE og.OrderID = @OrderID";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@OrderID", orderId);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var orderGood = new OrdersGoods
+                                {
+                                    Id = reader.GetInt32("Id"),
+                                    OrderID = reader.GetInt32("OrderID"),
+                                    GoodsID = reader.GetInt32("GoodsID"),
+                                    Amount = reader.GetInt32("Amount"),
+                                    Price = reader.GetDecimal("Price"),
+                                    Name = reader["Name"]?.ToString()
+                                };
+
+                                orderGoods.Add(orderGood);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetOrderGoodsForCashierAsync error: {ex.Message}");
+            }
+
+            return orderGoods;
+        }
+
+        // Получение активных заказов для кассира
+        public async Task<List<Orders>> GetActiveOrdersForCashierAsync()
+        {
+            var orders = new List<Orders>();
+
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                        SELECT DISTINCT o.*
+                        FROM Orders o
+                        WHERE o.ID IN (
+                            SELECT og.OrderID 
+                            FROM OrdersGoods og 
+                            WHERE og.OrderID = o.ID
+                        )
+                        ORDER BY o.ID DESC";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var order = new Orders
+                            {
+                                ID = reader.GetInt32("ID"),
+                                ClientID = reader.GetInt32("ClientID"),
+                                TotalCost = reader.GetDecimal("TotalCost"),
+                                Delivery = reader.GetBoolean("Delivery"),
+                                Weight = reader.GetDouble("Weight"),
+                                DeliveryAddress = reader["DeliveryAddress"]?.ToString(),
+                                CookingTime = SafeGetTimeSpan(reader, "CookingTime"),
+                                DeliveryTime = SafeGetTimeSpan(reader, "DeliveryTime")
+                            };
+
+                            orders.Add(order);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetActiveOrdersForCashierAsync error: {ex.Message}");
+            }
+
+            return orders;
+        }
+
+        // Получение заказов на доставку
+        public async Task<List<Orders>> GetOrdersForDeliveryAsync()
+        {
+            var orders = new List<Orders>();
+
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                        SELECT o.*, 
+                               CONCAT(u.Name, ' ', u.LastName) as ClientName,
+                               u.PhoneNumber
+                        FROM Orders o
+                        LEFT JOIN Users u ON o.ClientID = u.ID
+                        WHERE o.Delivery = true
+                        ORDER BY o.DeliveryTime ASC";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var order = new Orders
+                            {
+                                ID = reader.GetInt32("ID"),
+                                ClientID = reader.GetInt32("ClientID"),
+                                TotalCost = reader.GetDecimal("TotalCost"),
+                                Delivery = reader.GetBoolean("Delivery"),
+                                Weight = reader.GetDouble("Weight"),
+                                DeliveryAddress = reader["DeliveryAddress"]?.ToString(),
+                                CookingTime = SafeGetTimeSpan(reader, "CookingTime"),
+                                DeliveryTime = SafeGetTimeSpan(reader, "DeliveryTime")
+                            };
+
+                            orders.Add(order);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetOrdersForDeliveryAsync error: {ex.Message}");
+            }
+
+            return orders;
+        }
+
+        // Получение активных доставок
+        public async Task<List<Delivery>> GetActiveDeliveriesAsync()
+        {
+            var deliveries = new List<Delivery>();
+
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                        SELECT d.*, 
+                               o.DeliveryAddress as OrderAddress,
+                               CONCAT(u.Name, ' ', u.LastName) as EmployeeName
+                        FROM Delivery d
+                        LEFT JOIN Orders o ON d.OrderID = o.ID
+                        LEFT JOIN Users u ON d.EmployeeID = u.ID
+                        ORDER BY d.DeliveryTime ASC";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var delivery = new Delivery
+                            {
+                                Id = reader.GetInt32("Id"),
+                                DeliveryAddress = reader["DeliveryAddress"]?.ToString(),
+                                PickUpAddress = reader["PickUpAddress"]?.ToString(),
+                                DeliveryTime = SafeGetTimeSpan(reader, "DeliveryTime"),
+                                EmployeeID = reader.GetInt32("EmployeeID"),
+                                OrderID = reader.GetInt32("OrderID")
+                            };
+
+                            deliveries.Add(delivery);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetActiveDeliveriesAsync error: {ex.Message}");
+            }
+
+            return deliveries;
+        }
+
+        // Создание доставки для заказа
+        public async Task<bool> CreateDeliveryForOrderAsync(int orderId, int employeeId)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    // Сначала получаем информацию о заказе
+                    string getOrderQuery = "SELECT * FROM Orders WHERE ID = @OrderID";
+                    using (var getCommand = new MySqlCommand(getOrderQuery, connection))
+                    {
+                        getCommand.Parameters.AddWithValue("@OrderID", orderId);
+
+                        using (var reader = await getCommand.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                var deliveryAddress = reader["DeliveryAddress"]?.ToString();
+                                var deliveryTime = SafeGetTimeSpan(reader, "DeliveryTime");
+
+                                await reader.CloseAsync();
+
+                                // Создаем запись о доставке
+                                string insertQuery = @"
+                                    INSERT INTO Delivery (DeliveryAddress, PickUpAddress, DeliveryTime, EmployeeID, OrderID) 
+                                    VALUES (@DeliveryAddress, @PickUpAddress, @DeliveryTime, @EmployeeID, @OrderID)";
+
+                                using (var insertCommand = new MySqlCommand(insertQuery, connection))
+                                {
+                                    insertCommand.Parameters.AddWithValue("@DeliveryAddress", deliveryAddress);
+                                    insertCommand.Parameters.AddWithValue("@PickUpAddress", "Магазин 'Шестёрочка'");
+                                    insertCommand.Parameters.AddWithValue("@DeliveryTime", deliveryTime.ToString());
+                                    insertCommand.Parameters.AddWithValue("@EmployeeID", employeeId);
+                                    insertCommand.Parameters.AddWithValue("@OrderID", orderId);
+
+                                    return await insertCommand.ExecuteNonQueryAsync() > 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CreateDeliveryForOrderAsync error: {ex.Message}");
+            }
+
+            return false;
+        }
+
+        // Обновление статуса заказа
+        public async Task<bool> UpdateOrderStatusAsync(int orderId, string status)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                        UPDATE Orders 
+                        SET Status = @Status 
+                        WHERE ID = @OrderID";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Status", status);
+                        command.Parameters.AddWithValue("@OrderID", orderId);
+
+                        return await command.ExecuteNonQueryAsync() > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"UpdateOrderStatusAsync error: {ex.Message}");
+            }
+
+            return false;
+        }
+
+        // Получение общей суммы заказа
+        public async Task<decimal> GetOrderTotalAsync(int orderId)
+        {
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                        SELECT SUM(g.Price * og.Amount) as Total
+                        FROM OrdersGoods og
+                        LEFT JOIN Goods g ON og.GoodsID = g.ID
+                        WHERE og.OrderID = @OrderID";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@OrderID", orderId);
+
+                        var result = await command.ExecuteScalarAsync();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToDecimal(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetOrderTotalAsync error: {ex.Message}");
+            }
+
+            return 0;
+        }
+
+        // Получение товаров по категориям для отображения
+        public async Task<Dictionary<string, List<OrdersGoods>>> GetGoodsByCategoryForOrderAsync(int orderId)
+        {
+            var goodsByCategory = new Dictionary<string, List<OrdersGoods>>();
+
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                        SELECT og.*, g.Name, g.Price, c.Name as CategoryName
+                        FROM OrdersGoods og
+                        LEFT JOIN Goods g ON og.GoodsID = g.ID
+                        LEFT JOIN Category c ON g.CategoryId = c.ID
+                        WHERE og.OrderID = @OrderID
+                        ORDER BY c.Name, g.Name";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@OrderID", orderId);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var orderGood = new OrdersGoods
+                                {
+                                    Id = reader.GetInt32("Id"),
+                                    OrderID = reader.GetInt32("OrderID"),
+                                    GoodsID = reader.GetInt32("GoodsID"),
+                                    Amount = reader.GetInt32("Amount"),
+                                    Price = reader.GetDecimal("Price"),
+                                    Name = reader["Name"]?.ToString()
+                                };
+
+                                var categoryName = reader["CategoryName"]?.ToString() ?? "Без категории";
+
+                                if (!goodsByCategory.ContainsKey(categoryName))
+                                {
+                                    goodsByCategory[categoryName] = new List<OrdersGoods>();
+                                }
+
+                                goodsByCategory[categoryName].Add(orderGood);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetGoodsByCategoryForOrderAsync error: {ex.Message}");
+            }
+
+            return goodsByCategory;
         }
     }
 }

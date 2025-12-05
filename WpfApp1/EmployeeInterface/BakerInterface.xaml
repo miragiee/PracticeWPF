@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="BakerInterface">
+        Title="BakerInterface" Loaded="Window_Loaded">
+
     <Grid>
         <StackPanel Orientation="Horizontal">
             <Border CornerRadius="0" Style="{StaticResource BakerBorder}">
@@ -17,30 +18,55 @@
                 </Button.Background>
             </Button>
         </StackPanel>
+
         <TextBlock Text="С  П  И  С  О  К     З  А  К  А  З  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource BakerText}"/>
 
-        <DataGrid Name="EmployeeListDataGrid" Margin="0, -400, 0, 0" ItemsSource="{Binding Bakery}" Style="{StaticResource bakerTable}">
+        <DataGrid Name="EmployeeListDataGrid" Margin="0, -400, 0, 0" 
+          AutoGenerateColumns="False" SelectionChanged="EmployeeListDataGrid_SelectionChanged"
+          Style="{StaticResource bakerTable}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Наличие доставки" Binding="{Binding Delivery}" />
-                <DataGridTextColumn Header="Заказанная выпечка" Width="400" Binding="{Binding GoodsDisplay}" />
-                <DataGridTextColumn Header="Время приготовления" Binding="{Binding CookingTime}" />
+                <DataGridTextColumn Header="Номер" Binding="{Binding ID}" Width="80"/>
+                <DataGridTextColumn Header="Клиент ID" Binding="{Binding ClientID}" Width="100"/>
+                <DataGridTextColumn Header="Доставка" Width="100">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="Самовывоз"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Delivery}" Value="True">
+                                    <Setter Property="Text" Value="С доставкой"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Товары" Width="300" Binding="{Binding GoodsDisplay}"/>
+                <DataGridTextColumn Header="Время приготовления" Width="150">
+                    <DataGridTextColumn.Binding>
+                        <Binding Path="CookingTime" StringFormat="{}{0:hh\\:mm}"/>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Вес" Binding="{Binding Weight, StringFormat={}{0} кг}" Width="80"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel Orientation="Horizontal" Margin="120, 0, 0, 0">
             <TextBlock Text="В  Ы  Б  О  Р       З  А  К  А  З  А" Margin="0, -60, 243, 0" Style="{StaticResource BakerText}"/>
-            <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   З  А  К  А  З  О  В" Foreground="#1B1500" Background="#EDEAC8" Margin="-200, 462, 0, 0" Width="450" Height="24" FontSize="14" Style="{StaticResource bakerButton}"/>
-            <Border Width="24" Height="24" Margin="-900, 462, 0, 0" CornerRadius="0"  Style="{StaticResource BakerBorder}">
-                <Button   Width="24" Height="24" Style="{StaticResource bakerButton}">
+
+            <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   З  А  К  А  З  О  В" 
+                    Foreground="#1B1500" Background="#EDEAC8" Margin="-200, 462, 0, 0" 
+                    Width="450" Height="24" FontSize="14" Style="{StaticResource bakerButton}"
+                    Click="UpdateComboBox_Click"/>
+
+            <Border Width="24" Height="24" Margin="-900, 462, 0, 0" CornerRadius="0" Style="{StaticResource BakerBorder}">
+                <Button Width="24" Height="24" Style="{StaticResource bakerButton}">
                     <Button.Background>
                         <ImageBrush ImageSource="/Galochka.png" Stretch="None" TileMode="None"/>
                     </Button.Background>
                 </Button>
             </Border>
 
-            <Button Content="С  Д  А  Т  Ь     З  А  К  А  З" Margin="-1065, 530, 0, 0"  Style="{StaticResource bakerButton}"/>
-
+            <Button Content="С  Д  А  Т  Ь     З  А  К  А  З" Margin="-1065, 530, 0, 0" 
+                    Style="{StaticResource bakerButton}" Click="CompleteOrder_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -9,11 +9,10 @@ namespace WpfApp1.Models
     public class GoodsAccounting
     {
         public int Id { get; set; }
-        public string? GoodsID { get; set; }
-        public string? GoodsAmount { get; set; }
-        public string? WarehouseID { get; set; }
+        public int GoodsID { get; set; }
+        public int GoodsAmount { get; set; }
+        public int WarehouseID { get; set; }
 
-        // Навигационные свойства
         public Goods? Goods { get; set; }
         public Warehouse? Warehouse { get; set; }
     }

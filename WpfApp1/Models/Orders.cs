@@ -10,14 +10,23 @@ namespace WpfApp1.Models
     {
         private Users _client = new Users();
         private string? _deliveryAddress;
-        public int Id { get; set; }
-        public int ClientId { get; set; }
+        public int ID { get; set; }
+        public int ClientID { get; set; }
         public decimal TotalCost { get; set; }
         public bool Delivery { get; set; }
         public TimeSpan CookingTime { get; set; }
         public int[]? OrderedGoodsID { get; set; }
-
-        public string GoodsDisplay => OrderedGoodsID != null ? string.Join(", ", OrderedGoodsID) : string.Empty;
+        public string GoodsDisplay
+        {
+            get
+            {
+                if (OrderedGoodsID != null && OrderedGoodsID.Length > 0)
+                {
+                    return string.Join(", ", OrderedGoodsID.Select(id => $"Товар #{id}"));
+                }
+                return "Нет товаров";
+            }
+        }
 
         public double Weight { get; set; }
 

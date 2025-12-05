@@ -5,62 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="BuyGoods">
+        Title="Заказ товаров">
+
     <Grid>
         <StackPanel Orientation="Horizontal">
             <Border CornerRadius="0" Style="{StaticResource AdminBorder}">
-                <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А      А  Д  М  И  Н  И  С  Т  Р  И  Р  О  В  А  Н  И  Е" Style="{StaticResource Header1}"/>
+                <TextBlock Text="Ш  Е  С  Т  Ё  Р  О  Ч  К  А      А  Д  М  И  Н  И  С  Т  Р  И  Р  О  В  А  Н  И  Е" 
+                         Style="{StaticResource Header1}"/>
             </Border>
-            <Button Margin="-100, 20, 0, 0" Width="50" Height="50" Click="GoBack" Style="{StaticResource adminButton}">
+            <Button x:Name="btnBack" Margin="-100, 20, 0, 0" Width="50" Height="50" 
+                    Click="GoBack" Style="{StaticResource adminButton}">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/Open Door.png"/>
                 </Button.Background>
             </Button>
         </StackPanel>
-        <TextBlock Text="З А К А З     Т  О  В  А  Р  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
-        
-        
-        
-        <StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="33, 186, 0, 0">
-                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      Т  О  В  А  Р" Margin="0, 0, 243, 0" Style="{StaticResource AdminText}"/>
-                <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   Т О В А Р О В" Width="450" Height="24" FontSize="14" Style="{StaticResource adminButton}"/>
-                <Border Width="24" Height="24" Margin="-875, 0, 0, 0" CornerRadius="0"  Style="{StaticResource AdminBorder}">
-                    <Button  Width="24" Height="24" Style="{StaticResource adminButtonDarker}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Galochka.png" Stretch="None" TileMode="None"/>
-                        </Button.Background>
-                    </Button>
-                </Border>
 
+        <TextBlock Text="З А К А З     Т  О  В  А  Р  О  В" 
+                   Margin="0, -740, 0, 0" FontSize="24" 
+                   Style="{StaticResource AdminText}"/>
+
+        <StackPanel Margin="50, 170, 50, 50">
+
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 20">
+                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      К  А  Т  Е  Г  О  Р  И  Ю" 
+                           Style="{StaticResource AdminText}" Width="350"/>
+                <ComboBox x:Name="cmbCategory" Width="400" Height="35" 
+                          FontSize="14" SelectionChanged="Category_SelectionChanged"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="33, 53, 0, 0">
-                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      К  А  Т  Е  Г  О  Р  И  Ю      Т  О  В  А  Р" Margin="0, 0, 243, 0" Style="{StaticResource AdminText}"/>
-                <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   Т О В А Р О В" Margin="-166, 0, 0, 0" Width="450" Height="24" FontSize="14" Style="{StaticResource adminButton}"/>
-                <Border Width="24" Height="24" Margin="-875, 0, 0, 0" CornerRadius="0"  Style="{StaticResource AdminBorder}">
-                    <Button  Width="24" Height="24" Style="{StaticResource adminButtonDarker}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Galochka.png" Stretch="None" TileMode="None"/>
-                        </Button.Background>
-                    </Button>
-                </Border>
-
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 20">
+                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      Т  О  В  А  Р" 
+                           Style="{StaticResource AdminText}" Width="284" Margin="0, 0, 65, 0"/>
+                <ComboBox x:Name="cmbGoods" Width="400" Height="35" 
+                          FontSize="14" SelectionChanged="Goods_SelectionChanged"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="33, 53, 0, 0">
-                <TextBlock Text="В  В  Е  Д  И  Т  Е      К О Л И Ч Е С Т В О      Т  О  В  А  Р  А" Margin="0, 0, 133, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="К О Л И Ч Е С Т В О" Width="450" Height="55" Margin="-40, 0, 12, 0" Style="{StaticResource AdminBox}"/>
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 20">
+                <TextBlock Text="К О Л И Ч Е С Т В О" 
+                           Style="{StaticResource AdminText}" Width="205"/>
+                <TextBox x:Name="txtQuantity" Text="1" Width="150" Height="35" 
+                         FontSize="14" Style="{StaticResource AdminBox}"/>
             </StackPanel>
-            
-           
-            
-            
-            <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
-                <Button Content="З А К А З А Т Ь" Width="450" Height="55" Margin="435, 0, 12, 0" Style="{StaticResource adminButtonDarker}"/>
-                <Button Content="О Т М Е Н И Т Ь   З А К А З" Width="150" Height="55" FontSize="14" Background="#D51A1A" Style="{StaticResource adminButtonDarker}"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 30, 0, 0">
+                <Button x:Name="btnOrder" Content="З А К А З А Т Ь" 
+                        Width="250" Height="55" Margin="0,0,50,0" 
+                        Style="{StaticResource adminButtonDarker}"
+                        Click="OrderButton_Click"/>
+                <Button x:Name="btnCancel" Content="О Т М Е Н И Т Ь   З А К А З" 
+                        Width="250" Height="55" FontSize="14" Background="#D51A1A" 
+                        Style="{StaticResource adminButtonDarker}"
+                        Click="CancelButton_Click"/>
             </StackPanel>
-            
+
         </StackPanel>
     </Grid>
 </Window>

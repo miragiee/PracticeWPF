@@ -1,89 +1,77 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using Microsoft.EntityFrameworkCore.Storage.Json;
-using Mysqlx.Crud;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WpfApp1.Models;
+using WpfApp1.Services;
 using WpfApp1.UserInterface;
 
 namespace WpfApp1.EmployeeInterface
 {
-    /// <summary>
-    /// Логика взаимодействия для DeliveryInterface.xaml
-    /// </summary>
     public partial class DeliveryInterface : Window
     {
-        public ObservableCollection<Delivery>? Delivery { get; set; }
-        public ObservableCollection<Orders>? Order { get; set; }
+        public ObservableCollection<Delivery> Delivery { get; set; }
+        public ObservableCollection<Orders> Order { get; set; }
+        private DatabaseService _databaseService;
+        private int _currentEmployeeId = 5; // ID текущего сотрудника
 
         public DeliveryInterface()
         {
             InitializeComponent();
 
-            Delivery = new ObservableCollection<Delivery>()
+            Delivery = new ObservableCollection<Delivery>();
+            Order = new ObservableCollection<Orders>();
+            _databaseService = new DatabaseService();
+
+            DataContext = this;
+
+            // Загружаем данные при инициализации
+            LoadDeliveryData();
+            LoadOrdersData();
+        }
+
+        private async void LoadDeliveryData()
+        {
+            try
             {
-                new Delivery()
+                var deliveries = await _databaseService.GetActiveDeliveriesAsync();
+
+                Delivery.Clear();
+                foreach (var delivery in deliveries)
                 {
-                    Id = 1,
-                    DeliveryAddress = "Улица Пушкина",
-                    PickUpAddress = "Магазин",
-                    DeliveryTime = new TimeSpan(1, 0, 0),
-                    EmployeeID = 5,
-                    OrderID = 228,
-                    
-                },
-                new Delivery()
-                {
-                    Id = 2,
-                    DeliveryAddress = "Улица Лермонтова",
-                    PickUpAddress = "Магазин",
-                    DeliveryTime = new TimeSpan(0, 30, 0),
-                    EmployeeID = 5,
-                    OrderID = 1337
+                    Delivery.Add(delivery);
                 }
 
-            };
-
-            Order = new ObservableCollection<Orders>()
+                EmplGirdData.ItemsSource = Delivery;
+            }
+            catch (Exception ex)
             {
-                new Orders
-                {
-                    Id = 228,
-                    ClientId = 2,
-                    Delivery = true,
-                    CookingTime = new TimeSpan(0, 20, 0),
-                    OrderedGoodsID = [1, 2, 2, 2, 4],
-                    Weight = 10.5,
-                    DeliveryAddress = "Улица Пушкина",
-                    DeliveryTime = new TimeSpan(1, 0, 0)
-                },
+                MessageBox.Show($"Ошибка загрузки доставок: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
-                new Orders
+        private async void LoadOrdersData()
+        {
+            try
+            {
+                var orders = await _databaseService.GetOrdersForDeliveryAsync();
+
+                Order.Clear();
+                foreach (var order in orders)
                 {
-                    Id = 1337,
-                    ClientId = 1,
-                    Delivery = true,
-                    CookingTime = new TimeSpan(0, 10, 0),
-                    OrderedGoodsID = [1, 5],
-                    Weight = 0.5,
-                    DeliveryAddress = "Улица Лермонтова",
-                    DeliveryTime = new TimeSpan(0, 30, 0)
-                },
-            };
-            
-            DataContext = this;
+                    Order.Add(order);
+                }
+
+                EmployeeListDataGrid.ItemsSource = Order;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки заказов: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void GoBack(object sender, RoutedEventArgs e)
@@ -95,5 +83,103 @@ namespace WpfApp1.EmployeeInterface
             this.Close();
         }
 
+        // Обработчик кнопки "Взять заказ"
+        private async void TakeOrder_Click(object sender, RoutedEventArgs e)
+        {
+            if (EmployeeListDataGrid.SelectedItem is Orders selectedOrder)
+            {
+                try
+                {
+                    // Создаем запись о доставке
+                    bool success = await _databaseService.CreateDeliveryForOrderAsync(selectedOrder.ID, _currentEmployeeId);
+
+                    if (success)
+                    {
+                        MessageBox.Show($"Заказ #{selectedOrder.ID} взят в доставку",
+                            "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        // Обновляем данные
+                        LoadOrdersData();
+                        LoadDeliveryData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не удалось взять заказ в доставку",
+                            "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите заказ из списка", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        // Обработчик кнопки "Сдать заказ"
+        private async void CompleteDelivery_Click(object sender, RoutedEventArgs e)
+        {
+            if (EmplGirdData.SelectedItem is Delivery selectedDelivery)
+            {
+                try
+                {
+                    // Обновляем статус заказа
+                    bool success = await _databaseService.UpdateOrderStatusAsync(selectedDelivery.OrderID, "Доставлен");
+
+                    if (success)
+                    {
+                        // Можно также удалить запись о доставке или изменить ее статус
+                        MessageBox.Show($"Доставка #{selectedDelivery.Id} завершена",
+                            "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        // Обновляем данные
+                        LoadDeliveryData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не удалось завершить доставку",
+                            "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите доставку из списка", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        // Обновление выпадающего списка
+        private void UpdateComboBox_Click(object sender, RoutedEventArgs e)
+        {
+            LoadOrdersData();
+            LoadDeliveryData();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            EmployeeListDataGrid.ItemsSource = Order;
+            EmplGirdData.ItemsSource = Delivery;
+        }
+
+        private void EmployeeListDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Логика при изменении выбора заказа
+        }
+
+        private void EmplGirdData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Логика при изменении выбора доставки
+        }
     }
 }

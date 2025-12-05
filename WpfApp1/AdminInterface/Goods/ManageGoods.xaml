@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="ManageGoods">
+        Title="ManageGoods"
+        Loaded="Window_Loaded">
     <Grid>
         <StackPanel Orientation="Horizontal">
             <Border CornerRadius="0" Style="{StaticResource AdminBorder}">
@@ -18,47 +18,147 @@
             </Button>
         </StackPanel>
         <TextBlock Text="У  П  Р  А  В  Л  Е  Н  И  Е     Д  А  Н  Н  Ы  М  И     Т  О  В  А  Р  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
-        
-        
-        
-        <StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="33, 186, 0, 0">
-                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      С  О  Т  Р  У  Д  Н  И  К  А" Margin="0, 0, 243, 0" Style="{StaticResource AdminText}"/>
-                <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   Т О В А Р О В" Width="450" Height="24" FontSize="14" Style="{StaticResource adminButton}"/>
-                <Border Width="24" Height="24" Margin="-875, 0, 0, 0" CornerRadius="0"  Style="{StaticResource AdminBorder}">
-                    <Button  Width="24" Height="24" Style="{StaticResource adminButtonDarker}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Galochka.png" Stretch="None" TileMode="None"/>
-                        </Button.Background>
-                    </Button>
-                </Border>
 
+
+        <StackPanel Margin="33, 186, 0, 0">
+            <!-- Выбор товара из списка -->
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 20">
+                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      Т  О  В  А  Р" Margin="0, 0, 35, 0" Style="{StaticResource AdminText}"/>
+                <ComboBox x:Name="GoodsComboBox" 
+                         Width="450" 
+                         Height="55" 
+                         FontSize="20"
+                         DisplayMemberPath="Name"
+                         SelectedValuePath="Id"
+                         SelectionChanged="GoodsComboBox_SelectionChanged"
+                         Background="#B8B7E8"
+                         Foreground="#00061B"
+                         BorderThickness="0"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center">
+                        
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Thin" />
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Background" Value="#B8B7E8"/>
+                            <Setter Property="Foreground" Value="#00061B"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="Height" Value="40"/>
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                </ComboBox>
+                <Button Content="О  Б  Н  О  В  И  Т  Ь     С  П  И  С  О  К" 
+                        Width="300" 
+                        Height="55" 
+                        FontSize="14" 
+                        Style="{StaticResource adminButton}"
+                        Click="RefreshGoods_Click"
+                        Margin="20, 0, 0, 0"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="33, 53, 0, 0">
-                <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  О  Е      Н А З В А Н И Е      Т  О  В  А  Р  А" Margin="0, 0, 133, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="Н А З В А Н И Е" Width="450" Height="55" Margin="10, 0, 12, 0" Style="{StaticResource AdminBox}"/>
-                <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
+            <!-- Поля для редактирования -->
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 15">
+                <TextBlock Text="Н  А  З  В  А  Н  И  Е" Margin="-20, 0, 133, 0" Style="{StaticResource AdminText}"/>
+                <TextBox x:Name="NameTextBox" 
+                        Text="" 
+                        Width="450" 
+                        Height="55" 
+                        Margin="10, 0, 12, 0" 
+                        Style="{StaticResource AdminBox}"
+                        TextChanged="Input_TextChanged"/>
             </StackPanel>
-            
-            <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
-                <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  У  Ю      С  Т  О  И  М  О  С  Т  Ь     Т  О  В  А  Р  А" Margin="0, 0, 59, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="С Т О И М О С Т Ь" Width="450" Height="55" Margin="43, 0, 12, 0" Style="{StaticResource AdminBox}"/>
-                <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 15">
+                <TextBlock Text="С  Т  О  И  М  О  С  Т  Ь" Margin="0, 0, 59, 0" Style="{StaticResource AdminText}"/>
+                <TextBox x:Name="PriceTextBox" 
+                        Text="" 
+                        Width="450" 
+                        Height="55" 
+                        Margin="43, 0, 12, 0" 
+                        Style="{StaticResource AdminBox}"
+                        TextChanged="Input_TextChanged"
+                        PreviewTextInput="PriceTextBox_PreviewTextInput"/>
             </StackPanel>
-            
-            <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
-                <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  О  Е      К  А  Т  Е  Г  О  Р  И  Ю     Т  О  В  А  Р  А" Margin="0, 0, 59, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="К А Т Е Г О Р И Я" Width="450" Height="55" Margin="50, 0, 12, 0" Style="{StaticResource AdminBox}"/>
-                <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 15">
+                <TextBlock Text="К  А  Т  Е  Г  О  Р  И  Я" Margin="0, 0, 59, 0" Style="{StaticResource AdminText}"/>
+                <ComboBox x:Name="CategoryComboBox"
+                         Width="450" 
+                         Height="55" 
+                         Margin="50, 0, 12, 0"
+                         DisplayMemberPath="Name"
+                         SelectedValuePath="Id"
+                         SelectionChanged="CategoryComboBox_SelectionChanged"
+                         Background="#B8B7E8"
+                         Foreground="#00061B"
+                         BorderThickness="0"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="FontFamily" Value="./Fonts/#Sofia Sans Condensed Thin" />
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Background" Value="#B8B7E8"/>
+                            <Setter Property="Foreground" Value="#00061B"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="Height" Value="40"/>
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                </ComboBox>
             </StackPanel>
-            
-            
-            <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
-                <Button Content="C  О  Х  Р  А  Н  И  Т  Ь      И  З  М  Е  Н  Е  Н  И  Я" Width="450" Height="55" Margin="555, 0, 12, 0" Style="{StaticResource adminButtonDarker}"/>
-                <Button Content="У Д А Л И Т Ь  Т О В А Р" Width="150" Height="55" FontSize="14" Background="#D51A1A" Style="{StaticResource adminButtonDarker}"/>
+
+            <!-- Путь к изображению -->
+
+            <!-- Кнопки управления -->
+            <StackPanel Orientation="Horizontal" Margin="0, 32, 0, 0">
+                <Button Content="С  О  Х  Р  А  Н  И  Т  Ь" 
+                        Width="450" 
+                        Height="55" 
+                        Margin="0, 0, 12, 0" 
+                        Style="{StaticResource adminButtonDarker}"
+                        Click="SaveGoods_Click"
+                        x:Name="SaveButton"
+                        IsEnabled="False"/>
+                <Button Content="У Д А Л И Т Ь   Т О В А Р" 
+                        Width="250" 
+                        Height="55" 
+                        FontSize="14" 
+                        Background="#D51A1A" 
+                        Style="{StaticResource adminButtonDarker}"
+                        Click="DeleteGoods_Click"
+                        x:Name="DeleteButton"
+                        IsEnabled="False"/>
+                <Button Content="Н О В Ы Й   Т О В А Р" 
+                        Width="250" 
+                        Height="55" 
+                        FontSize="14" 
+                        Style="{StaticResource adminButton}"
+                        Click="NewGoods_Click"
+                        Margin="10,0,0,0"/>
             </StackPanel>
-            
         </StackPanel>
+
+        <!-- Статус сообщение -->
+        <Border x:Name="StatusBorder"
+               CornerRadius="5" 
+               Background="#B8B7E8"
+               BorderBrush="#3E44AD"
+               BorderThickness="2"
+               Padding="10"
+               Width="400"
+               Height="50"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Bottom"
+               Margin="0, 0, 0, 50"
+               Visibility="Collapsed">
+            <TextBlock x:Name="StatusTextBlock" 
+                      Style="{StaticResource AdminText}"
+                      TextAlignment="Center"/>
+        </Border>
     </Grid>
 </Window>
