@@ -3,68 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\ordersgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\ordersgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\admininterface\\employee\\addemployee.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\admininterface\\employee\\addemployee.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\orderemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\orderemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\suppliers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\suppliers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\goodsaccounting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\goodsaccounting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\suppliersgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\suppliersgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\userpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\userpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\postlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\postlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\goods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\goods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\admininterface\\employee\\addemployee.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\admininterface\\employee\\addemployee.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|c:\\users\\mirag\\desktop\\\u043A\u043E\u043B\u043B\u0435\u0434\u0436\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\practicewpf\\wpfapp1\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0019C892-2627-488A-AE1E-BBF9D8B807BF}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 3,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\App.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\App.xaml",
@@ -90,8 +46,50 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddEmployee.xaml",
+              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\AdminInterface\\Employee\\AddEmployee.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\AdminInterface\\Employee\\AddEmployee.xaml",
+              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\AdminInterface\\Employee\\AddEmployee.xaml",
+              "RelativeToolTip": "WpfApp1\\AdminInterface\\Employee\\AddEmployee.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-05T16:03:30.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddEmployee.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\AdminInterface\\Employee\\AddEmployee.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\AdminInterface\\Employee\\AddEmployee.xaml.cs",
+              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\AdminInterface\\Employee\\AddEmployee.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\AdminInterface\\Employee\\AddEmployee.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T16:03:29.188Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DataBaseService.cs",
+              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Services\\DataBaseService.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Services\\DataBaseService.cs",
+              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Services\\DataBaseService.cs",
+              "RelativeToolTip": "WpfApp1\\Services\\DataBaseService.cs",
+              "ViewState": "AgIAAJADAAAAAAAAAAAmwK0DAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T15:51:52.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "CartItem.cs",
               "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\CartItem.cs",
               "RelativeDocumentMoniker": "WpfApp1\\Models\\CartItem.cs",
@@ -101,192 +99,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-04T20:32:14.552Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrdersGoods.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\OrdersGoods.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\OrdersGoods.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\OrdersGoods.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\OrdersGoods.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAwwDMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:32:07.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Role.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Role.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Role.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Role.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:32:01.854Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Delivery.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Delivery.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Delivery.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Delivery.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Delivery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:31:52.311Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Warehouse.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Warehouse.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Warehouse.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Warehouse.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Warehouse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:31:13.408Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderEmployee.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\OrderEmployee.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\OrderEmployee.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\OrderEmployee.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\OrderEmployee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:31:07.251Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Suppliers.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Suppliers.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Suppliers.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Suppliers.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Suppliers.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:30:56.904Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Orders.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Orders.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Orders.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Orders.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Orders.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:30:50.171Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Users.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Users.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Users.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Users.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Users.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:30:43.491Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Category.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Category.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Category.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:30:38.497Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "GoodsAccounting.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\GoodsAccounting.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\GoodsAccounting.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\GoodsAccounting.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\GoodsAccounting.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:30:31.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SuppliersGoods.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\SuppliersGoods.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\SuppliersGoods.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\SuppliersGoods.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\SuppliersGoods.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:30:22.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UserPost.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\UserPost.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\UserPost.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\UserPost.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\UserPost.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:30:16.103Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Postlist.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Postlist.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Postlist.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Postlist.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Postlist.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:30:09.096Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Goods.cs",
-              "DocumentMoniker": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Goods.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Models\\Goods.cs",
-              "ToolTip": "C:\\Users\\mirag\\Desktop\\\u041A\u043E\u043B\u043B\u0435\u0434\u0436\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\PracticeWPF\\WpfApp1\\Models\\Goods.cs",
-              "RelativeToolTip": "WpfApp1\\Models\\Goods.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T20:25:01.136Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         }
