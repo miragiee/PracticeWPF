@@ -1,59 +1,49 @@
 ﻿<Window x:Class="WpfApp1.Profile" Style="{StaticResource BigWindow}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
-        mc:Ignorable="d"
         Title="Profile" Height="1024" Width="1440">
     <Grid>
         <Border HorizontalAlignment="Left" Height="90" Margin="0,-4,0,0" VerticalAlignment="Top" Width="1440" CornerRadius="0" >
             <TextBlock Text="П  Р  О  Ф  И  Л  Ь"  Style="{StaticResource Header1}" Margin="0,16,0,20"/>
         </Border>
 
-
         <StackPanel Orientation="Horizontal" Margin="17,132,0,280">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="ИМЯ" Style="{StaticResource Header2}"/>
-                    <TextBox Margin="442, 5, 0, 0" Text="И М Я   П О Л Ь З О В А Т Е Л Я" Width="400" Height="46.79" FontSize="24" Style="{StaticResource DarkBox}"/>
+                    <TextBox x:Name="txtName" Margin="442, 5, 0, 0" Text="" Width="400" Height="46.79" FontSize="24" Style="{StaticResource DarkBox}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,23.21,0,0">
                     <TextBlock Text="ФАМИЛИЯ" Style="{StaticResource Header2}"/>
-                    <TextBox Margin="394, 0, 0, 0" Text="Ф А М И Л И Я   П О Л Ь З О В А Т Е Л Я" Width="400" Height="46.79" FontSize="24" Style="{StaticResource DarkBox}"/>
+                    <TextBox x:Name="txtLastName" Margin="394, 0, 0, 0" Text="" Width="400" Height="46.79" FontSize="24" Style="{StaticResource DarkBox}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,23.21,0,0">
                     <TextBlock Text="П О Ч Т А" Style="{StaticResource Header2}"/>
-                    <TextBox Margin="410, 0, 0, 0" Text="П О Ч Т А" Width="400" Height="46.79" FontSize="24" Style="{StaticResource DarkBox}"/>
+                    <TextBox x:Name="txtEmail" Margin="410, 0, 0, 0" Text="" Width="400" Height="46.79" FontSize="24" Style="{StaticResource DarkBox}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,23.21,0,0">
                     <TextBlock Text="СМЕНИТЬ ПАРОЛЬ" Style="{StaticResource Header2}"/>
-                    <TextBox Margin="330, 0, 0, 0" Text="В В Е Д И Т Е   Н О В Ы Й   П А Р О Л Ь" Width="400" Height="46.79" FontSize="24" Style="{StaticResource DarkBox}"/>
+                    <TextBox x:Name="txtNewPassword" Margin="330, 0, 0, 0" Width="400" Height="46.79" FontSize="24" Style="{StaticResource DarkBox}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,23.21,0,0">
                     <TextBlock Text="ПОДТВЕРДИТЕ ПАРОЛЬ" Style="{StaticResource Header2}"/>
-                    <TextBox Margin="290, 0, 0, 0" Text="П О В Т О Р И Т Е   Н О В Ы Й   П А Р О Л Ь" Width="400" Height="46.79" FontSize="20" Style="{StaticResource DarkBox}"/>
+                    <TextBox x:Name="txtConfirmPassword" Margin="290, 0, 0, 0" Width="400" Height="46.79" FontSize="20" Style="{StaticResource DarkBox}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,23.21,0,0">
                     <TextBlock Text="ДАТА РОЖДЕНИЯ" Style="{StaticResource Header2}"/>
-                    <TextBox Margin="340, 0, 0, 0" Text="Д Д - М М - Г Г Г Г" Width="400" Height="46.79" FontSize="20" Style="{StaticResource DarkBox}"/>
+                    <TextBox x:Name="txtBirthDate" Margin="340, 0, 0, 0" Text="" Width="400" Height="46.79" FontSize="20" Style="{StaticResource DarkBox}" TextChanged="BirthDateTextBox_TextChanged"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,23.21,0,0">
                     <TextBlock Text="НОМЕР ТЕЛЕФОНА" Style="{StaticResource Header2}"/>
-                    <TextBox Margin="330, 0, 0, 0" Text="8   0 0 0   0 0 0   0 0   0 0" Width="400" Height="46.79" FontSize="20" Style="{StaticResource DarkBox}"/>
+                    <TextBox x:Name="txtPhone" Margin="330, 0, 0, 0" Text="" Width="400" Height="46.79" FontSize="20" Style="{StaticResource DarkBox}" TextChanged="PhoneTextBox_TextChanged"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,23.21,0,0">
                     <TextBlock Text="АДРЕС ДОСТАВКИ" Style="{StaticResource Header2}"/>
-                    <TextBox Margin="340, 0, 0, 0" Text="У Л И Ц А,   Д О М,   К В А Р Т И Р А" Width="400" Height="46.79" FontSize="20" Style="{StaticResource DarkBox}"/>
+                    <TextBox x:Name="txtAddress" Margin="340, 0, 0, 0" Text="" Width="400" Height="46.79" FontSize="20" Style="{StaticResource DarkBox}"/>
                 </StackPanel>
 
             </StackPanel>
-            <Rectangle Height="380" Width="380" Margin="89, 0, 0, 0" VerticalAlignment="Top">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="/Images/Avatar.png"/>
-                </Rectangle.Fill>
-            </Rectangle>
 
         </StackPanel>
 

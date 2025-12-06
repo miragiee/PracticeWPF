@@ -53,7 +53,6 @@
                 </Border>
 
                 <Button Content="С П И С О К   Т О В А Р О В" Margin="27, 0, 0, 20" Click="GoToGoodsList" Style="{StaticResource adminButton}"/>
-                <Button Content="З А К А З А Т Ь   Т О В А Р Ы" Margin="27, 0, 0, 20" Click="GoToBuyGoods" Style="{StaticResource adminButton}"/>
                 <Button Content="У П Р А В Л Е Н И Е   Т О В А Р А М И"  Margin="27, 0, 0, 20" Click="GoToManageGoods" Style="{StaticResource adminButton}"/>
             </StackPanel>
         </StackPanel>

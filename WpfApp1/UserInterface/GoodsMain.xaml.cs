@@ -58,11 +58,6 @@ namespace WpfApp1
             burger.ShowDialog();
         }
 
-        private void UpdateCartCounter()
-        {
-            int totalItems = CartManager.Instance.Items.Sum(item => item.Amount);
-        }
-
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is Goods goods)
@@ -80,5 +75,7 @@ namespace WpfApp1
                 BuyButton_Click(button, e);
             }
         }
+
+
     }
 }

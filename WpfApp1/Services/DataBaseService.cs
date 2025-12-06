@@ -340,65 +340,6 @@ namespace WpfApp1.Services
             return users;
         }
 
-        public async Task<Users> GetUserWithRoleAsync(int userId)
-        {
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-                    string query = @"
-                        SELECT u.*, r.ID as Role_Id, r.RoleName 
-                        FROM Users u 
-                        LEFT JOIN Role r ON u.RoleID = r.ID
-                        WHERE u.ID = @UserId";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@UserID", userId);
-
-                        using (var reader = await command.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                var user = new Users
-                                {
-                                    ID = reader.GetInt32("ID"),
-                                    RoleID = reader.GetInt32("RoleID"),
-                                    Login = reader["Login"]?.ToString(),
-                                    Password = reader["Password"]?.ToString(),
-                                    Name = reader["Name"]?.ToString(),
-                                    LastName = reader["LastName"]?.ToString(),
-                                    Patronymic = reader["Patronymic"]?.ToString(),
-                                    PhoneNumber = reader["PhoneNumber"]?.ToString(),
-                                    Email = reader["Email"]?.ToString(),
-                                    BirthDate = reader.GetDateTime("BirthDate"),
-                                    Address = reader["Address"]?.ToString()
-                                };
-
-                                if (!reader.IsDBNull(reader.GetOrdinal("Role_ID")))
-                                {
-                                    user.Role = new Role
-                                    {
-                                        ID = reader.GetInt32("Role_ID"),
-                                        RoleName = reader["RoleName"]?.ToString()
-                                    };
-                                }
-
-                                return user;
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"GetUserWithRole error: {ex.Message}");
-            }
-
-            return null;
-        }
-
         public async Task<bool> CreateUserAsync(Users user)
         {
             try
@@ -542,58 +483,6 @@ namespace WpfApp1.Services
             return goods;
         }
 
-        public async Task<Goods> GetGoodsWithCategoryAsync(int goodsId)
-        {
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-                    string query = @"
-                SELECT g.*, c.ID as Category_Id, c.Name as Category_Name 
-                FROM Goods g 
-                LEFT JOIN Category c ON g.CategoryID = c.ID 
-                WHERE g.ID = @GoodsID";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@GoodsID", goodsId);
-
-                        using (var reader = await command.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                // ИСПРАВЛЕНО: правильные имена столбцов
-                                var goods = new Goods
-                                {
-                                    ID = reader.GetInt32("ID"),
-                                    Name = reader["Name"]?.ToString(),
-                                    Price = reader.GetDecimal("Price"),
-                                    CategoryID = reader.GetInt32("CategoryID"), // исправлено
-                                };
-
-                                if (!reader.IsDBNull(reader.GetOrdinal("Category_ID")))
-                                {
-                                    goods.Category = new Category
-                                    {
-                                        Id = reader.GetInt32("Category_ID"),
-                                        Name = reader["Category_Name"]?.ToString()
-                                    };
-                                }
-
-                                return goods;
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"GetGoodsWithCategory error: {ex.Message}");
-            }
-
-            return null;
-        }
 
         public async Task<bool> AddGoodsAsync(Goods goods)
         {
@@ -717,38 +606,6 @@ namespace WpfApp1.Services
             return orders;
         }
 
-        public async Task<bool> AddOrderAsync(Orders order)
-        {
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-
-                    string query = @"INSERT INTO Orders (ClientID, TotalCost, Delivery, CookingTime, Weight, DeliveryTime, DeliveryAddress) 
-                                    VALUES (@ClientID, @TotalCost, @Delivery, @CookingTime, @Weight, @DeliveryTime, @DeliveryAddress)";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@ClientID", order.ClientID);
-                        command.Parameters.AddWithValue("@TotalCost", order.TotalCost);
-                        command.Parameters.AddWithValue("@Delivery", order.Delivery);
-                        command.Parameters.AddWithValue("@CookingTime", order.CookingTime.ToString());
-                        command.Parameters.AddWithValue("@Weight", order.Weight);
-                        command.Parameters.AddWithValue("@DeliveryTime", order.DeliveryTime.ToString());
-                        command.Parameters.AddWithValue("@DeliveryAddress", order.DeliveryAddress);
-
-                        return await command.ExecuteNonQueryAsync() > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"AddOrder error: {ex.Message}");
-                return false;
-            }
-        }
-
         public async Task<bool> UpdateOrderAsync(Orders order)
         {
             try
@@ -846,39 +703,6 @@ namespace WpfApp1.Services
             return categories;
         }
 
-        // === ROLE ===
-        public async Task<List<Role>> GetAllRolesAsync()
-        {
-            var roles = new List<Role>();
-
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-                    string query = "SELECT * FROM Role";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    using (var reader = await command.ExecuteReaderAsync())
-                    {
-                        while (await reader.ReadAsync())
-                        {
-                            roles.Add(new Role
-                            {
-                                ID = reader.GetInt32("ID"),
-                                RoleName = reader["RoleName"]?.ToString()
-                            });
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"GetAllRoles error: {ex.Message}");
-            }
-
-            return roles;
-        }
 
         // === ORDERS GOODS ===
         public async Task<List<OrdersGoods>> GetOrderGoodsAsync(int orderId)
@@ -967,224 +791,6 @@ namespace WpfApp1.Services
             }
         }
 
-        // === POSTLIST ===
-        public async Task<List<Postlist>> GetAllPostsAsync()
-        {
-            var posts = new List<Postlist>();
-
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-                    string query = "SELECT * FROM Postlist";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    using (var reader = await command.ExecuteReaderAsync())
-                    {
-                        while (await reader.ReadAsync())
-                        {
-                            posts.Add(new Postlist
-                            {
-                                Id = reader.GetInt32("ID"),
-                                Name = reader["Name"]?.ToString(),
-                                Salary = reader.IsDBNull("Salary") ? (decimal?)null : reader.GetDecimal("Salary")
-                            });
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"GetAllPosts error: {ex.Message}");
-            }
-
-            return posts;
-        }
-
-        public async Task<int> CreatePostAsync(Postlist post)
-        {
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-
-                    string query = @"INSERT INTO Postlist (Name, Salary) 
-                            VALUES (@Name, @Salary);
-                            SELECT LAST_INSERT_ID();";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Name", post.Name);
-                        command.Parameters.AddWithValue("@Salary", post.Salary);
-
-                        var result = await command.ExecuteScalarAsync();
-                        return result != null ? Convert.ToInt32(result) : 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"CreatePost error: {ex.Message}");
-                return 0;
-            }
-        }
-
-        // === USERPOST ===
-        public async Task<bool> CreateUserPostAsync(UserPost userPost)
-        {
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-
-                    string query = @"INSERT INTO UserPost (UserID, PostID) 
-                            VALUES (@UserID, @PostID)";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@UserID", userPost.UserID);
-                        command.Parameters.AddWithValue("@PostID", userPost.PostID);
-
-                        return await command.ExecuteNonQueryAsync() > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"CreateUserPost error: {ex.Message}");
-                return false;
-            }
-        }
-
-        public async Task<int> GetOrCreatePostIdAsync(string postName, decimal? salary)
-        {
-            try
-            {
-                var posts = await GetAllPostsAsync();
-                var existingPost = posts.FirstOrDefault(p =>
-                    p.Name != null && p.Name.Equals(postName, StringComparison.OrdinalIgnoreCase));
-
-                if (existingPost != null)
-                {
-                    return existingPost.Id;
-                }
-
-                var newPost = new Postlist
-                {
-                    Name = postName,
-                    Salary = salary
-                };
-
-                return await CreatePostAsync(newPost);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"GetOrCreatePostId error: {ex.Message}");
-                return 0;
-            }
-        }
-
-        public async Task<List<Goods>> GetAllGoodsDirectAsync()
-        {
-            var goods = new List<Goods>();
-
-            string query = @"SELECT * FROM Goods";
-
-            try
-            {
-                using (var connection = new MySqlConnection(DatabaseContext.ConnectionString))
-                {
-                    await connection.OpenAsync();
-
-                    using (var command = new MySqlCommand(query, connection))
-                    using (var reader = await command.ExecuteReaderAsync())
-                    {
-                        while (await reader.ReadAsync())
-                        {
-                            goods.Add(new Goods
-                            {
-                                ID = Convert.ToInt32(reader["ID"]),
-                                Name = reader["Name"].ToString(),
-                                Price = Convert.ToDecimal(reader["Price"]),
-                                CategoryID = Convert.ToInt32(reader["CategoryID"])
-                            });
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"GetAllGoodsDirectAsync error: {ex.Message}");
-            }
-
-            return goods;
-        }
-
-        // === НОВЫЕ МЕТОДЫ ДЛЯ ЗАКАЗА ТОВАРОВ ===
-        public async Task<bool> IncreaseGoodsAmountAsync(int goodsId, int amountToAdd)
-        {
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-
-                    string checkQuery = "SELECT * FROM GoodsAccounting WHERE GoodsID = @GoodsID";
-
-                    using (var checkCommand = new MySqlCommand(checkQuery, connection))
-                    {
-                        checkCommand.Parameters.AddWithValue("@GoodsID", goodsId);
-
-                        using (var reader = await checkCommand.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                await reader.CloseAsync();
-
-                                string updateQuery = @"
-                                    UPDATE GoodsAccounting 
-                                    SET GoodsAmount = GoodsAmount + @AmountToAdd 
-                                    WHERE GoodsID = @GoodsID";
-
-                                using (var updateCommand = new MySqlCommand(updateQuery, connection))
-                                {
-                                    updateCommand.Parameters.AddWithValue("@GoodsID", goodsId);
-                                    updateCommand.Parameters.AddWithValue("@AmountToAdd", amountToAdd);
-
-                                    return await updateCommand.ExecuteNonQueryAsync() > 0;
-                                }
-                            }
-                            else
-                            {
-                                await reader.CloseAsync();
-
-                                string insertQuery = @"
-                                    INSERT INTO GoodsAccounting (GoodsID, GoodsAmount, WarehouseID) 
-                                    VALUES (@GoodsID, @GoodsAmount, @WarehouseID)";
-
-                                using (var insertCommand = new MySqlCommand(insertQuery, connection))
-                                {
-                                    insertCommand.Parameters.AddWithValue("@GoodsID", goodsId);
-                                    insertCommand.Parameters.AddWithValue("@GoodsAmount", amountToAdd);
-                                    insertCommand.Parameters.AddWithValue("@WarehouseID", 1);
-
-                                    return await insertCommand.ExecuteNonQueryAsync() > 0;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"IncreaseGoodsAmount error: {ex.Message}");
-                return false;
-            }
-        }
-
         public async Task<bool> CreateOrderWithGoodsAsync(Orders order, List<OrderItem> orderItems)
         {
             using (var connection = DatabaseContext.GetConnection())
@@ -1195,8 +801,8 @@ namespace WpfApp1.Services
                 try
                 {
                     string orderQuery = @"
-                        INSERT INTO Orders (ClientID, TotalCost, Delivery, CookingTime, Weight, DeliveryTime, DeliveryAddress) 
-                        VALUES (@ClientID, @TotalCost, @Delivery, @CookingTime, @Weight, @DeliveryTime, @DeliveryAddress);
+                        INSERT INTO Orders (ClientID, TotalCost, Delivery, CookingTime) 
+                        VALUES (@ClientID, @TotalCost, @Delivery, @CookingTime);
                         SELECT LAST_INSERT_ID();";
 
                     int orderId;
@@ -1206,9 +812,6 @@ namespace WpfApp1.Services
                         orderCommand.Parameters.AddWithValue("@TotalCost", order.TotalCost);
                         orderCommand.Parameters.AddWithValue("@Delivery", order.Delivery);
                         orderCommand.Parameters.AddWithValue("@CookingTime", order.CookingTime.ToString());
-                        orderCommand.Parameters.AddWithValue("@Weight", order.Weight);
-                        orderCommand.Parameters.AddWithValue("@DeliveryTime", order.DeliveryTime.ToString());
-                        orderCommand.Parameters.AddWithValue("@DeliveryAddress", order.DeliveryAddress);
 
                         orderId = Convert.ToInt32(await orderCommand.ExecuteScalarAsync());
                     }
@@ -1238,43 +841,6 @@ namespace WpfApp1.Services
                     return false;
                 }
             }
-        }
-
-        public async Task<GoodsAccounting> GetGoodsAccountingByGoodsIdAsync(int goodsId)
-        {
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-                    string query = "SELECT * FROM GoodsAccounting WHERE GoodsID = @GoodsID";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@GoodsID", goodsId);
-
-                        using (var reader = await command.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                return new GoodsAccounting
-                                {
-                                    Id = reader.GetInt32("ID"),
-                                    GoodsID = reader.GetInt32("GoodsID"),
-                                    GoodsAmount = reader.GetInt32("GoodsAmount"),
-                                    WarehouseID = reader.GetInt32("WarehouseID")
-                                };
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"GetGoodsAccountingByGoodsId error: {ex.Message}");
-            }
-
-            return null;
         }
 
         // === МЕТОДЫ ДЛЯ СОТРУДНИКОВ ===
@@ -1610,8 +1176,8 @@ namespace WpfApp1.Services
             return false;
         }
 
-        // Получение общей суммы заказа
-        public async Task<decimal> GetOrderTotalAsync(int orderId)
+        // === ОБНОВЛЕНИЕ ДАННЫХ ПОЛЬЗОВАТЕЛЯ ===
+        public async Task<bool> UpdateUserProfileAsync(Users user)
         {
             try
             {
@@ -1619,77 +1185,85 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
 
-                    string query = @"
-                        SELECT SUM(g.Price * og.Amount) as Total
-                        FROM OrdersGoods og
-                        LEFT JOIN Goods g ON og.GoodsID = g.ID
-                        WHERE og.OrderID = @OrderID";
+                    string query = @"UPDATE Users SET 
+                            Name = @Name, 
+                            LastName = @LastName, 
+                            Patronymic = @Patronymic, 
+                            PhoneNumber = @PhoneNumber, 
+                            Email = @Email, 
+                            BirthDate = @BirthDate, 
+                            Address = @Address 
+                            WHERE ID = @ID";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@OrderID", orderId);
+                        command.Parameters.AddWithValue("@ID", user.ID);
+                        command.Parameters.AddWithValue("@Name", user.Name ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@LastName", user.LastName ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@Patronymic", user.Patronymic ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@Email", user.Email ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@BirthDate", user.BirthDate);
+                        command.Parameters.AddWithValue("@Address", user.Address ?? (object)DBNull.Value);
 
-                        var result = await command.ExecuteScalarAsync();
-                        if (result != null && result != DBNull.Value)
-                        {
-                            return Convert.ToDecimal(result);
-                        }
+                        return await command.ExecuteNonQueryAsync() > 0;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"GetOrderTotalAsync error: {ex.Message}");
+                Console.WriteLine($"UpdateUserProfileAsync error: {ex.Message}");
+                return false;
             }
-
-            return 0;
         }
 
-        // Получение товаров по категориям для отображения
-        public async Task<Dictionary<string, List<OrdersGoods>>> GetGoodsByCategoryForOrderAsync(int orderId)
+        // Метод для получения текущего пользователя по ID
+        public async Task<Users?> GetUserByIdAsync(int userId)
         {
-            var goodsByCategory = new Dictionary<string, List<OrdersGoods>>();
-
             try
             {
                 using (var connection = DatabaseContext.GetConnection())
                 {
                     await connection.OpenAsync();
 
-                    string query = @"
-                        SELECT og.*, g.Name, g.Price, c.Name as CategoryName
-                        FROM OrdersGoods og
-                        LEFT JOIN Goods g ON og.GoodsID = g.ID
-                        LEFT JOIN Category c ON g.CategoryId = c.ID
-                        WHERE og.OrderID = @OrderID
-                        ORDER BY c.Name, g.Name";
+                    string query = @"SELECT Users.*, Role.RoleName 
+                           FROM Users
+                           LEFT JOIN Role ON Users.RoleID = Role.RoleID
+                           WHERE Users.ID = @UserId";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@OrderID", orderId);
+                        command.Parameters.AddWithValue("@UserID", userId);
 
                         using (var reader = await command.ExecuteReaderAsync())
                         {
-                            while (await reader.ReadAsync())
+                            if (await reader.ReadAsync())
                             {
-                                var orderGood = new OrdersGoods
+                                var user = new Users
                                 {
-                                    Id = reader.GetInt32("Id"),
-                                    OrderID = reader.GetInt32("OrderID"),
-                                    GoodsID = reader.GetInt32("GoodsID"),
-                                    Amount = reader.GetInt32("Amount"),
-                                    Price = reader.GetDecimal("Price"),
-                                    Name = reader["Name"]?.ToString()
+                                    ID = reader.GetInt32("ID"),
+                                    RoleID = reader.GetInt32("RoleID"),
+                                    Login = reader["Login"]?.ToString(),
+                                    Password = reader["Password"]?.ToString(),
+                                    Name = reader["Name"]?.ToString(),
+                                    LastName = reader["LastName"]?.ToString(),
+                                    Patronymic = reader["Patronymic"]?.ToString(),
+                                    PhoneNumber = reader["PhoneNumber"]?.ToString(),
+                                    Email = reader["Email"]?.ToString(),
+                                    BirthDate = reader.GetDateTime("BirthDate"),
+                                    Address = reader["Address"]?.ToString()
                                 };
 
-                                var categoryName = reader["CategoryName"]?.ToString() ?? "Без категории";
-
-                                if (!goodsByCategory.ContainsKey(categoryName))
+                                if (!reader.IsDBNull(reader.GetOrdinal("RoleName")))
                                 {
-                                    goodsByCategory[categoryName] = new List<OrdersGoods>();
+                                    user.Role = new Role
+                                    {
+                                        ID = reader.GetInt32("RoleID"),
+                                        RoleName = reader["RoleName"]?.ToString()
+                                    };
                                 }
 
-                                goodsByCategory[categoryName].Add(orderGood);
+                                return user;
                             }
                         }
                     }
@@ -1697,10 +1271,10 @@ namespace WpfApp1.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"GetGoodsByCategoryForOrderAsync error: {ex.Message}");
+                Console.WriteLine($"GetUserByIdAsync error: {ex.Message}");
             }
 
-            return goodsByCategory;
+            return null;
         }
     }
 }

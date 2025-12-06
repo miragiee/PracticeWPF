@@ -5,7 +5,6 @@ FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\AdminInterface\Clients\ClientList
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\AdminInterface\Employee\AddEmployee.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\AdminInterface\Employee\ChangeEmployeeData.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\AdminInterface\Employee\EmployeeList.xaml;;
-FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\AdminInterface\Goods\BuyGoods.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\AdminInterface\Orders\ManageOrders.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\AdminInterface\Orders\OrderList.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\EmployeeInterface\BakerInterface.xaml;;
@@ -24,7 +23,6 @@ FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\UserInterface\EULA.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\UserInterface\GoodsMain.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\UserInterface\Payment.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\UserInterface\PaymentSuccessful.xaml;;
-FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\UserInterface\Profile.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\UserInterface\Register.xaml;;
 FC:\Users\10230922\Desktop\PracticeWPF\WpfApp1\UserInterface\ShoppingCart.xaml;;
 

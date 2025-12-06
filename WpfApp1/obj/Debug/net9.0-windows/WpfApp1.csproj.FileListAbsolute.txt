@@ -295,7 +295,6 @@ C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInte
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Employee\AddEmployee.g.cs
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Employee\ChangeEmployeeData.g.cs
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Employee\EmployeeList.g.cs
-C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Goods\BuyGoods.g.cs
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Goods\GoodsList.g.cs
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Goods\ManageGoods.g.cs
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Orders\ManageOrders.g.cs
@@ -304,7 +303,6 @@ C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInte
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Employee\AddEmployee.baml
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Employee\ChangeEmployeeData.baml
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Employee\EmployeeList.baml
-C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Goods\BuyGoods.baml
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Goods\GoodsList.baml
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Goods\ManageGoods.baml
 C:\Users\10230922\Desktop\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\AdminInterface\Orders\ManageOrders.baml

@@ -1,11 +1,13 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using WpfApp1.EmployeeInterface;
+using WpfApp1.Models;
 using WpfApp1.UserInterface;
-using WpfApp1.Models; // Добавьте эту директиву
-using MySql.Data.MySqlClient;
 
 namespace WpfApp1
 {
@@ -44,16 +46,20 @@ namespace WpfApp1
 
                     // 1. Находим пользователя и его роль
                     string userQuery = @"
-                SELECT 
-                    u.ID, 
-                    u.RoleID, 
-                    u.Login,
-                    u.Name,
-                    u.LastName,
-                    r.RoleName
-                FROM Users u
-                LEFT JOIN Role r ON u.RoleID = r.RoleID
-                WHERE u.Login = @Login AND u.Password = @Password";
+                        SELECT 
+                            u.ID, 
+                            u.RoleID, 
+                            u.Login,
+                            u.Name,
+                            u.LastName,
+                            r.RoleName,
+                            u.Email,
+                            u.PhoneNumber,
+                            u.BirthDate,
+                            u.Address
+                        FROM Users u
+                        LEFT JOIN Role r ON u.RoleID = r.RoleID
+                        WHERE u.Login = @Login AND u.Password = @Password";
 
                     using (MySqlCommand userCmd = new MySqlCommand(userQuery, connection))
                     {
@@ -64,24 +70,48 @@ namespace WpfApp1
                         {
                             if (await userReader.ReadAsync())
                             {
-                                int userId = userReader.GetInt32(0);
-                                int roleId = userReader.GetInt32(1);
-                                string userName = userReader.IsDBNull(3) ? "" : userReader.GetString(3);
-                                string userLastName = userReader.IsDBNull(4) ? "" : userReader.GetString(4);
-                                string roleName = userReader.IsDBNull(5) ? "" : userReader.GetString(5);
+                                // Создаем объект пользователя
+                                Users user = new Users
+                                {
+                                    ID = userReader.GetInt32(0),
+                                    RoleID = userReader.GetInt32(1),
+                                    Login = userReader.GetString(2),
+                                    Name = userReader.IsDBNull(3) ? "" : userReader.GetString(3),
+                                    LastName = userReader.IsDBNull(4) ? "" : userReader.GetString(4),
+                                    Email = userReader.IsDBNull(6) ? "" : userReader.GetString(6),
+                                    PhoneNumber = userReader.IsDBNull(7) ? "" : userReader.GetString(7),
+                                    Address = userReader.IsDBNull(9) ? "" : userReader.GetString(9)
+                                };
 
+                                if (!userReader.IsDBNull(5))
+                                {
+                                    user.Role = new Role
+                                    {
+                                        RoleName = userReader.GetString(5)
+                                    };
+                                }
+
+                                if (!userReader.IsDBNull(8))
+                                {
+                                    user.BirthDate = userReader.GetDateTime(8);
+                                }
+
+                                // Закрываем DataReader перед новым запросом
                                 userReader.Close();
 
+                                // Сохраняем пользователя в статическом классе
+                                AppState.CurrentUser = user;
+
                                 // 2. Определяем интерфейс в зависимости от роли
-                                switch (roleId)
+                                switch (user.RoleID)
                                 {
                                     case 1: // Администратор
                                         OpenAdminInterface();
                                         break;
 
                                     case 2: // Сотрудник
-                                            // Определяем должность сотрудника
-                                        await OpenEmployeeInterfaceByPositionAsync(connection, userId, userName);
+                                        // Определяем должность сотрудника
+                                        await OpenEmployeeInterfaceByPositionAsync(connection, user.ID, user.Name);
                                         break;
 
                                     case 3: // Пользователь
@@ -89,7 +119,7 @@ namespace WpfApp1
                                         break;
 
                                     default:
-                                        MessageBox.Show($"Неизвестная роль: {roleName}", "Ошибка");
+                                        MessageBox.Show($"Неизвестная роль: {user.RoleName}", "Ошибка");
                                         break;
                                 }
                             }
@@ -117,8 +147,7 @@ namespace WpfApp1
             }
         }
 
-        // Новый метод для определения интерфейса по должности
-        // Новый метод для определения интерфейса по должности
+        // Метод для определения интерфейса по должности
         private async Task OpenEmployeeInterfaceByPositionAsync(MySqlConnection connection, int userId, string userName)
         {
             // 1. Получаем все должности пользователя
@@ -165,7 +194,7 @@ namespace WpfApp1
             }
         }
 
-        // Метод для получения списка должностей
+        // Метод для получения списка должностей пользователя
         private async Task<List<string>> GetUserPositionsListAsync(MySqlConnection connection, int userId)
         {
             var positions = new List<string>();
@@ -173,10 +202,10 @@ namespace WpfApp1
             try
             {
                 string query = @"
-            SELECT p.Name
-            FROM UserPost up
-            JOIN Postlist p ON up.PostID = p.Id
-            WHERE up.UserID = @UserID";
+                    SELECT p.Name
+                    FROM UserPost up
+                    JOIN Postlist p ON up.PostID = p.Id
+                    WHERE up.UserID = @UserID";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -186,27 +215,50 @@ namespace WpfApp1
                     {
                         while (await reader.ReadAsync())
                         {
-                            positions.Add(reader.GetString(0));
+                            if (!reader.IsDBNull(0))
+                            {
+                                positions.Add(reader.GetString(0));
+                            }
                         }
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // Игнорируем ошибки
+                Console.WriteLine($"Ошибка при получении должностей: {ex.Message}");
             }
 
             return positions;
         }
 
-        // Метод для определения должности по логину (если нужно)
-        private string DeterminePositionByLogin(int userId, MySqlConnection connection)
+        // Новый метод для получения ID пользователя по логину (если понадобится)
+        private async Task<int> GetUserIdByLoginAsync(string login)
         {
-            // Здесь можно добавить логику определения должности по логину
-            // Например, если логин содержит "baker", то пекарь и т.д.
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
 
-            // Пока возвращаем пустую строку
-            return "";
+                    string query = @"SELECT ID FROM Users WHERE Login = @Login OR Email = @Login";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Login", login);
+
+                        object result = await command.ExecuteScalarAsync();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при получении ID пользователя: {ex.Message}");
+            }
+
+            return 0;
         }
 
         private void OpenAdminInterface()
@@ -220,74 +272,6 @@ namespace WpfApp1
             catch (Exception ex)
             {
                 MessageBox.Show($"Не удалось открыть AdminPanel: {ex.Message}", "Ошибка");
-            }
-        }
-
-        private async Task OpenEmployeeInterfaceAsync(MySqlConnection connection, string positions, int userId)
-        {
-            // Если есть конкретные должности
-            if (!string.IsNullOrEmpty(positions))
-            {
-                var positionsList = positions.Split(',').Select(p => p.Trim().ToLower()).ToList();
-
-                // Проверяем должности в порядке приоритета
-                if (positionsList.Contains("Пекарь"))
-                {
-                    OpenBakerInterface();
-                    return;
-                }
-                else if (positionsList.Contains("Кассир"))
-                {
-                    OpenCashierInterface();
-                    return;
-                }
-                else if (positionsList.Contains("Доставщик"))
-                {
-                    OpenDeliveryInterface();
-                    return;
-                }
-            }
-
-            // Если должности не указаны или не распознаны, определяем по логину
-            string mainPosition = await GetMainPositionForUserAsync(connection, userId);
-
-            switch (mainPosition?.ToLower())
-            {
-                case "Пекарь":
-                    OpenBakerInterface();
-                    break;
-
-                case "Кассир":
-                    OpenCashierInterface();
-                    break;
-
-                case "Доставщик":
-                    OpenDeliveryInterface();
-                    break;
-            }
-        }
-
-        private async Task<string> GetMainPositionForUserAsync(MySqlConnection connection, int userId)
-        {
-            try
-            {
-                string query = @"
-                    SELECT p.Name 
-                    FROM UserPost up
-                    JOIN Postlist p ON up.PostID = p.Id
-                    WHERE up.UserID = @UserID
-                    LIMIT 1";
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@UserID", userId);
-                    var result = await command.ExecuteScalarAsync();
-                    return result?.ToString();
-                }
-            }
-            catch
-            {
-                return null;
             }
         }
 
@@ -337,6 +321,7 @@ namespace WpfApp1
         {
             try
             {
+                // Теперь GoodsMain будет знать, какой пользователь авторизован
                 GoodsMain goodsMain = new GoodsMain();
                 goodsMain.Show();
                 this.Close();
@@ -347,7 +332,6 @@ namespace WpfApp1
             }
         }
 
-        
         private void MoveToRegister(object sender, RoutedEventArgs e)
         {
             try

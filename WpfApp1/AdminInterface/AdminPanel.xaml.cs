@@ -97,15 +97,6 @@ namespace WpfApp1
             this.Close();
         }
 
-        private void GoToBuyGoods(object sender, RoutedEventArgs e)
-        {
-            WindowManager.SaveWindowStats(this);
-            BuyGoods buyGoods = new BuyGoods();
-            WindowManager.SetWindowStats(buyGoods);
-            buyGoods.Show();
-            this.Close();
-        }
-
         private void GoToManageOrders(object sender, RoutedEventArgs e)
         {
             WindowManager.SaveWindowStats(this);
