@@ -29,11 +29,11 @@ namespace WpfApp1.ViewModels
             // Готовые блюда
             Goods.Add(new Goods
             {
-                Id = 801,
+                ID = 801,
                 Name = "Салат 'Цезарь'",
                 Price = 320.00m,
                 ImagePath = "/Images/salad.png",
-                CategoryId = 5
+                CategoryID = 5
             });
 
         }

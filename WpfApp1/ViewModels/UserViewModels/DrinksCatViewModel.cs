@@ -40,21 +40,21 @@ namespace WpfApp1.UserInterface
             // Безалкогольные напитки
             NonAlcoholicGoods.Add(new Goods
             {
-                Id = 101,
+                ID = 101,
                 Name = "Добрый Кола",
                 Price = 99.99m,
                 ImagePath = "/Images/dobryCola.jpg",
-                CategoryId = 6 // ID для напитков
+                CategoryID = 6 // ID для напитков
             });
 
             // Алкогольные напитки
             AlcoholicGoods.Add(new Goods
             {
-                Id = 201,
+                ID = 201,
                 Name = "Пиво Светлое Нефильтрованное",
                 Price = 189.90m,
                 ImagePath = "/Images/pevo.jpg",
-                CategoryId = 7 // ID для алкогольных напитков
+                CategoryID = 7 // ID для алкогольных напитков
             });
 
             // Добавьте другие напитки по аналогии

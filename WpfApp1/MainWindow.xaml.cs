@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using WpfApp1.EmployeeInterface;
-using MySql.Data;
-using MySqlConnector;
+using WpfApp1.UserInterface;
+using WpfApp1.Models; // Добавьте эту директиву
+using MySql.Data.MySqlClient;
 
 namespace WpfApp1
 {
     public partial class MainWindow : Window
     {
-        // ЗАМЕНИТЕ НА ВАШУ СТРОКУ ПОДКЛЮЧЕНИЯ!
         private string connectionString = "Server=tompsons.beget.tech;Database=tompsons_stud21;Uid=tompsons_stud21;Pwd=123456Zz;Port=3306;SslMode=Preferred;CharSet=utf8;ConnectionTimeout=30;";
 
         public MainWindow()
@@ -22,7 +21,7 @@ namespace WpfApp1
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             string login = LoginBox.Text.Trim();
-            string password = PasswordBox.Text; // Для PasswordBox используем .Password
+            string password = PasswordBox.Text;
 
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
@@ -32,54 +31,72 @@ namespace WpfApp1
             }
 
             Button loginButton = (Button)sender;
-            object originalContent = loginButton.Content;
+            string originalContent = loginButton.Content.ToString();
 
             try
             {
                 loginButton.Content = "Проверка...";
                 loginButton.IsEnabled = false;
 
-                // ПРЯМОЙ ЗАПРОС С ПРАВИЛЬНЫМИ НАЗВАНИЯМИ СТОЛБЦОВ
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     await connection.OpenAsync();
 
-                    // Запрос 1: Проверяем пользователя
-                    string query = @"
-                        SELECT u.ID, u.RoleID, u.Login, u.Password 
-                        FROM Users u 
-                        WHERE u.Login = @Login AND u.Password = @Password";
+                    // 1. Находим пользователя и его роль
+                    string userQuery = @"
+                SELECT 
+                    u.ID, 
+                    u.RoleID, 
+                    u.Login,
+                    u.Name,
+                    u.LastName,
+                    r.RoleName
+                FROM Users u
+                LEFT JOIN Role r ON u.RoleID = r.RoleID
+                WHERE u.Login = @Login AND u.Password = @Password";
 
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlCommand userCmd = new MySqlCommand(userQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@Login", login);
-                        command.Parameters.AddWithValue("@Password", password);
+                        userCmd.Parameters.AddWithValue("@Login", login);
+                        userCmd.Parameters.AddWithValue("@Password", password);
 
-                        using (MySqlDataReader reader = await command.ExecuteReaderAsync())
+                        using (MySqlDataReader userReader = (MySqlDataReader)await userCmd.ExecuteReaderAsync())
                         {
-                            if (await reader.ReadAsync())
+                            if (await userReader.ReadAsync())
                             {
-                                // УСПЕШНЫЙ ВХОД!
-                                int userId = reader.GetInt32(0);
-                                int roleId = reader.GetInt32(1);
-                                string dbLogin = reader.GetString(2);
+                                int userId = userReader.GetInt32(0);
+                                int roleId = userReader.GetInt32(1);
+                                string userName = userReader.IsDBNull(3) ? "" : userReader.GetString(3);
+                                string userLastName = userReader.IsDBNull(4) ? "" : userReader.GetString(4);
+                                string roleName = userReader.IsDBNull(5) ? "" : userReader.GetString(5);
 
-                                MessageBox.Show($"Вход успешен!\nЛогин: {dbLogin}\nRoleID: {roleId}",
-                                    "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                                userReader.Close();
 
-                                // Закрываем первый DataReader
-                                reader.Close();
+                                // 2. Определяем интерфейс в зависимости от роли
+                                switch (roleId)
+                                {
+                                    case 1: // Администратор
+                                        OpenAdminInterface();
+                                        break;
 
-                                // Получаем название роли из таблицы Role
-                                string roleName = await GetRoleNameByIdAsync(connection, roleId);
+                                    case 2: // Сотрудник
+                                            // Определяем должность сотрудника
+                                        await OpenEmployeeInterfaceByPositionAsync(connection, userId, userName);
+                                        break;
 
-                                // Открываем соответствующее окно
-                                OpenUserInterface(roleName, roleId);
+                                    case 3: // Пользователь
+                                        OpenUserInterface();
+                                        break;
+
+                                    default:
+                                        MessageBox.Show($"Неизвестная роль: {roleName}", "Ошибка");
+                                        break;
+                                }
                             }
                             else
                             {
-                                MessageBox.Show($"Неверный логин или пароль\n\nВведено:\nЛогин: {login}\nПароль: {password}",
-                                    "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBox.Show("Неверный логин или пароль", "Ошибка",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
                             }
                         }
                     }
@@ -87,7 +104,7 @@ namespace WpfApp1
             }
             catch (MySqlException sqlEx)
             {
-                MessageBox.Show($"Ошибка БД: {sqlEx.Message}", "Ошибка БД");
+                MessageBox.Show($"Ошибка MySQL: {sqlEx.Message}", "Ошибка БД");
             }
             catch (Exception ex)
             {
@@ -100,90 +117,237 @@ namespace WpfApp1
             }
         }
 
-        // Метод для получения названия роли по ID
-        private async Task<string> GetRoleNameByIdAsync(MySqlConnection connection, int roleId)
+        // Новый метод для определения интерфейса по должности
+        // Новый метод для определения интерфейса по должности
+        private async Task OpenEmployeeInterfaceByPositionAsync(MySqlConnection connection, int userId, string userName)
+        {
+            // 1. Получаем все должности пользователя
+            List<string> positions = await GetUserPositionsListAsync(connection, userId);
+
+            // 2. Если должности есть, определяем по ним
+            if (positions.Count > 0)
+            {
+                // Проверяем в порядке приоритета
+                foreach (var position in positions)
+                {
+                    string lowerPosition = position.ToLower();
+
+                    // Проверяем русские названия должностей
+                    if (lowerPosition.Contains("пекарь") || lowerPosition.Contains("4") || lowerPosition.Contains("baker"))
+                    {
+                        MessageBox.Show($"Открываю интерфейс пекаря для {userName}", "Информация");
+                        OpenBakerInterface();
+                        return;
+                    }
+                    else if (lowerPosition.Contains("кассир") || lowerPosition.Contains("2") || lowerPosition.Contains("cashier"))
+                    {
+                        MessageBox.Show($"Открываю интерфейс кассира для {userName}", "Информация");
+                        OpenCashierInterface();
+                        return;
+                    }
+                    else if (lowerPosition.Contains("доставщик") || lowerPosition.Contains("3") || lowerPosition.Contains("delivery"))
+                    {
+                        MessageBox.Show($"Открываю интерфейс доставки для {userName}", "Информация");
+                        OpenDeliveryInterface();
+                        return;
+                    }
+                }
+
+                // Если ни одна стандартная должность не найдена
+                MessageBox.Show($"У сотрудника {userName} назначены нестандартные должности: {string.Join(", ", positions)}\nОткрываю интерфейс кассира по умолчанию.", "Информация");
+                OpenCashierInterface();
+            }
+            else
+            {
+                // Если нет записей в UserPost, открываем кассира по умолчанию
+                MessageBox.Show($"Для сотрудника {userName} не назначены должности.\nОткрываю интерфейс кассира по умолчанию.", "Информация");
+                OpenCashierInterface();
+            }
+        }
+
+        // Метод для получения списка должностей
+        private async Task<List<string>> GetUserPositionsListAsync(MySqlConnection connection, int userId)
+        {
+            var positions = new List<string>();
+
+            try
+            {
+                string query = @"
+            SELECT p.Name
+            FROM UserPost up
+            JOIN Postlist p ON up.PostID = p.Id
+            WHERE up.UserID = @UserID";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userId);
+
+                    using (MySqlDataReader reader = (MySqlDataReader)await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            positions.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Игнорируем ошибки
+            }
+
+            return positions;
+        }
+
+        // Метод для определения должности по логину (если нужно)
+        private string DeterminePositionByLogin(int userId, MySqlConnection connection)
+        {
+            // Здесь можно добавить логику определения должности по логину
+            // Например, если логин содержит "baker", то пекарь и т.д.
+
+            // Пока возвращаем пустую строку
+            return "";
+        }
+
+        private void OpenAdminInterface()
         {
             try
             {
-                string query = "SELECT RoleName FROM Role WHERE RoleID = @RoleID";
+                AdminPanel adminPanel = new AdminPanel();
+                adminPanel.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось открыть AdminPanel: {ex.Message}", "Ошибка");
+            }
+        }
+
+        private async Task OpenEmployeeInterfaceAsync(MySqlConnection connection, string positions, int userId)
+        {
+            // Если есть конкретные должности
+            if (!string.IsNullOrEmpty(positions))
+            {
+                var positionsList = positions.Split(',').Select(p => p.Trim().ToLower()).ToList();
+
+                // Проверяем должности в порядке приоритета
+                if (positionsList.Contains("Пекарь"))
+                {
+                    OpenBakerInterface();
+                    return;
+                }
+                else if (positionsList.Contains("Кассир"))
+                {
+                    OpenCashierInterface();
+                    return;
+                }
+                else if (positionsList.Contains("Доставщик"))
+                {
+                    OpenDeliveryInterface();
+                    return;
+                }
+            }
+
+            // Если должности не указаны или не распознаны, определяем по логину
+            string mainPosition = await GetMainPositionForUserAsync(connection, userId);
+
+            switch (mainPosition?.ToLower())
+            {
+                case "Пекарь":
+                    OpenBakerInterface();
+                    break;
+
+                case "Кассир":
+                    OpenCashierInterface();
+                    break;
+
+                case "Доставщик":
+                    OpenDeliveryInterface();
+                    break;
+            }
+        }
+
+        private async Task<string> GetMainPositionForUserAsync(MySqlConnection connection, int userId)
+        {
+            try
+            {
+                string query = @"
+                    SELECT p.Name 
+                    FROM UserPost up
+                    JOIN Postlist p ON up.PostID = p.Id
+                    WHERE up.UserID = @UserID
+                    LIMIT 1";
+
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@RoleID", roleId);
+                    command.Parameters.AddWithValue("@UserID", userId);
                     var result = await command.ExecuteScalarAsync();
-                    return result?.ToString() ?? $"Роль #{roleId}";
+                    return result?.ToString();
                 }
             }
             catch
             {
-                return $"Роль #{roleId}";
+                return null;
             }
         }
 
-        private void OpenUserInterface(string roleName, int roleId)
+        private void OpenBakerInterface()
         {
-            // Приоритет по roleName, если пусто - по roleId
-            string role = (roleName?.ToLower() ?? "").Replace(" ", "");
-
-            if (string.IsNullOrEmpty(role))
+            try
             {
-                role = roleId.ToString();
+                BakerInterface bakerInterface = new BakerInterface();
+                bakerInterface.Show();
+                this.Close();
             }
-
-            switch (role)
+            catch (Exception ex)
             {
-                case "1":
-                case "администратор":
-                case "admin":
-                    try
-                    {
-                        AdminPanel adminPanel = new AdminPanel();
-                        adminPanel.Show();
-                        this.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Не удалось открыть AdminPanel: {ex.Message}", "Ошибка");
-                    }
-                    break;
-
-                case "2":
-                case "сотрудник":
-                case "employee":
-                    // Для сотрудника определяем конкретную роль по логину или другим данным
-                    // Пока открываем кассира для теста
-                    try
-                    {
-                        CashierInterface cashierInterface = new CashierInterface();
-                        cashierInterface.Show();
-                        this.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Не удалось открыть CashierInterface: {ex.Message}", "Ошибка");
-                    }
-                    break;
-
-                case "3":
-                case "пользователь":
-                case "user":
-                    try
-                    {
-                        GoodsMain goodsMain = new GoodsMain();
-                        goodsMain.Show();
-                        this.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Не удалось открыть GoodsMain: {ex.Message}", "Ошибка");
-                    }
-                    break;
-
-                default:
-                    MessageBox.Show($"Неизвестная роль: {roleName} (ID: {roleId})", "Ошибка");
-                    break;
+                MessageBox.Show($"Не удалось открыть BakerInterface: {ex.Message}", "Ошибка");
             }
         }
 
+        private void OpenCashierInterface()
+        {
+            try
+            {
+                CashierInterface cashierInterface = new CashierInterface();
+                cashierInterface.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось открыть CashierInterface: {ex.Message}", "Ошибка");
+            }
+        }
+
+        private void OpenDeliveryInterface()
+        {
+            try
+            {
+                DeliveryInterface deliveryInterface = new DeliveryInterface();
+                deliveryInterface.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось открыть DeliveryInterface: {ex.Message}", "Ошибка");
+            }
+        }
+
+        private void OpenUserInterface()
+        {
+            try
+            {
+                GoodsMain goodsMain = new GoodsMain();
+                goodsMain.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось открыть GoodsMain: {ex.Message}", "Ошибка");
+            }
+        }
+
+        
         private void MoveToRegister(object sender, RoutedEventArgs e)
         {
             try
@@ -195,47 +359,6 @@ namespace WpfApp1
             catch (Exception ex)
             {
                 MessageBox.Show($"Не удалось открыть Register: {ex.Message}", "Ошибка");
-            }
-        }
-
-        // Добавим тестовую кнопку для проверки данных
-        private void TestDataButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Тестовые данные из БД:\n\n" +
-                          "1. Логин: Admin, Пароль: 123456 (Администратор)\n" +
-                          "2. Логин: Cashier2, Пароль: 123456 (Кассир)\n" +
-                          "3. Логин: Cashier1, Пароль: 123456 (Кассир)\n\n" +
-                          "Роли в таблице Role:\n" +
-                          "1 - Администратор\n" +
-                          "2 - Сотрудник\n" +
-                          "3 - Пользователь",
-                          "Тестовые данные");
-        }
-
-        // Метод для тестирования подключения к БД
-        private void TestConnectionButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Проверяем таблицу Users
-                    string query = "SELECT COUNT(*) FROM Users";
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                    {
-                        int count = (int)cmd.ExecuteScalar();
-                        MessageBox.Show($"Подключение успешно!\nВ таблице Users: {count} записей", "Успех");
-                    }
-
-                    connection.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка подключения: {ex.Message}\n\nСтрока подключения: {connectionString}",
-                    "Ошибка подключения");
             }
         }
 

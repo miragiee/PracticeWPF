@@ -40,48 +40,48 @@ namespace WpfApp1.UserInterface
             // Фрукты
             Fruits.Add(new Goods
             {
-                Id = 401,
+                ID = 401,
                 Name = "Апельсин",
                 Price = 89.50m,
                 ImagePath = "/Images/orange.png",
-                CategoryId = 2
+                CategoryID = 2
             });
 
             Fruits.Add(new Goods
             {
-                Id = 402,
+                ID = 402,
                 Name = "Яблоки",
                 Price = 79.90m,
                 ImagePath = "/Images/gapple.jpg",
-                CategoryId = 2
+                CategoryID = 2
             });
 
             // Овощи
             Vegetables.Add(new Goods
             {
-                Id = 501,
+                ID = 501,
                 Name = "Помидоры",
                 Price = 149.90m,
                 ImagePath = "/Images/tomato.jpg",
-                CategoryId = 3
+                CategoryID = 3
             });
 
             Vegetables.Add(new Goods
             {
-                Id = 502,
+                ID = 502,
                 Name = "Огурцы",
                 Price = 89.50m,
                 ImagePath = "/Images/cucumber.jpg",
-                CategoryId = 3
+                CategoryID = 3
             });
 
             Vegetables.Add(new Goods
             {
-                Id = 503,
+                ID = 503,
                 Name = "Картофель",
                 Price = 49.90m,
                 ImagePath = "/Images/potato.jpg",
-                CategoryId = 3
+                CategoryID = 3
             });
         }
 

@@ -3,10 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
-        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="GoodsList" Loaded="Window_Loaded">
+        Title="Список товаров" Loaded="Window_Loaded">
     <Grid>
         <StackPanel Orientation="Horizontal">
             <Border CornerRadius="0" Style="{StaticResource AdminBorder}">
@@ -18,15 +16,25 @@
                 </Button.Background>
             </Button>
         </StackPanel>
-        <TextBlock Text="С  П  И  С  О  К     Т  О  В  А  Р  О  В" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
 
-        <!-- Исправлено имя DataGrid с EmployeeListDataGrid на GoodsDataGrid -->
-        <DataGrid Name="GoodsDataGrid" Margin="0,211,0,611" ItemsSource="{Binding Goods}" AutoGenerateColumns="False" HorizontalContentAlignment="Left" Style="{StaticResource adminTable}" Width="1342">
+        <TextBlock Text="С  П  И  С  О  К     Т  О  В  А  Р  О  В" 
+                   Margin="0, -740, 0, 0" 
+                   FontSize="24" 
+                   Style="{StaticResource AdminText}"/>
+
+        
+        <DataGrid x:Name="GoodsDataGrid" 
+                  Margin="50,-300,50,50"
+                  ItemsSource="{Binding Goodss}"
+            AutoGenerateColumns="False" 
+                  HorizontalContentAlignment="Left" 
+                  Style="{StaticResource adminTable}"
+                  CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="100"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding ID}" Width="100"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="400"/>
                 <DataGridTextColumn Header="Цена" Binding="{Binding Price, StringFormat={}{0:C2}}" Width="200"/>
-                <DataGridTextColumn Header="Категория ID" Binding="{Binding CategoryId}" Width="150"/>
+                <DataGridTextColumn Header="Категория ID" Binding="{Binding CategoryID}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

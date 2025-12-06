@@ -8,6 +8,7 @@ using WpfApp1.Services;
 using WpfApp1.UserInterface;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace WpfApp1
 {
@@ -16,13 +17,17 @@ namespace WpfApp1
         private DatabaseService dbService = new DatabaseService();
         private ObservableCollection<Goods> _goods;
 
-        public ObservableCollection<Goods> Goods
+        public ObservableCollection<Goods> Goodss
         {
             get => _goods;
             set
             {
-                _goods = value;
-                OnPropertyChanged(nameof(Goods));
+                if (_goods != value)
+                {
+                    _goods = value;
+                    OnPropertyChanged(nameof(Goodss));
+                    Debug.WriteLine($"Свойство Goods изменено: {_goods?.Count ?? 0} элементов");
+                }
             }
         }
 
@@ -31,17 +36,27 @@ namespace WpfApp1
         public GoodsList()
         {
             InitializeComponent();
-            Goods = new ObservableCollection<Goods>();
+
+            // Инициализируем коллекцию ПЕРЕД установкой DataContext
+            Goodss = new ObservableCollection<Goods>();
+
+            // Устанавливаем DataContext на самого себя
             DataContext = this;
+
+            // Для отладки
+            Debug.WriteLine($"Конструктор GoodsList: DataContext установлен = {DataContext != null}");
+            Debug.WriteLine($"Конструктор GoodsList: Goods коллекция создана = {_goods != null}");
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            Debug.WriteLine($"Событие PropertyChanged вызвано для: {propertyName}");
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Window_Loaded начал выполнение");
             await LoadGoods();
         }
 
@@ -49,8 +64,12 @@ namespace WpfApp1
         {
             try
             {
+                Debug.WriteLine("Начало загрузки товаров...");
+
                 // Проверяем подключение
                 bool isConnected = await dbService.TestConnectionAsync();
+                Debug.WriteLine($"Подключение к БД: {isConnected}");
+
                 if (!isConnected)
                 {
                     MessageBox.Show("Ошибка подключения к базе данных. Будут загружены тестовые данные.",
@@ -61,27 +80,35 @@ namespace WpfApp1
 
                 // Загружаем товары
                 var goods = await dbService.GetAllGoodsAsync();
+                Debug.WriteLine($"Загружено товаров из БД: {goods?.Count ?? 0}");
 
-                // Очищаем и заполняем коллекцию
-                Goods.Clear();
-                foreach (var item in goods)
+                // Создаем новую коллекцию (это вызовет PropertyChanged)
+                var newCollection = new ObservableCollection<Goods>();
+
+                if (goods != null && goods.Count > 0)
                 {
-                    Goods.Add(item);
+                    foreach (var item in goods)
+                    {
+                        Debug.WriteLine($"Добавляем товар: ID={item.ID}, Name={item.Name}");
+                        newCollection.Add(item);
+                    }
+
+                    // Меняем всю коллекцию - это вызовет PropertyChanged
+                    Goodss = newCollection;
+
+                    Debug.WriteLine($"Установлена новая коллекция с {Goodss.Count} элементами");
                 }
-
-                // Обновляем ItemsSource
-                GoodsDataGrid.ItemsSource = null;
-                GoodsDataGrid.ItemsSource = Goods;
-
-                // Если данных нет, показываем сообщение
-                if (Goods.Count == 0)
+                else
                 {
                     MessageBox.Show("В базе данных нет товаров",
                         "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LoadTestData();
                 }
             }
             catch (MySqlException mysqlEx)
             {
+                Debug.WriteLine($"MySQL Error: {mysqlEx.Message}");
+
                 string errorMessage = $"Ошибка MySQL ({mysqlEx.Number}):\n{mysqlEx.Message}";
 
                 if (mysqlEx.Number == 1042) // Ошибка подключения
@@ -98,6 +125,7 @@ namespace WpfApp1
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"Ошибка загрузки товаров: {ex.Message}");
                 MessageBox.Show($"Ошибка загрузки товаров: {ex.Message}",
                     "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 LoadTestData();
@@ -106,52 +134,55 @@ namespace WpfApp1
 
         private void LoadTestData()
         {
-            Goods.Clear();
+            Debug.WriteLine("Загрузка тестовых данных...");
+
+            var testCollection = new ObservableCollection<Goods>();
 
             // Тестовые данные
-            Goods.Add(new Goods
+            testCollection.Add(new Goods
             {
-                Id = 1,
+                ID = 1,
                 Name = "Лаваш",
                 Price = 60,
-                CategoryId = 1,
+                CategoryID = 1,
             });
 
-            Goods.Add(new Goods
+            testCollection.Add(new Goods
             {
-                Id = 4,
+                ID = 4,
                 Name = "Апельсин",
                 Price = 100,
-                CategoryId = 2
+                CategoryID = 2
             });
 
-            Goods.Add(new Goods
+            testCollection.Add(new Goods
             {
-                Id = 5,
+                ID = 5,
                 Name = "Бананы",
                 Price = 80,
-                CategoryId = 2
+                CategoryID = 2
             });
 
-            Goods.Add(new Goods
+            testCollection.Add(new Goods
             {
-                Id = 6,
+                ID = 6,
                 Name = "Молоко",
                 Price = 70,
-                CategoryId = 3
+                CategoryID = 3
             });
 
-            Goods.Add(new Goods
+            testCollection.Add(new Goods
             {
-                Id = 7,
+                ID = 7,
                 Name = "Хлеб",
                 Price = 40,
-                CategoryId = 4
+                CategoryID = 4
             });
 
-            // Обновляем DataGrid
-            GoodsDataGrid.ItemsSource = null;
-            GoodsDataGrid.ItemsSource = Goods;
+            // Меняем всю коллекцию
+            Goodss = testCollection;
+
+            Debug.WriteLine($"Загружено тестовых товаров: {Goodss.Count}");
         }
 
         private void GoBack(object sender, RoutedEventArgs e)

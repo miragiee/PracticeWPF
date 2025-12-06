@@ -20,10 +20,10 @@
         </DataTemplate>
 
         <Style x:Key="AdminComboBox" TargetType="ComboBox">
-            <Setter Property="Background" Value="#F0F0F0"/>
+            <Setter Property="Background" Value="#B8B7E8"/>
             <Setter Property="BorderBrush" Value="#3F3F3F"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Foreground" Value="#000000"/>
+            <Setter Property="Foreground" Value="#00061B"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Height" Value="35"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>

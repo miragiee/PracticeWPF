@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="ManageOrders">
+        Title="Управление заказами">
     <Grid>
         <StackPanel Orientation="Horizontal">
             <Border CornerRadius="0" Style="{StaticResource AdminBorder}">
@@ -18,34 +18,263 @@
             </Button>
         </StackPanel>
         <TextBlock Text="У  П  Р  А  В  Л  Е  Н  И  Е     З  А  К  А  З  А  М  И" Margin="0, -740, 0, 0" FontSize="24" Style="{StaticResource AdminText}"/>
-        
-        
-        
-        <StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="33, 186, 0, 0">
-                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      З  А  К  А  З" Margin="0, 0, 243, 0" Style="{StaticResource AdminText}"/>
-                <Button Content="Т И П О   Д Р О П   М Е Н Ю   С О   С П И С К О М   З  А  К  А  З  О  В" Width="450" Height="24" FontSize="14" Style="{StaticResource adminButton}"/>
-                <Border Width="24" Height="24" Margin="-875, 0, 0, 0" CornerRadius="0"  Style="{StaticResource AdminBorder}">
-                    <Button  Width="24" Height="24" Style="{StaticResource adminButtonDarker}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Galochka.png" Stretch="None" TileMode="None"/>
-                        </Button.Background>
-                    </Button>
-                </Border>
 
+        <StackPanel Margin="0,200,0,0">
+            <!-- Выбор заказа -->
+            <StackPanel Orientation="Horizontal" Margin="33, 0, 0, 20">
+                <TextBlock Text="В  Ы  Б  Е  Р  И  Т  Е      З  А  К  А  З" 
+                           Margin="0, 0, 243, 0" 
+                           Style="{StaticResource AdminText}"
+                           VerticalAlignment="Center"/>
+
+                <ComboBox x:Name="OrdersComboBox"
+                    ItemsSource="{Binding Orders}"
+                    SelectedItem="{Binding SelectedOrder}"
+                    DisplayMemberPath="DisplayInfo"
+                    Width="450" 
+                    Height="35" 
+                    FontSize="14"
+                    Background="#B8B7E8"
+                    Foreground="#00061B"
+                    BorderBrush="#3F3F3F"
+                    BorderThickness="1"
+                    SelectionChanged="OrdersComboBox_SelectionChanged">
+                </ComboBox>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="33, 53, 0, 0">
-                <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  Ы  Й     А  Д  Р  Е  С     Д  О  С  Т  А  В  К  И" Margin="0, 0, 133, 0" Style="{StaticResource AdminText}"/>
-                <TextBox Text="Н О В Ы Й   А Д Р Е С" Width="450" Height="55" Margin="10, 0, 12, 0" Style="{StaticResource AdminBox}"/>
-                <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" Width="150" Height="55" FontSize="14" Style="{StaticResource adminButton}"/>
+            <!-- Информация о выбранном заказе -->
+            <Border Background="#B8B7E8" 
+                    CornerRadius="10" 
+                    Margin="33, 0, 33, 20" 
+                    Padding="20">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsOrderSelected}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+
+                <StackPanel>
+                    <TextBlock Text="{Binding OrderInfoText}" 
+                               Style="{StaticResource AdminText}"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               TextWrapping="Wrap"
+                               HorizontalAlignment="Center"/>
+
+                    <Grid Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Информация о доставке -->
+                        <TextBlock Text="Д о с т а в к а:" 
+                                   Style="{StaticResource AdminText}"
+                                   Grid.Column="0" Grid.Row="0"/>
+                        <TextBlock Text="{Binding DeliveryText}" 
+                                   Style="{StaticResource AdminText}"
+                                   Grid.Column="1" Grid.Row="0"
+                                   FontWeight="Bold"/>
+
+                        <!-- Время приготовления -->
+                        <TextBlock Text="В р е м я   п р и г о т о в л е н и я:" 
+                                   Style="{StaticResource AdminText}"
+                                   Grid.Column="2" Grid.Row="0"
+                                   Margin="20,0,0,0"/>
+                        <TextBlock Text="{Binding SelectedOrder.CookingTime, StringFormat={}{0:hh\\:mm}}" 
+                                   Style="{StaticResource AdminText}"
+                                   Grid.Column="3" Grid.Row="0"
+                                   FontWeight="Bold"/>
+
+                        <!-- Текущий адрес (если доставка) -->
+                        <TextBlock Text="Т е к у щ и й   а д р е с:" 
+                                   Grid.Column="0" Grid.Row="1"
+                                   Margin="0,10,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource AdminText}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsDeliveryOrder}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <TextBlock Text="{Binding SelectedOrder.DeliveryAddress}" 
+                                   Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"
+                                   Margin="0,10,0,0"
+                                   TextWrapping="Wrap"
+                                   FontWeight="Bold">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource AdminText}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsDeliveryOrder}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Изменение адреса доставки -->
+            <StackPanel Orientation="Horizontal" Margin="33, 0, 0, 20">
+                <TextBlock Text="В  В  Е  Д  И  Т  Е      Н  О  В  Ы  Й     А  Д  Р  Е  С     Д  О  С  Т  А  В  К  И" 
+                           Margin="0, 0, 133, 0" 
+                           VerticalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource AdminText}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsDeliveryOrder}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <TextBox Text="{Binding NewDeliveryAddress, UpdateSourceTrigger=PropertyChanged}" 
+                         Width="450" 
+                         Height="55" 
+                         Margin="10, 0, 12, 0" >
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" BasedOn="{StaticResource AdminBox}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsDeliveryOrder}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <Button Content="Н  Е    М  Е  Н  Я  Т  Ь" 
+                        Width="150" 
+                        Height="55" 
+                        FontSize="14" 
+                        Click="DontChange_Click">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource adminButton}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsDeliveryOrder}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="33, 32, 0, 0">
-                <Button Content="C  О  Х  Р  А  Н  И  Т  Ь      И  З  М  Е  Н  Е  Н  И  Я" Width="450" Height="55" Margin="555, 0, 12, 0" Style="{StaticResource adminButtonDarker}"/>
-                <Button Content="О Т М Е Н И Т Ь   З А К А З" Width="150" Height="55" FontSize="14" Background="#D51A1A" Style="{StaticResource adminButtonDarker}"/>
+            <!-- Сообщение для заказов без доставки -->
+            <Border Background="#B8B7E8" 
+                    CornerRadius="10" 
+                    Margin="33, 0, 33, 20" 
+                    Padding="20">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsOrderSelected}" Value="True"/>
+                                    <Condition Binding="{Binding IsDeliveryOrder}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+
+                <TextBlock Text="Э т о т   з а к а з   н е   п р е д н а з н а ч е н   д л я   д о с т а в к и.   И з м е н е н и е   а д р е с а   н е д о с т у п н о." 
+                           Style="{StaticResource AdminText}"
+                           FontSize="16"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"/>
+            </Border>
+
+            <!-- Кнопки действий -->
+            <StackPanel Orientation="Horizontal" Margin="33, 0, 0, 0">
+                <Button Content="C  О  Х  Р  А  Н  И  Т  Ь      И  З  М  Е  Н  Е  Н  И  Я" 
+                        Width="450" 
+                        Height="55" 
+                        Margin="555, 0, 12, 0" 
+                        Click="SaveChanges_Click">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource adminButtonDarker}">
+                            <Setter Property="IsEnabled" Value="False"/>
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsOrderSelected}" Value="True"/>
+                                        <Condition Binding="{Binding IsDeliveryOrder}" Value="True"/>
+                                        <Condition Binding="{Binding CanChangeAddress}" Value="True"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Content="О Т М Е Н И Т Ь   З А К А З" 
+                        Width="150" 
+                        Height="55" 
+                        FontSize="14" 
+                        Background="#D51A1A" 
+                        Click="CancelOrder_Click">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource adminButtonDarker}">
+                            <Setter Property="IsEnabled" Value="False"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsOrderSelected}" Value="True">
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
-            
         </StackPanel>
+
+        <!-- Сообщение при отсутствии заказов -->
+        <Border Background="#B8B7E8" 
+                CornerRadius="10" 
+                Margin="33, 350, 33, 0" 
+                Padding="40">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsOrderSelected}" Value="False">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+            <TextBlock Text="Н е т   д о с т у п н ы х   з а к а з о в   д л я   у п р а в л е н и я" 
+                       Style="{StaticResource AdminText}"
+                       FontSize="20"
+                       HorizontalAlignment="Center"/>
+        </Border>
     </Grid>
 </Window>

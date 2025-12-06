@@ -10,10 +10,10 @@ namespace WpfApp1.Models
 {
     public class Goods
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string? Name { get; set; }
         public decimal Price { get; set; }
-        public int CategoryId { get; set; }
+        public int CategoryID { get; set; }
         public string? ImagePath { get; set; }
 
         // Связи

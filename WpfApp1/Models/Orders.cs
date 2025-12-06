@@ -39,5 +39,14 @@ namespace WpfApp1.Models
         public List<OrdersGoods>? OrdersGoods { get; set; }
         public Delivery? OrderDelivery { get; set; }
         public List<OrderEmployee>? OrderEmployees { get; set; }
+
+        public string DisplayInfo
+        {
+            get
+            {
+                string deliveryText = Delivery ? "Доставка" : "Самовывоз";
+                return $"Заказ #{ID} | Клиент: {ClientID} | Сумма: {TotalCost:C2} | {deliveryText}";
+            }
+        }
     }
 }

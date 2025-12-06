@@ -27,20 +27,20 @@ namespace WpfApp1.UserInterface
         {
             Goods.Add(new Goods
             {
-                Id = 1,
+                ID = 1,
                 Name = "Хлеб чёрный",
                 Price = 50.99m,
                 ImagePath = "/Images/bread.png",
-                CategoryId = 1
+                CategoryID = 1
             });
 
             Goods.Add(new Goods
             {
-                Id = 2,
+                ID = 2,
                 Name = "Лаваш",
                 Price = 89.50m,
                 ImagePath = "/Images/lawash.jpg",
-                CategoryId = 1
+                CategoryID = 1
             });
 
             // Добавьте другие товары категории "Мучные изделия"

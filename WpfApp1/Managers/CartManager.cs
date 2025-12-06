@@ -49,7 +49,7 @@ namespace WpfApp1.Managers
 
         public void AddProduct(Goods goods, int Amount = 1)
         {
-            var existingItem = Items.FirstOrDefault(item => item.Product.Id == goods.Id);
+            var existingItem = Items.FirstOrDefault(item => item.Product.ID == goods.ID);
 
             if (existingItem != null)
             {
@@ -65,7 +65,7 @@ namespace WpfApp1.Managers
 
         public void DeleteProduct(Goods goods, int Amount = 1)
         {
-            var existingItem = Items.FirstOrDefault(item => item.Product.Id == goods.Id);
+            var existingItem = Items.FirstOrDefault(item => item.Product.ID == goods.ID);
 
             if (existingItem != null)
             {

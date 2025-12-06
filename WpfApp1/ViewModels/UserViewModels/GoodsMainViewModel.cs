@@ -34,47 +34,47 @@ namespace WpfApp1.ViewModels
         {
             Goods.Add(new Goods
             {
-                Id = 1,
+                ID = 1,
                 Name = "Хлеб чёрный",
                 Price = 50.99m,
                 ImagePath = "/Images/bread.png",
-                CategoryId = 1
+                CategoryID = 1
             });
 
             Goods.Add(new Goods
             {
-                Id = 2,
+                ID = 2,
                 Name = "Апельсин",
                 Price = 89.50m,
                 ImagePath = "/Images/orange.png",
-                CategoryId = 2
+                CategoryID = 2
             });
 
             Goods.Add(new Goods
             {
-                Id = 3,
+                ID = 3,
                 Name = "Туалетная бумага",
                 Price = 299.99m,
                 ImagePath = "/Images/toiletpaper.png",
-                CategoryId = 3
+                CategoryID = 3
             });
 
             Goods.Add(new Goods
             {
-                Id = 4,
+                ID = 4,
                 Name = "Грудка куриная",
                 Price = 450.00m,
                 ImagePath = "/Images/ChickenBreast.png",
-                CategoryId = 4
+                CategoryID = 4
             });
 
             Goods.Add(new Goods
             {
-                Id = 5,
+                ID = 5,
                 Name = "Салат 'Цезарь'",
                 Price = 320.00m,
                 ImagePath = "/Images/salad.png",
-                CategoryId = 5
+                CategoryID = 5
             });
         }
 

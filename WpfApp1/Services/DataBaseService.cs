@@ -522,13 +522,13 @@ namespace WpfApp1.Services
                     {
                         while (await reader.ReadAsync())
                         {
+                            // ИСПРАВЛЕНО: правильные имена столбцов (как в базе данных)
                             goods.Add(new Goods
                             {
-                                Id = reader.GetInt32("Id"),
+                                ID = reader.GetInt32("ID"), // было "Id" - должно быть "ID"
                                 Name = reader["Name"]?.ToString(),
                                 Price = reader.GetDecimal("Price"),
-                                CategoryId = reader.GetInt32("CategoryId"),
-                                ImagePath = reader["ImagePath"]?.ToString()
+                                CategoryID = reader.GetInt32("CategoryID") // было "CategoryId" - должно быть "CategoryID"
                             });
                         }
                     }
@@ -550,33 +550,33 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
                     string query = @"
-                        SELECT g.*, c.Id as Category_Id, c.Name as Category_Name 
-                        FROM Goods g 
-                        LEFT JOIN Category c ON g.CategoryId = c.Id 
-                        WHERE g.Id = @GoodsId";
+                SELECT g.*, c.ID as Category_Id, c.Name as Category_Name 
+                FROM Goods g 
+                LEFT JOIN Category c ON g.CategoryID = c.ID 
+                WHERE g.ID = @GoodsID";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@GoodsId", goodsId);
+                        command.Parameters.AddWithValue("@GoodsID", goodsId);
 
                         using (var reader = await command.ExecuteReaderAsync())
                         {
                             if (await reader.ReadAsync())
                             {
+                                // ИСПРАВЛЕНО: правильные имена столбцов
                                 var goods = new Goods
                                 {
-                                    Id = reader.GetInt32("Id"),
+                                    ID = reader.GetInt32("ID"),
                                     Name = reader["Name"]?.ToString(),
                                     Price = reader.GetDecimal("Price"),
-                                    CategoryId = reader.GetInt32("CategoryId"),
-                                    ImagePath = reader["ImagePath"]?.ToString()
+                                    CategoryID = reader.GetInt32("CategoryID"), // исправлено
                                 };
 
-                                if (!reader.IsDBNull(reader.GetOrdinal("Category_Id")))
+                                if (!reader.IsDBNull(reader.GetOrdinal("Category_ID")))
                                 {
                                     goods.Category = new Category
                                     {
-                                        Id = reader.GetInt32("Category_Id"),
+                                        Id = reader.GetInt32("Category_ID"),
                                         Name = reader["Category_Name"]?.ToString()
                                     };
                                 }
@@ -603,15 +603,14 @@ namespace WpfApp1.Services
                 {
                     await connection.OpenAsync();
 
-                    string query = @"INSERT INTO Goods (Name, Price, CategoryId, ImagePath) 
-                                    VALUES (@Name, @Price, @CategoryId, @ImagePath)";
+                    string query = @"INSERT INTO Goods (Name, Price, CategoryId) 
+                                    VALUES (@Name, @Price, @CategoryId)";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Name", goods.Name);
                         command.Parameters.AddWithValue("@Price", goods.Price);
-                        command.Parameters.AddWithValue("@CategoryId", goods.CategoryId);
-                        command.Parameters.AddWithValue("@ImagePath", goods.ImagePath);
+                        command.Parameters.AddWithValue("@CategoryId", goods.CategoryID);
 
                         return await command.ExecuteNonQueryAsync() > 0;
                     }
@@ -636,16 +635,14 @@ namespace WpfApp1.Services
                                     Name = @Name, 
                                     Price = @Price, 
                                     CategoryId = @CategoryId,
-                                    ImagePath = @ImagePath
                                     WHERE Id = @Id";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Id", goods.Id);
+                        command.Parameters.AddWithValue("@Id", goods.ID);
                         command.Parameters.AddWithValue("@Name", goods.Name);
                         command.Parameters.AddWithValue("@Price", goods.Price);
-                        command.Parameters.AddWithValue("@CategoryId", goods.CategoryId);
-                        command.Parameters.AddWithValue("@ImagePath", goods.ImagePath);
+                        command.Parameters.AddWithValue("@CategoryId", goods.CategoryID);
 
                         return await command.ExecuteNonQueryAsync() > 0;
                     }
@@ -691,7 +688,7 @@ namespace WpfApp1.Services
                 using (var connection = DatabaseContext.GetConnection())
                 {
                     await connection.OpenAsync();
-                    string query = "SELECT * FROM Orders";
+                    string query = @"SELECT * FROM Orders JOIN Users WHERE Orders.ClientID = Users.ID";
 
                     using (var command = new MySqlCommand(query, connection))
                     using (var reader = await command.ExecuteReaderAsync())
@@ -704,10 +701,7 @@ namespace WpfApp1.Services
                                 ClientID = reader.GetInt32("ClientID"),
                                 TotalCost = reader.GetDecimal("TotalCost"),
                                 Delivery = reader.GetBoolean("Delivery"),
-                                Weight = reader.GetDouble("Weight"),
-                                DeliveryAddress = reader["DeliveryAddress"]?.ToString(),
-                                CookingTime = SafeGetTimeSpan(reader, "CookingTime"),
-                                DeliveryTime = SafeGetTimeSpan(reader, "DeliveryTime")
+                                CookingTime = SafeGetTimeSpan(reader, "CookingTime")
                             };
 
                             orders.Add(order);
@@ -721,64 +715,6 @@ namespace WpfApp1.Services
             }
 
             return orders;
-        }
-
-        public async Task<Orders> GetOrderWithDetailsAsync(int orderId)
-        {
-            try
-            {
-                using (var connection = DatabaseContext.GetConnection())
-                {
-                    await connection.OpenAsync();
-                    string query = @"
-                SELECT o.*, u.ID as Client_Id, u.Name as Client_Name, u.LastName as Client_LastName
-                FROM Orders o 
-                LEFT JOIN Users u ON o.ClientID = u.ID
-                WHERE o.ID = @OrderID";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@OrderID", orderId);
-
-                        using (var reader = await command.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                var order = new Orders
-                                {
-                                    ID = reader.GetInt32("ID"),
-                                    ClientID = reader.GetInt32("ClientID"),
-                                    TotalCost = reader.GetDecimal("TotalCost"),
-                                    Delivery = reader.GetBoolean("Delivery"),
-                                    Weight = reader.GetDouble("Weight"),
-                                    DeliveryAddress = reader["DeliveryAddress"]?.ToString(),
-                                    CookingTime = SafeGetTimeSpan(reader, "CookingTime"),
-                                    DeliveryTime = SafeGetTimeSpan(reader, "DeliveryTime")
-                                };
-
-                                // Исправлено: Client_Id вместо Client_ID
-                                if (!reader.IsDBNull(reader.GetOrdinal("Client_Id")))
-                                {
-                                    order.Client = new Users
-                                    {
-                                        ID = reader.GetInt32("Client_Id"), // Исправлено
-                                        Name = reader["Client_Name"]?.ToString(),
-                                        LastName = reader["Client_LastName"]?.ToString()
-                                    };
-                                }
-
-                                return order;
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"GetOrderWithDetails error: {ex.Message}");
-            }
-
-            return null;
         }
 
         public async Task<bool> AddOrderAsync(Orders order)
@@ -982,7 +918,7 @@ namespace WpfApp1.Services
                                 {
                                     orderGood.Goods = new Goods
                                     {
-                                        Id = reader.GetInt32("GoodsID"),
+                                        ID = reader.GetInt32("GoodsID"),
                                         Name = reader["Goods_Name"]?.ToString(),
                                         Price = reader.GetDecimal("Goods_Price")
                                     };
@@ -1151,42 +1087,40 @@ namespace WpfApp1.Services
             }
         }
 
-        public async Task<Goods> GetGoodsByIdAsync(int id)
+        public async Task<List<Goods>> GetAllGoodsDirectAsync()
         {
+            var goods = new List<Goods>();
+
+            string query = @"SELECT * FROM Goods";
+
             try
             {
-                using (var connection = DatabaseContext.GetConnection())
+                using (var connection = new MySqlConnection(DatabaseContext.ConnectionString))
                 {
                     await connection.OpenAsync();
-                    string query = "SELECT * FROM Goods WHERE ID = @ID";
 
                     using (var command = new MySqlCommand(query, connection))
+                    using (var reader = await command.ExecuteReaderAsync())
                     {
-                        command.Parameters.AddWithValue("@ID", id);
-
-                        using (var reader = await command.ExecuteReaderAsync())
+                        while (await reader.ReadAsync())
                         {
-                            if (await reader.ReadAsync())
+                            goods.Add(new Goods
                             {
-                                return new Goods
-                                {
-                                    Id = reader.GetInt32("ID"),
-                                    Name = reader["Name"]?.ToString(),
-                                    Price = reader.GetDecimal("Price"),
-                                    CategoryId = reader.GetInt32("CategoryID"),
-                                    ImagePath = reader["ImagePath"]?.ToString()
-                                };
-                            }
+                                ID = Convert.ToInt32(reader["ID"]),
+                                Name = reader["Name"].ToString(),
+                                Price = Convert.ToDecimal(reader["Price"]),
+                                CategoryID = Convert.ToInt32(reader["CategoryID"])
+                            });
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"GetGoodsById error: {ex.Message}");
+                Console.WriteLine($"GetAllGoodsDirectAsync error: {ex.Message}");
             }
 
-            return null;
+            return goods;
         }
 
         // === НОВЫЕ МЕТОДЫ ДЛЯ ЗАКАЗА ТОВАРОВ ===

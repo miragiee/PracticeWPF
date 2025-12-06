@@ -28,8 +28,8 @@
                   Style="{StaticResource adminTable}" 
                   Width="1342">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Id}" Width="100"/>
-                <DataGridTextColumn Header="ID клиента" Binding="{Binding ClientId}" Width="120"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding ID}" Width="100"/>
+                <DataGridTextColumn Header="ID клиента" Binding="{Binding ClientID}" Width="120"/>
                 <DataGridTextColumn Header="Сумма заказа" Binding="{Binding TotalCost, StringFormat={}{0:C2}}" Width="200"/>
                 <DataGridCheckBoxColumn Header="Доставка" Binding="{Binding Delivery}" Width="120"/>
                 <DataGridTextColumn Header="Время приготовления" Binding="{Binding CookingTime, StringFormat={}{0:hh\\:mm}}" Width="200"/>

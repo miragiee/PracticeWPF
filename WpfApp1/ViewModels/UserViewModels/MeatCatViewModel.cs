@@ -29,20 +29,20 @@ namespace WpfApp1.ViewModels
             // Мясные продукты
             Goods.Add(new Goods
             {
-                Id = 701,
+                ID = 701,
                 Name = "Свинина лопатка",
                 Price = 350.00m,
                 ImagePath = "/Images/notHalal.jpg",
-                CategoryId = 4
+                CategoryID = 4
             });
 
             Goods.Add(new Goods
             {
-                Id = 702,
+                ID = 702,
                 Name = "Грудка куриная",
                 Price = 450.00m,
                 ImagePath = "/Images/ChickenBreast.png",
-                CategoryId = 4
+                CategoryID = 4
             });
         }
 

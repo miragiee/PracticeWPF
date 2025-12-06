@@ -29,11 +29,11 @@ namespace WpfApp1.ViewModels
             // Сладости
             Goods.Add(new Goods
             {
-                Id = 901,
+                ID = 901,
                 Name = "Пряники Тульские",
                 Price = 250.00m,
                 ImagePath = "/Images/tulskyPryanik.jpg",
-                CategoryId = 9
+                CategoryID = 9
             });
         }
 

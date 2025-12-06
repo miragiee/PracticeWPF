@@ -28,11 +28,11 @@ namespace WpfApp1.UserInterface.Categories
         {
             Goods.Add(new Goods
             {
-                Id = 601,
+                ID = 601,
                 Name = "Туалетная бумага",
                 Price = 299.99m,
                 ImagePath = "/Images/toiletpaper.png",
-                CategoryId = 8
+                CategoryID = 8
             });
 
         }

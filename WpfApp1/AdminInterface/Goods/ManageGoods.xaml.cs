@@ -53,7 +53,7 @@ namespace WpfApp1
 
                 foreach (var goods in _allGoods)
                 {
-                    Console.WriteLine($"Товар: {goods.Id} - {goods.Name} - {goods.Price}");
+                    Console.WriteLine($"Товар: {goods.ID} - {goods.Name} - {goods.Price}");
                 }
 
                 Dispatcher.Invoke(() =>
@@ -115,7 +115,7 @@ namespace WpfApp1
                 // Находим соответствующую категорию
                 if (_allCategories.Any())
                 {
-                    var category = _allCategories.FirstOrDefault(c => c.Id == goods.CategoryId);
+                    var category = _allCategories.FirstOrDefault(c => c.Id == goods.CategoryID);
                     if (category != null)
                     {
                         CategoryComboBox.SelectedItem = category;
@@ -158,16 +158,16 @@ namespace WpfApp1
 
                 var goods = new Goods
                 {
-                    Id = _selectedGoods?.Id ?? 0,
+                    ID = _selectedGoods?.ID ?? 0,
                     Name = NameTextBox.Text.Trim(),
                     Price = decimal.Parse(PriceTextBox.Text),
-                    CategoryId = categoryId,
+                    CategoryID = categoryId,
                 };
 
                 bool success;
                 string message;
 
-                if (_selectedGoods == null || _selectedGoods.Id == 0)
+                if (_selectedGoods == null || _selectedGoods.ID == 0)
                 {
                     // Добавление нового товара
                     success = await _dbService.AddGoodsAsync(goods);
@@ -176,7 +176,7 @@ namespace WpfApp1
                 else
                 {
                     // Обновление существующего товара
-                    goods.Id = _selectedGoods.Id;
+                    goods.ID = _selectedGoods.ID;
                     success = await _dbService.UpdateGoodsAsync(goods);
                     message = success ? "Т О В А Р   О Б Н О В Л Е Н" : "О Ш И Б К А   О Б Н О В Л Е Н И Я";
                 }
@@ -200,7 +200,7 @@ namespace WpfApp1
 
         private async void DeleteGoods_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedGoods == null || _selectedGoods.Id == 0)
+            if (_selectedGoods == null || _selectedGoods.ID == 0)
             {
                 ShowStatus("В Ы Б Е Р И Т Е   Т О В А Р   Д Л Я   У Д А Л Е Н И Я", false);
                 return;
@@ -216,7 +216,7 @@ namespace WpfApp1
             {
                 try
                 {
-                    bool success = await _dbService.DeleteGoodsAsync(_selectedGoods.Id);
+                    bool success = await _dbService.DeleteGoodsAsync(_selectedGoods.ID);
 
                     if (success)
                     {
@@ -242,10 +242,10 @@ namespace WpfApp1
             ClearForm();
             _selectedGoods = new Goods
             {
-                Id = 0,
+                ID = 0,
                 Name = "",
                 Price = 0,
-                CategoryId = _allCategories.FirstOrDefault()?.Id ?? 0,
+                CategoryID = _allCategories.FirstOrDefault()?.Id ?? 0,
                 ImagePath = ""
             };
 

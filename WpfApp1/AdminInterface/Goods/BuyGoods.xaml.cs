@@ -48,7 +48,7 @@ namespace WpfApp1
             {
                 _selectedCategory = selectedCategory;
 
-                var filteredGoods = _allGoods.Where(g => g.CategoryId == selectedCategory.Id).ToList();
+                var filteredGoods = _allGoods.Where(g => g.CategoryID == selectedCategory.Id).ToList();
                 cmbGoods.ItemsSource = filteredGoods;
                 cmbGoods.DisplayMemberPath = "Name";
                 cmbGoods.SelectedValuePath = "Id";
@@ -97,7 +97,7 @@ namespace WpfApp1
                 {
                     new OrderItem
                     {
-                        GoodsId = _selectedGood.Id,
+                        GoodsId = _selectedGood.ID,
                         Amount = quantity,
                         Price = _selectedGood.Price
                     }
