@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\mirag\Desktop\Колледж\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\obj\Debug\net9.0-windows\
 WpfApp1
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\mirag\Desktop\Колледж\Практика\PracticeWPF\WpfApp1\App.xaml
+C:\Users\10230922\Desktop\Практика\PracticeWPF\WpfApp1\App.xaml
 291788159149
 
 671918269177
-222-1455047002
+222903047682
 AdminInterface\AdminPanel.xaml;AdminInterface\Clients\ClientList.xaml;AdminInterface\Employee\AddEmployee.xaml;AdminInterface\Employee\ChangeEmployeeData.xaml;AdminInterface\Employee\EmployeeList.xaml;AdminInterface\Goods\BuyGoods.xaml;AdminInterface\Goods\GoodsList.xaml;AdminInterface\Goods\ManageGoods.xaml;AdminInterface\Orders\ManageOrders.xaml;AdminInterface\Orders\OrderList.xaml;EmployeeInterface\BakerInterface.xaml;EmployeeInterface\CashierInterface.xaml;EmployeeInterface\DeliveryInterface.xaml;MainWindow.xaml;UserInterface\Burger.xaml;UserInterface\Categories\BreadCat.xaml;UserInterface\Categories\DrinksCat.xaml;UserInterface\Categories\FruitCat.xaml;UserInterface\Categories\HygienaCat.xaml;UserInterface\Categories\MeatCat.xaml;UserInterface\Categories\ReadyMealCat.xaml;UserInterface\Categories\SweetsCat.xaml;UserInterface\EULA.xaml;UserInterface\GoodsMain.xaml;UserInterface\Payment.xaml;UserInterface\PaymentSuccessful.xaml;UserInterface\Profile.xaml;UserInterface\Register.xaml;UserInterface\ShoppingCart.xaml;
 
 True

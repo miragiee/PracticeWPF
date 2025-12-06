@@ -108,12 +108,12 @@ namespace WpfApp1.Services
                     await connection.OpenAsync();
 
                     string query = @"
-        SELECT u.ID, u.RoleID, u.Login, u.Password, u.Name, u.LastName, 
-               u.Patronymic, u.PhoneNumber, u.Email, u.BirthDate, u.Address,
-               r.RoleName
-        FROM Users u
-        LEFT JOIN Roles r ON u.RoleID = r.RoleID
-        WHERE u.Login = @Login AND u.Password = @Password";
+                        SELECT u.ID, u.RoleID, u.Login, u.Password, u.Name, u.LastName, 
+                        u.Patronymic, u.PhoneNumber, u.Email, u.BirthDate, u.Address,
+                        r.RoleName
+                        FROM Users u
+                        LEFT JOIN Roles r ON u.RoleID = r.RoleID
+                        WHERE u.Login = @Login AND u.Password = @Password";
 
                     using (var command = new MySqlCommand(query, connection))
                     {

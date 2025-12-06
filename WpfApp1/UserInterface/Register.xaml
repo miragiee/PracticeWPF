@@ -37,12 +37,12 @@
 
             <!-- Пароль -->
             <TextBlock Text="Пароль:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
-            <PasswordBox x:Name="PasswordBox" Height="40" Margin="0,0,0,20" 
+            <TextBox x:Name="PasswordBox" Height="40" Margin="0,0,0,20" 
                         FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <!-- Подтверждение пароля -->
             <TextBlock Text="Подтвердите пароль:" Style="{StaticResource NormalText}" Margin="0,0,0,10"/>
-            <PasswordBox x:Name="ConfirmPasswordBox" Height="40" Margin="0,0,0,30"
+            <TextBox x:Name="ConfirmPasswordBox" Height="40" Margin="0,0,0,30"
                         FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <!-- Кнопки -->

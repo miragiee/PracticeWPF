@@ -31,21 +31,21 @@ namespace WpfApp1
                     return;
                 }
 
-                if (string.IsNullOrEmpty(PasswordBox.Password))
+                if (string.IsNullOrEmpty(PasswordBox.Text))
                 {
                     MessageBox.Show("Введите пароль", "Ошибка",
                         MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                if (PasswordBox.Password != ConfirmPasswordBox.Password)
+                if (PasswordBox.Text != ConfirmPasswordBox.Text)
                 {
                     MessageBox.Show("Пароли не совпадают", "Ошибка",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                if (PasswordBox.Password.Length < 6)
+                if (PasswordBox.Text.Length < 6)
                 {
                     MessageBox.Show("Пароль должен содержать минимум 6 символов", "Ошибка",
                         MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -65,8 +65,8 @@ namespace WpfApp1
                 var userRole = await _databaseService.GetRoleByNameAsync("User");
                 if (userRole == null)
                 {
-                    // Если роли "User" нет, создаем нового пользователя с RoleId = 5 (судя по данным из image.png)
-                    userRole = new Role { ID = 5, RoleName = "User" };
+                    // Если роли "User" нет, создаем нового пользователя с RoleId = 3 (судя по данным из image.png)
+                    userRole = new Role { ID = 3, RoleName = "User" };
                 }
 
                 // Создаем объект пользователя
@@ -74,7 +74,7 @@ namespace WpfApp1
                 {
                     Login = LoginBox.Text.Trim(),
                     Email = EmailBox.Text.Trim(),
-                    Password = PasswordBox.Password,
+                    Password = PasswordBox.Text,
                     Name = NameBox.Text.Trim(),
                     LastName = LastNameBox.Text.Trim(),
                     Patronymic = "",
