@@ -24,7 +24,6 @@ namespace WpfApp1
     public partial class GoodsMain : Window
     {
         public GoodsMainViewModel ViewModel { get; }
-        public CartManager CartManager { get; set; }
 
         public GoodsMain()
         {

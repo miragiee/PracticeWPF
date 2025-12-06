@@ -1276,5 +1276,44 @@ namespace WpfApp1.Services
 
             return null;
         }
+
+        // Добавьте этот метод в класс DatabaseService (рядом с GetAllGoodsAsync)
+        public async Task<List<Goods>> GetRandomGoodsAsync(int count)
+        {
+            var goods = new List<Goods>();
+
+            try
+            {
+                using (var connection = DatabaseContext.GetConnection())
+                {
+                    await connection.OpenAsync();
+
+                    // Используем RAND() для случайной выборки и LIMIT для ограничения количества
+                    string query = $"SELECT * FROM Goods ORDER BY RAND() LIMIT {count}";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            goods.Add(new Goods
+                            {
+                                ID = reader.GetInt32("ID"),
+                                Name = reader["Name"]?.ToString(),
+                                Price = reader.GetDecimal("Price"),
+                                CategoryID = reader.GetInt32("CategoryID"),
+                                ImagePath = reader["ImagePath"]?.ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetRandomGoods error: {ex.Message}");
+            }
+
+            return goods;
+        }
     }
 }

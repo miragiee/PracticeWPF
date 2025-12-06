@@ -65,7 +65,8 @@
 
         <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,428,512,519" Style="{StaticResource Header2}"/>
 
-        <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,467,78,306">
+        
+        <ItemsControl ItemsSource="{Binding PopularGoods1}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,467,78,306">
             <ItemsControl.ItemContainerStyle>
                 <Style TargetType="ContentPresenter">
                     <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ItemContainer_MouseLeftButtonDown"/>
@@ -78,20 +79,20 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
-        <TextBlock Text="П  О  П  У  Л  Я  Р  Н  Ы  Е      Т  О  В  А  Р  Ы" Margin="512,722,512,217" Style="{StaticResource Header2}"/>
-
-        <ItemsControl ItemsSource="{Binding Goods}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,744,78,1">
-    <ItemsControl.ItemContainerStyle>
-        <Style TargetType="ContentPresenter">
-            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ItemContainer_MouseLeftButtonDown"/>
-        </Style>
-    </ItemsControl.ItemContainerStyle>
-    <ItemsControl.ItemsPanel>
-        <ItemsPanelTemplate>
-            <StackPanel Orientation="Horizontal"/>
-        </ItemsPanelTemplate>
-    </ItemsControl.ItemsPanel>
-</ItemsControl>
+        
+        <ItemsControl ItemsSource="{Binding PopularGoods2}" ItemTemplate="{StaticResource ProductTemplate}" Margin="46,763,78,-18">
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ItemContainer_MouseLeftButtonDown"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        <TextBlock Margin="512,697,512,329" Style="{StaticResource Header2}"><Run Language="ru-ru" Text="Р  Е  К  О  М  Е  Н  Д  У  Е  М  Ы  Е"/><Run Text="      Т  О  В  А  Р  Ы"/></TextBlock>
 
     </Grid>
 </Window>
